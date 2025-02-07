@@ -1,0 +1,17 @@
+@startuml
+  @startuml "IDEA Flow".wsd
+  title "IDFW Process"
+  start
+  :Define IDFW Object;
+  :Initialize Variables;
+  :Generate Documents;
+  :Generate Diagrams;
+  if (Validate Artifacts?) then (yes)
+    :Store in Variables;
+  else (no)
+    :Initiate Feedback Loop;
+    -> Define IDFW Object;
+  endif
+  :Finalize Output;
+  stop
+@enduml
