@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='liightbulb',
-    version='0.4.0',
+    version='0.4.2',
     description='A command-line interpreter for the IDEA framework using OpenAI API',
     author='Your Name',
     author_email='your.email@example.com',

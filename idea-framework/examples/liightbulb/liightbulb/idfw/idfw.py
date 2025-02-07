@@ -1,7 +1,12 @@
+#!/usr/bin/env python3
 import openai
+import os
 
 # Set the OpenAI API key
-openai.api_key = 'your-api-key-here'
+openai.api_key = os.getenv('OPENAI_API_KEY')
+
+if not openai.api_key:
+    raise ValueError("OpenAI API key not found. Please set the 'OPENAI_API_KEY' environment variable.")
 
 # Define a function to ask questions and get feedback from OpenAI
 def ask_question(question):
