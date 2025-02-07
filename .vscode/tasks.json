@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run idfw with sample idea",
+            "type": "shell",
+            "command": "cd ${workspaceFolder} && pipenv run idfw --idea 'Sustainable Energy' --input-file './examples/liightbulb/sample_idea.json'",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
