@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: liightbulb
+Version: 0.1.0
+Summary: A command-line interpreter for the IDEA framework using OpenAI API
+Author: Your Name
+Author-email: your.email@example.com
+Requires-Dist: openai
