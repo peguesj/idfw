@@ -5,20 +5,39 @@ import os
 # Set the OpenAI API key
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
+# Check if the OpenAI API key is set
 if not openai.api_key:
     raise ValueError("OpenAI API key not found. Please set the 'OPENAI_API_KEY' environment variable.")
 
 # Define a function to ask questions and get feedback from OpenAI
 def ask_question(question):
-    response = openai.Completion.create(
-        engine='text-davinci-003',
-        prompt=question,
-        max_tokens=150
-    )
-    return response.choices[0].text.strip()
+    """
+    Asks a question to the OpenAI model and returns the response.
+    
+    Args:
+        question (str): The question to ask the model.
+    
+    Returns:
+        str: The model's response to the question.
+    """
+    try:
+        response = openai.Completion.create( # Correct method call for the latest OpenAI API
+            model="text-davinci-003",
+            prompt=question,
+            max_tokens=150
+        )
+        return response.choices[0].text.strip()
+    except Exception as e:
+        print(f"An error occurred while querying OpenAI: {e}")
+        return "Sorry, I couldn't get a response from OpenAI."
 
 # Define the main function for the interpreter
 def main():
+    """
+    Main function to run the IDEA Framework Interpreter.
+    It takes user input for an idea name and then allows the user to ask questions about the idea,
+    receiving feedback from the OpenAI model.
+    """
     print("Welcome to the IDEA Framework Interpreter!")
     idea_name = input("Enter the name of your IDEA: ")
     print(f"Great! Let's explore the IDEA: {idea_name}")
