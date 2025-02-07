@@ -1,0 +1,416 @@
+[
+  {
+    "id": "SaaS_Startup_Journey",
+    "name": "SaaS Startup Journey",
+    "description": "A project journey tailored for SaaS startups focusing on foundational documentation and essential diagrams.",
+    "variables": {
+      "TimeToMarket": 7,
+      "Security": 5,
+      "defaults": [
+        {
+          "variableId": "MARKET_RESEARCH",
+          "commonName": "Market Research",
+          "ownership": "Marketing Team",
+          "enabled": true,
+          "defaultTriggers": {
+            "enabled": true,
+            "triggers": ["onMarketAnalysis"]
+          }
+        }
+      ]
+    },
+    "keyComponents": [
+      "BUSINESS_REQUIREMENTS_DOCUMENT",
+      "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "SYSTEM_CONTEXT_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "TimeToMarket": 7,
+      "Security": 5
+    },
+    "useCases": [
+      "Launching a new SaaS product",
+      "Preparing for initial investor pitches"
+    ],
+    "tasks": [
+      "SaaS_Startup_Journey.conductMarketResearch",
+      "SaaS_Startup_Journey.developBRD",
+      "SaaS_Startup_Journey.createSystemContextDiagram"
+    ]
+  },
+  {
+    "id": "IoT_Deployment_Journey",
+    "name": "IoT Deployment Journey",
+    "description": "Designed for projects integrating IoT devices with robust documentation and comprehensive diagrams.",
+    "variables": {
+      "Security": 8,
+      "AnalyticsComplexity": 6,
+      "defaults": [
+        {
+          "variableId": "DEVICE_AUTHENTICATION",
+          "commonName": "Device Authentication",
+          "ownership": "Security Team",
+          "enabled": true,
+          "defaultTriggers": {
+            "enabled": true,
+            "triggers": ["onDeviceRegistration"]
+          }
+        }
+      ]
+    },
+    "keyComponents": [
+      "BUSINESS_REQUIREMENTS_DOCUMENT",
+      "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "SECURITY_&_COMPLIANCE_DOCUMENT",
+      "SYSTEM_CONTEXT_DIAGRAM",
+      "COMPONENT_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "Security": 8,
+      "AnalyticsComplexity": 6
+    },
+    "useCases": [
+      "Deploying smart home solutions",
+      "Industrial IoT system setups"
+    ],
+    "tasks": [
+      "IoT_Deployment_Journey.setupDeviceManagement",
+      "IoT_Deployment_Journey.ensureDataCompliance",
+      "IoT_Deployment_Journey.deployComponentDiagram"
+    ]
+  },
+  {
+    "id": "Enterprise_SaaS_Journey",
+    "name": "Enterprise SaaS Journey",
+    "description": "Focused on enterprise-scale SaaS projects with extensive documentation and multi-region deployment diagrams.",
+    "variables": {
+      "Compliance": 9,
+      "Scalability": 8,
+      "Performance": 7
+    },
+    "keyComponents": [
+      "BUSINESS_REQUIREMENTS_DOCUMENT",
+      "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "API_REFERENCE_DOCUMENT",
+      "SECURITY_&_COMPLIANCE_DOCUMENT",
+      "GOVERNANCE_AND_UPDATES_DOCUMENT",
+      "SYSTEM_CONTEXT_DIAGRAM",
+      "COMPONENT_DIAGRAM",
+      "NETWORK_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "Compliance": 9,
+      "Scalability": 8,
+      "Performance": 7
+    },
+    "useCases": [
+      "Building multi-tenant enterprise solutions",
+      "Ensuring compliance in regulated industries"
+    ]
+  },
+  {
+    "id": "Mobile_eCommerce_Journey",
+    "name": "Mobile eCommerce Journey",
+    "description": "Optimized for mobile-first eCommerce platforms with specialized documentation and user experience diagrams.",
+    "variables": {
+      "UXPriority": 9,
+      "PaymentComplexity": 6
+    },
+    "keyComponents": [
+      "BUSINESS_REQUIREMENTS_DOCUMENT",
+      "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "UX_GUIDELINES_DOCUMENT",
+      "SECURITY_&_COMPLIANCE_DOCUMENT",
+      "USER_FLOW_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "UXPriority": 9,
+      "PaymentComplexity": 6
+    },
+    "useCases": [
+      "Developing retail mobile applications",
+      "Implementing subscription-based commerce platforms"
+    ]
+  },
+  {
+    "id": "Big_Data_Journey",
+    "name": "Big Data Journey",
+    "description": "For projects involving large-scale data processing with comprehensive documentation and data flow diagrams.",
+    "variables": {
+      "DataVolume": 9,
+      "RealtimeComplexity": 7
+    },
+    "keyComponents": [
+      "BUSINESS_REQUIREMENTS_DOCUMENT",
+      "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "DATA_MIGRATION_PLAN",
+      "QUALITY_ASSURANCE_PLAN",
+      "DATA_LAKE_FLOW_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "DataVolume": 9,
+      "RealtimeComplexity": 7
+    },
+    "useCases": [
+      "Building enterprise BI solutions",
+      "Implementing IoT data processing systems"
+    ]
+  },
+  {
+    "id": "Innovation_RnD_Journey",
+    "name": "Innovation R&D Journey",
+    "description": "A flexible journey for research and development projects with minimal formal documentation and exploratory diagrams.",
+    "variables": {
+      "Experimentation": 10,
+      "FormalDocs": 3
+    },
+    "keyComponents": [
+      "BUSINESS_CASE_DOCUMENT",
+      "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "HIGH-LEVEL_DESIGN_DOCUMENT",
+      "OBJECT_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "Experimentation": 10,
+      "FormalDocs": 3
+    },
+    "useCases": [
+      "AI/ML research projects",
+      "High-performance computing prototypes"
+    ]
+  },
+  {
+    "diagId": "STATE_TRANSITION_DIAGRAM",
+    "diagramName": "State Transition Diagram",
+    "purpose": "Visualizes the state changes within the system processes.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      "STATE_TRANSITION_DIAGRAM.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "diagId": "SYSTEM_ARCHITECTURE_DIAGRAM",
+    "diagramName": "System Architecture Diagram",
+    "purpose": "Detailed representation of the system's architecture components and their interactions.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      "SYSTEM_ARCHITECTURE_DIAGRAM.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "diagId": "DATA_FLOW_DIAGRAM",
+    "diagramName": "Data Flow Diagram",
+    "purpose": "Illustrates the flow of data within the system.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      "DATA_FLOW_DIAGRAM.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "ExpandedObjectType1": {
+      "newField": "Enhanced value",
+      "additionalField": "Additional data"
+    }
+  },
+  {
+    "documents": [
+      {
+        "docId": "BUSINESS_REQUIREMENTS_DOCUMENT",
+        "variables": {
+          "stakeholders": ["Project Manager", "Development Team"],
+          "objectives": ["Define project scope", "Identify requirements"]
+        },
+        "instructions": {
+          "sections": ["Introduction", "Scope", "Requirements", "Conclusion"]
+        }
+      },
+      {
+        "docId": "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+        "variables": {
+          "features": ["Login", "Dashboard"],
+          "usability": ["Responsive design", "Accessibility"]
+        },
+        "instructions": {
+          "sections": ["Feature List", "Use Cases", "User Stories"]
+        }
+      }
+    ]
+  },
+  {
+        "purpose": "Detail the specifications for the project components.",
+        "ownerTeam": "Engineering",
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+          "systems": ["Frontend", "Backend"]
+        },
+        "instructions": {
+          "nodes": [
+            { "id": "1", "type": "actor", "label": "User" },
+            { "id": "2", "type": "system", "label": "Frontend" },
+            { "id": "3", "type": "system", "label": "Backend" }
+          ],
+          "connectors": [
+            { "source": "1", "target": "2", "type": "uses" },
+            { "source": "2", "target": "3", "type": "communicates" }
+          ]
+        }
+      },
+      {
+        "variables": {
+          "actors": ["User", "Admin"],
+          "systems": ["Frontend", "Backend"]
+        },
+        "instructions": {
+          "nodes": [
+            { "id": "1", "type": "actor", "label": "User" },
+            { "id": "2", "type": "system", "label": "Frontend" },
+            { "id": "3", "type": "system", "label": "Backend" }
+          ],
+          "connectors": [
+            { "source": "1", "target": "2", "type": "uses" },
+            { "source": "2", "target": "3", "type": "communicates" }
+          ]
+        }
+      },
+      {
+        "diagId": "COMPONENT_DIAGRAM",
+        "variables": {
+          "components": ["AuthService", "UserService"],
+          "interfaces": ["API"]
+      {
+        },
+        "instructions": {
+          "nodes": [
+            { "id": "A", "type": "component", "label": "AuthService" },
+            { "id": "B", "type": "component", "label": "UserService" },
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+        "dateUpdated": "2025-01-01",
+        "references": [],
+        "formatType": "markdown",
+        "tasks": [],
+        "variables": { /* ...variables... */ },
+        "instructions": { /* ...instructions... */ }
+      }
+      // ...additional documents...
+    ]
+  },
+  {
+    "diagram": [
+      {
+        "diagId": "EXAMPLE_DIAGRAM_ID",
+        "diagramName": "Example Diagram",
+        "purpose": "Purpose of the example diagram.",
+        "typeTool": "mermaid",
+        "diagramType": "diagram",
+        "generatorLibId": "mermaid_flowchart_generator",
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+        "dateUpdated": "2025-01-01",
+        "tasks": [ /* ...tasks... */ ],
+        "variables": { /* ...variables... */ },
+        "instructions": { /* ...instructions... */ }
+      }
+      // ...additional diagrams...
+    ]
+  },
+  {
+    "asset": [
+      {
+        "assetId": "EXAMPLE_ASSET_ID",
+        "assetName": "Example Asset",
+        "description": "Description of the example asset.",
+        "type": "Image",
+        "owner": "Asset Team",
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+        "dateUpdated": "2025-01-01",
+        "metadata": { /* ...metadata... */ }
+      }
+      // ...additional assets...
+    ]
+  }
+]
+
+            { "id": "C", "type": "interface", "label": "API" }
+          "tables": ["Users", "Orders", "Products"]
+          "resolution": "1920x1080",
+          "format": "JPEG"
+        }
+      }
+    ]
+  }
+]
+
+        "dateUpdated": "2025-01-01",
+        "metadata": {
+      }
+    ]
+  },
+  {
+        "assetId": "UI_SCREENSHOT",
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+        "type": "Image",
+        "owner": "UI/UX Team",
+        "assetName": "UI Screenshot",
+        "description": "Screenshot of the main user interface.",
+    "assets": [
+      {
+        },
+        "instructions": { /* ...instructions... */ }
+        "dateUpdated": "2025-01-01",
+        "tasks": [],
+        "variables": {
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+          ],
+          "connectors": [
+            { "source": "A", "target": "C", "type": "provides" },
+            { "source": "B", "target": "C", "type": "consumes" }
+        "diagramType": "er",
+        "generatorLibId": "mermaid_er_generator",
+          ]
+        "purpose": "Illustrate the database tables and relationships.",
+        "typeTool": "mermaid",
+      {
+        "diagId": "DATABASE_SCHEMA",
+        "diagramName": "Database Schema",
+        }
+      },
+        "docId": "EXAMPLE_DOCUMENT_ID",
+        "title": "Example Document",
+        "purpose": "Purpose of the example document.",
+        "ownerTeam": "Example Team",

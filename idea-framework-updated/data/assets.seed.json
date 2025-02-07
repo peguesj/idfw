@@ -1,0 +1,102 @@
+{
+  "asset": [
+    {
+      "assetId": "LOGO_IMAGE",
+      "assetName": "Company Logo",
+      "description": "High-resolution company logo used in marketing materials.",
+      "type": "Image",
+      "owner": "Design Team",
+      "version": "1.0.0",
+      "revision": "a1",
+      "dateCreated": "2025-01-01",
+      "dateUpdated": "2025-01-01",
+      "metadata": {
+        "resolution": "1024x1024",
+        "format": "PNG",
+        "defaults": [
+          {
+            "variableId": "IMAGE_RESOLUTION",
+            "commonName": "Image Resolution",
+            "ownership": "Design Team",
+            "enabled": true,
+            "defaultTriggers": {
+              "enabled": true,
+              "triggers": ["onResolutionChange"]
+            }
+          }
+        ]
+      },
+      "tasks": [
+        "LOGO_IMAGE.create",
+        "LOGO_IMAGE.reviewDesign",
+        "LOGO_IMAGE.updateFormat"
+      ]
+    },
+    {
+      "assetId": "PROMO_VIDEO",
+      "assetName": "Promotional Video",
+      "description": "A 2-minute promotional video showcasing our product features.",
+      "type": "Video",
+      "owner": "Marketing Team",
+      "version": "1.0.0",
+      "revision": "a1",
+      "dateCreated": "2025-02-15",
+      "dateUpdated": "2025-02-15",
+      "metadata": {
+        "duration": "2m",
+        "format": "MP4",
+        "resolution": "1080p",
+        "defaults": [
+          {
+            "variableId": "VIDEO_DURATION",
+            "commonName": "Video Duration",
+            "ownership": "Marketing Team",
+            "enabled": true,
+            "defaultTriggers": {
+              "enabled": true,
+              "triggers": ["onDurationChange"]
+            }
+          }
+        ]
+      },
+      "tasks": [
+        "PROMO_VIDEO.create",
+        "PROMO_VIDEO.editContent",
+        "PROMO_VIDEO.publish"
+      ]
+    },
+    {
+      "assetId": "USER_MANUAL",
+      "assetName": "User Manual",
+      "description": "Comprehensive user manual for the application.",
+      "type": "Document",
+      "owner": "Documentation Team",
+      "version": "1.0.0",
+      "revision": "a1",
+      "dateCreated": "2025-03-10",
+      "dateUpdated": "2025-03-10",
+      "metadata": {
+        "pages": 50,
+        "format": "PDF",
+        "defaults": [
+          {
+            "variableId": "DOCUMENT_VERSION",
+            "commonName": "Document Version",
+            "ownership": "Documentation Team",
+            "enabled": true,
+            "defaultTriggers": {
+              "enabled": true,
+              "triggers": ["onContentUpdate"]
+            }
+          }
+        ]
+      },
+      "tasks": [
+        "USER_MANUAL.writeContent",
+        "USER_MANUAL.designLayout",
+        "USER_MANUAL.review"
+      ]
+    }
+    // ...additional assets...
+  ]
+}

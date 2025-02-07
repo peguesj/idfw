@@ -1,0 +1,390 @@
+[
+  {
+    "id": "BasicSaaS_MVP",
+    "name": "Basic SaaS MVP",
+    "description": "A streamlined path to validating a Software-as-a-Service concept quickly, with minimal overhead.",
+    "variables": {
+      "Security": 3,
+      "defaults": [
+        {
+          "variableId": "SECURITY_LEVEL",
+          "commonName": "Security Level",
+          "ownership": "Security Team",
+          "enabled": true,
+          "defaultTriggers": {
+            "enabled": true,
+            "triggers": ["onSecurityChange"]
+          }
+        }
+      ]
+    },
+    "keyComponents": ["BRD", "FRS", "TAD", "SCD", "GOV"],
+    "axisCoordinates": {
+      "Security": 3
+    },
+    "useCases": [
+      "Launching a minimum viable product",
+      "Validating market demand with minimal features"
+    ],
+    "tasks": [
+      "BasicSaaS_MVP.setup",
+      "BasicSaaS_MVP.validateMarket",
+      "BasicSaaS_MVP.deployMVP"
+    ]
+  },
+  {
+    "id": "IoTEnabled_Service",
+    "name": "IoT-Enabled Service",
+    "description": "Focus on solutions that integrate hardware devices or sensors, real-time data ingestion, and device management.",
+    "variables": {
+      "AnalyticsComplexity": 7,
+      "defaults": [
+        {
+          "variableId": "DATA_INTEGRITY",
+          "commonName": "Data Integrity",
+          "ownership": "Data Team",
+          "enabled": true,
+          "defaultTriggers": {
+            "enabled": true,
+            "triggers": ["onDataIngestion"]
+          }
+        }
+      ]
+    },
+    "keyComponents": ["BRD", "FRS", "TAD", "API", "SCD", "BCD", "GOV"],
+    "axisCoordinates": {
+      "AnalyticsComplexity": 7
+    },
+    "useCases": [
+      "Deploying smart home solutions",
+      "Industrial IoT system setups"
+    ],
+    "tasks": [
+      "IoTEnabled_Service.integrateDevices",
+      "IoTEnabled_Service.setupDataIngestion",
+      "IoTEnabled_Service.manageDevices"
+    ]
+  },
+  {
+    "id": "Enterprise_Multi_Tenant",
+    "name": "Enterprise Multi-Tenant",
+    "description": "Designed for enterprise-scale SaaS with complex RBAC (role-based access control), multi-region deployment, strict compliance (SOC 2, GDPR), and high availability.",
+    "variables": {
+      "Compliance": 10,
+      "Scalability": 9,
+      "Performance": 8
+    },
+    "keyComponents": ["BRD", "FRS", "TAD", "API", "SCD", "BCD", "GOV", "HPLOT"],
+    "axisCoordinates": {
+      "Compliance": 10,
+      "Scalability": 9,
+      "Performance": 8
+    },
+    "useCases": [
+      "Enterprise software vendors building multi-tenant solutions.",
+      "Heavily regulated industries with data protection laws."
+    ]
+  },
+  {
+    "id": "Mobile_First_eCommerce",
+    "name": "Mobile-First eCommerce",
+    "description": "Centers on a highly optimized mobile user experience for shopping, in-app purchases, and push notifications. Involves a robust checkout flow with multi-currency support.",
+    "variables": {
+      "UXPriority": 9,
+      "PaymentComplexity": 7
+    },
+    "keyComponents": ["BRD", "FRS", "TAD", "API", "SCD", "BCD", "GOV", "UXD"],
+    "axisCoordinates": {
+      "UXPriority": 9,
+      "PaymentComplexity": 7
+    },
+    "useCases": [
+      "Retail apps",
+      "Subscription box platforms",
+      "Multi-platform commerce solutions"
+    ]
+  },
+  {
+    "id": "Big_Data_Analytics",
+    "name": "Big Data & Analytics",
+    "description": "Addresses data ingestion pipelines, large data lakes or warehouses, advanced dashboards, potentially ML or data science modules.",
+    "variables": {
+      "DataVolume": 9,
+      "RealtimeComplexity": 8
+    },
+    "keyComponents": ["BRD", "FRS", "TAD", "API", "SCD", "BCD", "GOV", "HPLOT"],
+    "axisCoordinates": {
+      "DataVolume": 9,
+      "RealtimeComplexity": 8
+    },
+    "useCases": [
+      "Marketing analytics",
+      "IoT data processing",
+      "Enterprise BI solutions"
+    ]
+  },
+  {
+    "id": "Custom_Innovation_RnD",
+    "name": "Custom Innovation / R&D",
+    "description": "A flexible approach for open-ended research or advanced prototypes that may not follow standard docs or iteration flows. Possibly skipping many typical docs to allow for rapid exploration.",
+    "variables": {
+      "Experimentation": 10,
+      "FormalDocs": 2
+    },
+    "keyComponents": ["BRD", "FRS", "TAD"],
+    "axisCoordinates": {
+      "Experimentation": 10,
+      "FormalDocs": 2
+    },
+    "useCases": [
+      "Innovation labs",
+      "AI/ML experiments",
+      "HPC prototypes",
+      "Projects that need maximum creativity, minimal formal overhead"
+    ]
+  },
+  {
+    "id": "Resume_Enhancer_MVP",
+    "name": "Resume Enhancer MVP",
+    "description": "Targets quick build of a resume enhancement platform that leverages LLM integration to update a user’s resume content. Possibly includes a minimal front end (3 columns: tabs, input, preview).",
+    "variables": {
+      "LLMComplexity": 6,
+      "UIClarity": 8
+    },
+    "keyComponents": ["BRD", "FRS", "TAD", "API", "UXD", "SCD"],
+    "axisCoordinates": {
+      "LLMComplexity": 6,
+      "UIClarity": 8
+    },
+    "useCases": [
+      "Resume enhancement platform",
+      "Minimal frontend with real-time preview"
+    ]
+  },
+  {
+    "id": "Frontend_App_Development",
+    "name": "Frontend App Development Journey",
+    "description": "Focuses on frontend application development using modern frameworks such as React, Angular, and NextJS.",
+    "variables": {
+      "UIComplexity": 8,
+      "UXImportance": 9
+    },
+    "keyComponents": [
+      "FRONTEND_BUSINESS_REQUIREMENTS_DOCUMENT",
+      "FRONTEND_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "FRONTEND_TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "FRONTEND_USER_INTERFACE_DIAGRAM",
+      "FRONTEND_STATE_MANAGEMENT_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "UIComplexity": 8,
+      "UXImportance": 9
+    },
+    "useCases": [
+      "Developing single-page applications",
+      "Implementing responsive user interfaces",
+      "Integrating with backend APIs"
+    ]
+  },
+  {
+    "id": "Backend_App_Development",
+    "name": "Backend App Development Journey",
+    "description": "Covers backend application development using frameworks such as Node.js, Ruby on Rails, and Django.",
+    "variables": {
+      "APIComplexity": 7,
+      "SecurityLevel": 9
+    },
+    "keyComponents": [
+      "BACKEND_BUSINESS_REQUIREMENTS_DOCUMENT",
+      "BACKEND_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "BACKEND_TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "BACKEND_DATABASE_SCHEMA_DIAGRAM",
+      "BACKEND_API_ENDPOINTS_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "APIComplexity": 7,
+      "SecurityLevel": 9
+    },
+    "useCases": [
+      "Building RESTful APIs",
+      "Implementing authentication and authorization",
+      "Designing scalable database systems"
+    ]
+  },
+  {
+    "id": "MEAN_Stack_Journey",
+    "name": "MEAN Stack Journey",
+    "description": "Leveraging the MEAN stack (MongoDB, Express.js, Angular, Node.js) for full-stack JavaScript development.",
+    "variables": {
+      "FullStackIntegration": 9,
+      "DeveloperProductivity": 8
+    },
+    "keyComponents": [
+      "MEAN_BUSINESS_REQUIREMENTS_DOCUMENT",
+      "MEAN_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "MEAN_TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "MEAN_FRONTEND_COMPONENT_DIAGRAM",
+      "MEAN_BACKEND_API_DIAGRAM",
+      "MEAN_DATABASE_SCHEMA_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "FullStackIntegration": 9,
+      "DeveloperProductivity": 8
+    },
+    "useCases": [
+      "Developing enterprise-level web applications",
+      "Creating real-time data-driven applications"
+    ]
+  },
+  {
+    "id": "MERN_Stack_Journey",
+    "name": "MERN Stack Journey",
+    "description": "Utilizing the MERN stack (MongoDB, Express.js, React, Node.js) for building modern web applications.",
+    "variables": {
+      "FrontendPerformance": 9,
+      "Scalability": 8
+    },
+    "keyComponents": [
+      "MERN_BUSINESS_REQUIREMENTS_DOCUMENT",
+      "MERN_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "MERN_TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "MERN_FRONTEND_COMPONENT_DIAGRAM",
+      "MERN_BACKEND_API_DIAGRAM",
+      "MERN_DATABASE_SCHEMA_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "FrontendPerformance": 9,
+      "Scalability": 8
+    },
+    "useCases": [
+      "Developing dynamic user interfaces",
+      "Building scalable backend services"
+    ]
+  },
+  {
+    "id": "Ruby_on_Rails_Journey",
+    "name": "Ruby on Rails Journey",
+    "description": "Focused on backend development using Ruby on Rails framework for rapid application development.",
+    "variables": {
+      "RapidDevelopment": 9,
+      "ConventionOverConfiguration": 8
+    },
+    "keyComponents": [
+      "ROR_BUSINESS_REQUIREMENTS_DOCUMENT",
+      "ROR_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+      "ROR_TECHNICAL_ARCHITECTURE_DOCUMENT",
+      "ROR_DATABASE_RELATIONSHIP_DIAGRAM",
+      "ROR_API_ENDPOINTS_DIAGRAM"
+    ],
+    "axisCoordinates": {
+      "RapidDevelopment": 9,
+      "ConventionOverConfiguration": 8
+    },
+    "useCases": [
+      "Building robust backend systems",
+      "Rapidly prototyping web applications"
+    ]
+  },
+  {
+    "NewObjectType1": {
+      "newField": "Example value"
+    },
+    "NewObjectType2": {
+      "newField": "Another example value"
+    }
+  },
+  {
+    "document": [
+      {
+        "docId": "PROJECT_PLAN",
+        "title": "Project Plan",
+        "purpose": "Outline the project objectives and milestones.",
+        "ownerTeam": "Project Management",
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+        "dateUpdated": "2025-01-01",
+        "references": [],
+        "formatType": "markdown",
+        "tasks": [],
+        "variables": {
+          "objectives": ["Complete project on time", "Stay within budget"]
+        },
+        "instructions": { /* ...instructions... */ }
+      }
+      // ...additional documents...
+    ],
+    "diagram": [
+      {
+        "diagId": "SYSTEM_ARCHITECTURE",
+        "diagramName": "System Architecture",
+        "purpose": "Visual representation of the system components and their interactions.",
+        "typeTool": "mermaid",
+        "diagramType": "flowchart",
+        "generatorLibId": "mermaid_flowchart_generator",
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+        "dateUpdated": "2025-01-01",
+        "tasks": [],
+        "variables": {
+          "components": ["Frontend", "Backend", "Database"]
+        },
+        "instructions": { /* ...instructions... */ }
+      }
+      // ...additional diagrams...
+    ],
+    "asset": [
+      {
+        "assetId": "LOGO_IMAGE",
+        "assetName": "Company Logo",
+        "description": "High-resolution company logo.",
+        "type": "Image",
+        "owner": "Design Team",
+        "version": "1.0.0",
+        "revision": "a1",
+        "dateCreated": "2025-01-01",
+        "dateUpdated": "2025-01-01",
+        "metadata": {
+          "resolution": "1024x1024",
+          "format": "PNG"
+        }
+      }
+      // ...additional assets...
+    ]
+  },
+  {
+    "documents": [
+      {
+        "docId": "BUSINESS_REQUIREMENTS_DOCUMENT",
+        "reference": "variables.stakeholders, variables.objectives",
+        "instructions": "sections.Introduction, sections.Scope, sections.Requirements, sections.Conclusion"
+      },
+      {
+        "docId": "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+        "reference": "variables.features, variables.usability",
+        "instructions": "sections.Feature List, sections.Use Cases, sections.User Stories"
+      }
+    ],
+    "diagrams": [
+      {
+        "diagId": "SYSTEM_CONTEXT_DIAGRAM",
+        "reference": "variables.actors, variables.systems",
+        "instructions": "nodes, connectors"
+      },
+      {
+        "diagId": "COMPONENT_DIAGRAM",
+        "reference": "variables.components, variables.interfaces",
+        "instructions": "nodes, connectors"
+      }
+    ]
+  }
+]
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "FLUTTER_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  }
+]
