@@ -1,0 +1,22 @@
+{
+  "idpjId": "IDPJ-001",
+  "title": "Liightbulb Project Journey",
+  "description": "A predefined project journey for developing the Liightbulb package.",
+  "keyComponents": [
+    "BRD",
+    "FRS",
+    "TAD",
+    "SCD",
+    "GOV"
+  ],
+  "useCases": [
+    "Rapid development",
+    "Scalable architecture",
+    "Integration with OpenAI"
+  ],
+  "axisCoordinates": {
+    "TimeToMarket": 7,
+    "Scalability": 8,
+    "IntegrationComplexity": 6
+  }
+}

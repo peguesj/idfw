@@ -1,0 +1,23 @@
+{
+  "componentId": "doc-liightbulb-overview",
+  "title": "Liightbulb Package Overview",
+  "description": "An overview document for the Liightbulb package.",
+  "ownerTeam": "Engineering",
+  "version": "1.0.0",
+  "revision": "_a1",
+  "dateCreated": "2025-01-01T12:00:00Z",
+  "dateUpdated": "2025-01-01T12:00:00Z",
+  "references": [
+    "https://example.com/docs/liightbulb-overview"
+  ],
+  "variables": [
+    {
+      "varId": "var-001",
+      "varName": "API_KEY",
+      "varType": "string",
+      "varValue": "sk-REDACTED",
+      "dateCreated": "2025-01-01T12:00:00Z",
+      "dateUpdated": "2025-01-01T12:00:00Z"
+    }
+  ]
+}

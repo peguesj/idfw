@@ -1,8 +1,8 @@
 **IDEA: IDEA (Idea-to-Development, Evaluation and Application) Framework: Complete Expanded Reference**  
 **Doc ID**: IDEA  
-**Version**: 2.0.0  
+**Version**: 2.3.0  
 **Revision**: _a1  
-**Date**: 2025-01-01  
+**Date**: 2025-02-07  
 
 ---
 
@@ -88,13 +88,13 @@ This reference merges every facet of the framework into a **complete** specifica
 
 | **Doc/Asset**                 | **Version** | **Revision** | **Date**       | **Change Description**                                                                                                                       |
 |-------------------------------|-------------|-------------:|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| **IDEA (This Document)**      | 2.0.0       | _a1          | 2025-01-01    | Expanded reference merging all assets and schemas, including a full resume example.                                                           |
-| **IDFW**                      | 1.1.0       | _b1          | 2025-01-01    | Core specification with multi-axis analysis, iterative actions, version control.                                                              |
-| **IDFW Schema**               | 1.1.0       | _b1          | 2025-01-01    | Defines machine-readable structure for IDFW-based projects.                                                                                   |
-| **SDREF**                     | 1.1.0       | _b1          | 2025-01-01    | Catalog of standard documents (BRD, FRS...) and diagrams (UML, BPMN, Mermaid), references to generator objects.                                |
-| **IDPG**                      | 1.0.0       | _a1          | 2025-01-01    | Project Generator doc specifying how to handle prompt engineering and artifact generation.                                                    |
-| **IDPC**                      | 1.0.0       | _a1          | 2025-01-01    | Project Config doc for environment variables, LLM configs, API keys, defaultGenerators, and iterative actions.                                |
-| **DDD** (Default Docs/Diagrams)| 1.0.0      | _a1          | 2025-01-01    | Templates for default documents (OpenAPI, Arc42...) and diagram stubs (Mermaid flowchart, BPMN, UML).                                         |
+| **IDEA (This Document)**      | 2.3.0       | _a1          | 2025-02-07    | Expanded reference merging all assets and schemas, including a full resume example.                                                           |
+| **IDFW**                      | 2.3.0       | _b1          | 2025-02-07    | Core specification with multi-axis analysis, iterative actions, version control.                                                              |
+| **IDFW Schema**               | 2.3.0       | _b1          | 2025-02-07    | Defines machine-readable structure for IDFW-based projects.                                                                                   |
+| **SDREF**                     | 2.3.0       | _b1          | 2025-02-07    | Catalog of standard documents (BRD, FRS...) and diagrams (UML, BPMN, Mermaid), references to generator objects.                                |
+| **IDPG**                      | 2.3.0       | _a1          | 2025-02-07    | Project Generator doc specifying how to handle prompt engineering and artifact generation.                                                    |
+| **IDPC**                      | 2.3.0       | _a1          | 2025-02-07    | Project Config doc for environment variables, LLM configs, API keys, defaultGenerators, and iterative actions.                                |
+| **DDD** (Default Docs/Diagrams)| 2.3.0      | _a1          | 2025-02-07    | Templates for default documents (OpenAPI, Arc42...) and diagram stubs (Mermaid flowchart, BPMN, UML).                                         |
 | **IDFPJs** (Project Journeys) | Various     | N/A          | N/A           | Predefined use-case profiles (Basic SaaS, IoT, Enterprise, Resume Enhancer, etc.). Not versioned collectively, updated individually.          |
 
 ### Versioning Practices
@@ -153,7 +153,7 @@ The **IDFW** is the master structure that describes:
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.com/idfw.schema.json",
   "title": "IDFW",
-  "description": "Idea Definition Framework JSON Schema (v1.1.0)",
+  "description": "Idea Definition Framework JSON Schema (v2.3.0)",
   "type": "object",
   "properties": {
     "docId": { "type": "string" },
@@ -324,9 +324,9 @@ The **IDFW** is the master structure that describes:
 ```json
 {
   "docId": "IDFW",
-  "version": "1.1.0",
+  "version": "2.3.0",
   "revision": "_b1",
-  "date": "2025-01-01T00:00:00Z",
+  "date": "2025-02-07T00:00:00Z",
   "overview": {
     "purpose": "Unified framework for idea definition and iterative updates",
     "scope": ["Business", "Technical", "UX"],

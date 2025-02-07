@@ -1,0 +1,49 @@
+{
+  "docId": "IDPC",
+  "version": "1.0.0",
+  "revision": "_a1",
+  "date": "2025-01-01T12:00:00Z",
+  "projectName": "Liightbulb",
+  "apiKeys": {
+    "openAIKey": "sk-REDACTED"
+  },
+  "llmConfigs": {
+    "model": "gpt-4",
+    "temperature": 0.7,
+    "maxTokens": 2048
+  },
+  "defaultGenerators": [
+    "gen-openai-integration",
+    "gen-mermaid-flow"
+  ],
+  "typeTools": [
+    { "tool": "mermaid", "subType": "flowchart" }
+  ],
+  "environment": {
+    "LOG_LEVEL": "debug",
+    "FEATURE_FLAGS": {
+      "enableLiightbulbPreview": true
+    }
+  },
+  "security": {
+    "kmsKeyId": "projects/myGCP/locations/us/keyRings/myKR/cryptoKeys/myKey"
+  },
+  "projectActions": [
+    {
+      "artifactId": "doc-brd",
+      "actionType": "generate",
+      "inputRefs": [],
+      "actionParams": {
+        "notes": "Initial BRD for Liightbulb MVP"
+      }
+    }
+  ],
+  "versionControl": [
+    {
+      "version": "1.0.0",
+      "revision": "_a1",
+      "date": "2025-01-01T12:00:00Z",
+      "changeDescription": "Created initial config"
+    }
+  ]
+}

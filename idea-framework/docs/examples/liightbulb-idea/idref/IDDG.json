@@ -1,0 +1,19 @@
+{
+  "generatorId": "gen-openai-integration",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "prompt": { "type": "string" },
+      "context": { "type": "string" }
+    }
+  },
+  "outputFormat": "JSON",
+  "templates": {
+    "init": "{\n",
+    "promptBlock": "\"prompt\": \"{prompt}\",\n",
+    "contextBlock": "\"context\": \"{context}\"\n}"
+  },
+  "transformRules": {
+    "constructJSON": true
+  }
+}

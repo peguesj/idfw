@@ -1,0 +1,21 @@
+{
+  "promptId": "LIIGHT-001",
+  "promptText": "Generate an ERD for the Liightbulb data model, then create a user-flow diagram illustrating how we update the Liightbulb based on user input.",
+  "desiredOutputType": "diagram",
+  "contextRefs": ["liightbulbSchema.latest"],
+  "generationActions": [
+    {
+      "artifactId": "erd-liightbulb",
+      "actionType": "generate",
+      "inputRefs": []
+    },
+    {
+      "artifactId": "diag-userFlow",
+      "actionType": "generate",
+      "inputRefs": ["erd-liightbulb.latest"],
+      "actionParams": {
+        "notes": "Focus on user steps: load Liightbulb, provide user input, call LLM."
+      }
+    }
+  ]
+}

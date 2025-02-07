@@ -1,0 +1,99 @@
+{
+  "docId": "IDFW",
+  "version": "2.3.0",
+  "revision": "_b1",
+  "date": "2025-02-07T00:00:00Z",
+  "overview": {
+    "purpose": "Unified framework for idea definition and iterative updates",
+    "scope": ["Business", "Technical", "UX"],
+    "applicability": ["SaaS", "Enterprise"]
+  },
+  "variables": {
+    "constants": {
+      "PROJECT_CODENAME": "LIIGHTBULB"
+    },
+    "runtime": {
+      "axisDefinitions": [
+        {
+          "axisName": "SecurityLevel",
+          "min": 0,
+          "max": 10,
+          "masterInfluence": 2.0
+        }
+      ],
+      "masterAxis": {
+        "axisName": "GlobalComplexity",
+        "min": 0,
+        "max": 10,
+        "formula": "finalValue = baseValue * (1 + (masterAxisValue * masterInfluence / 10))"
+      }
+    }
+  },
+  "documents": [
+    {
+      "docId": "doc-liightbulb-overview",
+      "title": "Liightbulb Package Overview",
+      "purpose": "An overview document for the Liightbulb package.",
+      "ownerTeam": "Engineering",
+      "references": [
+        "https://example.com/docs/liightbulb-overview"
+      ],
+      "formatType": "Markdown",
+      "generatorId": "gen-openai-integration",
+      "contentRef": "https://example.com/templates/liightbulb-overview.md"
+    }
+  ],
+  "diagrams": [
+    {
+      "diagId": "diag-liightbulb-architecture",
+      "diagramName": "Liightbulb Architecture Diagram",
+      "typeTool": "mermaid",
+      "diagramType": "flowchart",
+      "generatorLibId": "gen-mermaid-flow",
+      "purposeDescription": "Illustrates the architecture of the Liightbulb package.",
+      "relevantSection": "Architecture"
+    }
+  ],
+  "idfpjs": [
+    {
+      "idfpjId": "IDPJ-001",
+      "title": "Liightbulb Project Journey",
+      "description": "A predefined project journey for developing the Liightbulb package.",
+      "keyComponents": [
+        "BRD",
+        "FRS",
+        "TAD",
+        "SCD",
+        "GOV"
+      ],
+      "useCases": [
+        "Rapid development",
+        "Scalable architecture",
+        "Integration with OpenAI"
+      ],
+      "axisCoordinates": {
+        "TimeToMarket": 7,
+        "Scalability": 8,
+        "IntegrationComplexity": 6
+      }
+    }
+  ],
+  "projectActions": [
+    {
+      "artifactId": "doc-brd",
+      "actionType": "generate",
+      "inputRefs": [],
+      "actionParams": {
+        "notes": "Initial BRD for Liightbulb MVP"
+      }
+    }
+  ],
+  "versionControl": [
+    {
+      "version": "2.3.0",
+      "revision": "_b1",
+      "date": "2025-02-07T00:00:00Z",
+      "changeDescription": "Initial version for Liightbulb package"
+    }
+  ]
+}
