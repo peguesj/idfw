@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/idfpj.schema.json",
+  "title": "IDFPJ",
+  "description": "Schema for Idea Definition Framework Project Journeys",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the project journey"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the project journey"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the project journey"
+    },
+    "variables": {
+      "type": "object",
+      "description": "Shared variables relevant for creating or choosing a project journey",
+      "additionalProperties": {
+        "type": ["string", "number", "boolean"]
+      }
+    },
+    "keyComponents": {
+      "type": "array",
+      "description": "List of key components in the project journey",
+      "items": {
+        "type": "string"
+      }
+    },
+    "axisCoordinates": {
+      "type": "object",
+      "description": "Axis coordinates for multi-axis analysis",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "useCases": {
+      "type": "array",
+      "description": "Typical real-world scenarios for the project journey",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["id", "name", "description", "variables"],
+  "additionalProperties": false,
+  "version": "1.0.0",
+  "updated": "2025-01-02"
+}

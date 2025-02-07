@@ -1,0 +1,149 @@
+// Version: 2.1.1
+// Author: Jeremiah Pegues <jeremiah@pegues.io>
+// License: MIT
+// Schema Documentation: Defines schema for IDEA Project Configurations. References IDFW.schema.json for related properties.
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", // General schema reference
+  "$id": "https://example.com/idpc.schema.json", // Unique identifier
+  "title": "IDPC", // Refers to IDFW.schema.json > properties.idfpjs
+  "description": "Stores environment config for IDEA-based projects", // Refers to IDFW.schema.json > properties.idfpjs
+  "type": "object",
+  "properties": {
+    "docId": {
+      "type": "string" // Refers to IDFW.schema.json > properties.docId
+    },
+    "version": {
+      "type": "string" // Refers to IDFW.schema.json > properties.version
+    },
+    "revision": {
+      "type": "string" // Refers to IDFW.schema.json > properties.revision
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time" // Refers to IDFW.schema.json > properties.date
+    },
+    "projectName": {
+      "type": "string" // Refers to IDFW.schema.json > properties.projectName
+    },
+    "apiKeys": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string" // Refers to IDFW.schema.json > properties.apiKeys
+      }
+    },
+    "llmConfigs": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string" // Refers to IDFW.schema.json > properties.llmConfigs > model
+        },
+        "temperature": {
+          "type": "number" // Refers to IDFW.schema.json > properties.llmConfigs > temperature
+        },
+        "topP": {
+          "type": "number" // Refers to IDFW.schema.json > properties.llmConfigs > topP
+        },
+        "maxTokens": {
+          "type": "integer" // Refers to IDFW.schema.json > properties.llmConfigs > maxTokens
+        }
+      },
+      "additionalProperties": true
+    },
+    "defaultGenerators": {
+      "type": "array",
+      "items": {
+        "type": "string" // Refers to IDFW.schema.json > properties.defaultGenerators
+      }
+    },
+    "typeTools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tool": {
+            "type": "string" // Refers to IDFW.schema.json > properties.typeTools > tool
+          },
+          "subType": {
+            "type": "string" // Refers to IDFW.schema.json > properties.typeTools > subType
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": true // Refers to IDFW.schema.json > properties.typeTools > config
+          }
+        },
+        "required": [
+          "tool" // Required for typeTools
+        ]
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": true // Refers to IDFW.schema.json > properties.environment
+    },
+    "security": {
+      "type": "object",
+      "additionalProperties": true // Refers to IDFW.schema.json > properties.security
+    },
+    "projectActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifactId": {
+            "type": "string" // Refers to IDFW.schema.json > properties.projectActions > artifactId
+          },
+          "actionType": {
+            "type": "string" // Refers to IDFW.schema.json > properties.projectActions > actionType
+          },
+          "inputRefs": {
+            "type": "array",
+            "items": {
+              "type": "string" // Refers to IDFW.schema.json > properties.projectActions > inputRefs
+            }
+          },
+          "actionParams": {
+            "type": "object" // Refers to IDFW.schema.json > properties.projectActions > actionParams
+          }
+        },
+        "required": [
+          "artifactId", // Required for projectActions
+          "actionType" // Required for projectActions
+        ]
+      }
+    },
+    "versionControl": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string" // Refers to IDFW.schema.json > properties.versionControl > version
+          },
+          "revision": {
+            "type": "string" // Refers to IDFW.schema.json > properties.versionControl > revision
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time" // Refers to IDFW.schema.json > properties.versionControl > date
+          },
+          "changeDescription": {
+            "type": "string" // Refers to IDFW.schema.json > properties.versionControl > changeDescription
+          }
+        },
+        "required": [
+          "version", // Required for versionControl
+          "revision", // Required for versionControl
+          "date", // Required for versionControl
+          "changeDescription" // Required for versionControl
+        ]
+      }
+    }
+  },
+  "required": [
+    "docId", // Required property
+    "version" // Required property
+  ],
+  "version": "2.1.1", // Schema version
+  "updated": "2025-01-01" // Last update timestamp
+}

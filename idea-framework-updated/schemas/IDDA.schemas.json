@@ -1,0 +1,261 @@
+{
+ "diagrams": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/diagram.schema.json",
+    "title": "Diagram Object Schema",
+    "description": "Schema for defining diagrams with platform-specific generation capabilities.",
+    "type": "object",
+    "properties": {
+        "diagId": { "type": "string" },
+        "diagramName": { "type": "string" },
+        "purpose": { "type": "string" },
+        "typeTool": { "type": "string" },
+        "diagramType": { "type": "string" },
+        "generatorLibId": { "type": "string" },
+        "version": { "type": "string" },
+        "revision": { "type": "string" },
+        "dateCreated": { "type": "string", "format": "date" },
+        "dateUpdated": { "type": "string", "format": "date" },
+        "tasks": { 
+            "type": "object",
+            "properties": {
+                "operation": {
+                    "type": "string",
+                    "enum": ["CREATE", "READ", "UPDATE", "DELETE", "ALL", "NONE"]
+                },
+                "target": {
+                    "type": "string"
+                },
+                "triggers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": ["operation", "target"]
+        },
+        "variables": {
+            "type": "object",
+            "properties": {
+                "defaults": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/IDDV" }
+                },
+                "customVariables": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/IDDV" }
+                }
+            }
+        },
+        "nodes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string" },
+                    "type": { "type": "string" },
+                    "label": { "type": "string" }
+                },
+                "required": ["id", "type", "label"]
+            }
+        },
+        "connectors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "source": { "type": "string" },
+                    "target": { "type": "string" },
+                    "type": { "type": "string" }
+                },
+                "required": ["source", "target", "type"]
+            }
+        },
+        "relationships": {
+            "type": "array",
+            "items": { "type": "string" }
+        },
+        "standard": { "type": "string", "enum": ["UML", "BPMN", "custom"] },
+        "generators": {
+        "type": "object",
+        "description": "Platform-specific configuration for generating the diagram.",
+        "properties": {
+            "mermaid": {
+            "type": "object",
+            "description": "Configuration for Mermaid diagram generation.",
+            "properties": {
+                "diagramType": {
+                "type": "string",
+                "enum": ["erDiagram", "classDiagram", "sequenceDiagram", "stateDiagram"],
+                "description": "Diagram type supported by Mermaid."
+                },
+                "settings": {
+                "type": "object",
+                "additionalProperties": { "type": "string" }
+                }
+            },
+            "required": ["diagramType"]
+            },
+            "plantuml": {
+            "type": "object",
+            "description": "Configuration for PlantUML diagram generation.",
+            "properties": {
+                "diagramType": {
+                "type": "string",
+                "enum": ["@startuml class", "@startuml sequence", "@startuml state", "@startuml component"],
+                "description": "Diagram type supported by PlantUML."
+                },
+                "settings": {
+                "type": "object",
+                "additionalProperties": { "type": "string" }
+                }
+            },
+            "required": ["diagramType"]
+            },
+            "lucidchart": {
+            "type": "object",
+            "description": "Configuration for Lucidchart diagram generation.",
+            "properties": {
+                "diagramType": {
+                "type": "string",
+                "enum": ["ERD", "Flowchart", "UML", "Network"],
+                "description": "Diagram type supported by Lucidchart."
+                },
+                "settings": {
+                "type": "object",
+                "additionalProperties": { "type": "string" }
+                }
+            },
+            "required": ["diagramType"]
+            }
+        }
+        },
+        "inputs": {
+        "type": "object",
+        "description": "Input data for generating the diagram, such as entities and relationships.",
+        "additionalProperties": { "type": "string" }
+        },
+        "outputFormat": { 
+        "type": "string", 
+        "enum": ["svg", "png", "code"], 
+        "default": "svg" 
+        }
+    },
+    "required": ["diagId", "diagramName", "purpose", "typeTool", "diagramType", "generatorLibId", "version", "revision", "dateCreated", "dateUpdated", "tasks", "variables", "standard", "generators", "inputs"]
+}
+, "documents":{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/document.schema.json",
+    "title": "Document Object Schema",
+    "description": "Schema for defining documents with formatting and structural requirements for generation.",
+    "type": "object",
+    "properties": {
+        "docId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "template": { "type": "string", "description": "Template used for document generation (e.g., Markdown, LaTeX, HTML)." },
+        "sections": {
+        "type": "array",
+        "description": "Defines the structure of the document in sections.",
+        "items": {
+            "type": "object",
+            "properties": {
+            "title": { "type": "string" },
+            "content": { "type": "string" }
+            },
+            "required": ["title", "content"]
+        }
+        },
+        "formatting": {
+        "type": "object",
+        "description": "Document-wide formatting rules (e.g., font size, margins).",
+        "properties": {
+            "font": { "type": "string" },
+            "fontSize": { "type": "string" },
+            "margins": { "type": "string" }
+        }
+        },
+        "variables": {
+        "type": "object",
+        "description": "Variables used within the document for dynamic content.",
+        "properties": {
+            "defaults": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/IDDV" }
+            },
+            "customVariables": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/IDDV" }
+            }
+        }
+        },
+        "outputFormat": { "type": "string", "enum": ["pdf", "html", "md"], "default": "pdf" },
+        "version": { "type": "string" },
+        "revision": { "type": "string" }
+    },
+    "required": ["docId", "title", "template", "sections", "outputFormat"]
+},
+"assets":{
+    {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/asset.schema.json",
+  "title": "Asset Object Schema",
+  "description": "Schema for defining assets used as resources within the framework.",
+  "type": "object",
+  "properties": {
+    "assetId": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "assetType": { "type": "string", "enum": ["image", "file", "link", "data"] },
+    "location": { "type": "string", "description": "URL or file path to the asset." },
+    "size": { "type": "string", "description": "Size of the asset, if applicable." },
+    "tags": {
+      "type": "array",
+      "description": "Tags categorizing the asset.",
+      "items": { "type": "string" }
+    },
+    "metadata": {
+      "type": "object",
+,
+      "description": "Additional metadata about the asset.",
+      "additionalProperties": { "type": "string" }
+    },
+    "version": { "type": "string" },
+    "revision": { "type": "string" }
+  },
+  "required": ["assetId", "name", "assetType", "location"]
+}
+}
+,
+  "NewObjectType": {
+    "type": "object",
+    "properties": {
+      "newField": {
+        "type": "string",
+        "description": "Description of the new field."
+      }
+    },
+    "required": ["newField"]
+  }
+},
+"definitions": {
+    "IDDV": { "$ref": "./IDDV.schemas.json" }
+}
+}
+  "NewObjectType": {
+    "type": "object",
+    "properties": {
+      "newField": {
+        "type": "string",
+        "description": "Description of the new field."
+      }
+    },
+    "required": ["newField"]
+  }
+},
+"definitions": {
+    "IDDV": { "$ref": "./IDDV.schemas.json" }
+    // ...other definitions...
+  }
+}

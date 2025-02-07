@@ -1,0 +1,14 @@
+{
+  // ...existing code...
+  "properties": {
+    // ...existing properties...
+    "idfpjs": {
+      "type": "array",
+      "items": {
+        "$ref": "./IDFPJ.schema.jsonc"
+      },
+      "description": "Array of Idea Definition Framework Project Journeys"
+    }
+  },
+  // ...existing code...
+}
