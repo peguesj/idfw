@@ -6,7 +6,9 @@ This module provides schema bridging functionality between IDFW and FORCE schema
 Includes conversion functions, validation, and schema registry.
 """
 
+import json
 import logging
+from datetime import datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Type, Union
@@ -515,6 +517,322 @@ def create_default_conversion_rules() -> List[ConversionRule]:
     return rules
 
 
+class IDFWDocumentParser:
+    """
+    Parser for IDFW document schemas
+    Handles all IDFW document types (documentation, diagrams, variables, projects)
+    """
+
+    # IDFW Schema draft version
+    IDFW_SCHEMA_VERSION = "http://json-schema.org/draft/2020-12/schema"
+    
+    # IDFW document types
+    DOCUMENT_TYPES = {
+        "documentation": "IDDA",
+        "diagram": "IDDG", 
+        "variable": "IDFV",
+        "project": "IDPJ",
+        "generator": "IDPG",
+        "config": "IDPC"
+    }
+
+    def __init__(self, registry: Optional[SchemaRegistry] = None):
+        """
+        Initialize IDFW Document Parser
+        
+        Args:
+            registry: Optional schema registry for storing parsed schemas
+        """
+        self.registry = registry or SchemaRegistry()
+        self._init_idfw_schemas()
+        logger.info("Initialized IDFW Document Parser")
+
+    def _init_idfw_schemas(self) -> None:
+        """Initialize built-in IDFW schema definitions"""
+        # Base IDFW document schema
+        base_schema = {
+            "$schema": self.IDFW_SCHEMA_VERSION,
+            "$id": "https://idfw.unified/schemas/document.json",
+            "type": "object",
+            "properties": {
+                "docId": {"type": "string"},
+                "title": {"type": "string"},
+                "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+                "revision": {"type": "string"},
+                "description": {"type": "string"},
+                "variables": {
+                    "type": "object",
+                    "properties": {
+                        "immutable": {"type": "object"},
+                        "mutable": {"type": "object"}
+                    }
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {
+                        "created_at": {"type": "string", "format": "date-time"},
+                        "updated_at": {"type": "string", "format": "date-time"},
+                        "author": {"type": "string"},
+                        "status": {"type": "string", "enum": ["draft", "review", "approved", "published"]}
+                    }
+                },
+                "references": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                },
+                "tasks": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "taskId": {"type": "string"},
+                            "name": {"type": "string"},
+                            "params": {"type": "object"}
+                        },
+                        "required": ["taskId", "name"]
+                    }
+                }
+            },
+            "required": ["title", "version"]
+        }
+        
+        # Register base schema
+        metadata = SchemaMetadata(
+            name="idfw_document_base",
+            version="2.1.1",
+            format=SchemaFormat.IDFW_DOCUMENT,
+            namespace=SchemaNamespace.IDFW,
+            description="Base IDFW document schema",
+            tags=["idfw", "document", "base"]
+        )
+        
+        schema_def = SchemaDefinition(
+            metadata=metadata,
+            schema=base_schema
+        )
+        
+        self.registry.register_schema(schema_def)
+
+    def parse(self, file_path: Union[str, Path]) -> Dict[str, Any]:
+        """
+        Parse an IDFW document from JSON file
+        
+        Args:
+            file_path: Path to JSON file
+            
+        Returns:
+            Parsed document data
+            
+        Raises:
+            FileNotFoundError: If file doesn't exist
+            ValueError: If JSON is invalid
+        """
+        file_path = Path(file_path)
+        
+        if not file_path.exists():
+            raise FileNotFoundError(f"File not found: {file_path}")
+            
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON in {file_path}: {e}")
+            
+        logger.debug(f"Parsed IDFW document from {file_path}")
+        return data
+
+    def validate(self, data: Dict[str, Any], document_type: str = "base") -> tuple[bool, Optional[str]]:
+        """
+        Validate IDFW document against schema
+        
+        Args:
+            data: Document data to validate
+            document_type: Type of IDFW document (base, documentation, diagram, etc.)
+            
+        Returns:
+            Tuple of (is_valid, error_message)
+        """
+        schema_name = f"idfw_document_{document_type}"
+        schema_def = self.registry.get_schema("idfw", schema_name)
+        
+        if not schema_def:
+            # Try base schema if specific type not found
+            schema_def = self.registry.get_schema("idfw", "idfw_document_base")
+            
+        if not schema_def:
+            return False, f"Schema not found for document type: {document_type}"
+            
+        try:
+            jsonschema.validate(instance=data, schema=schema_def.schema_def)
+            return True, None
+        except jsonschema.ValidationError as e:
+            return False, self._format_validation_error(e)
+
+    def _format_validation_error(self, error: jsonschema.ValidationError) -> str:
+        """
+        Format validation error with helpful message
+        
+        Args:
+            error: JSONSchema validation error
+            
+        Returns:
+            Formatted error message
+        """
+        path = '.'.join(str(p) for p in error.path) if error.path else 'root'
+        return f"Validation error at '{path}': {error.message}"
+
+    def detect_document_type(self, data: Dict[str, Any]) -> str:
+        """
+        Detect IDFW document type from data
+        
+        Args:
+            data: Document data
+            
+        Returns:
+            Detected document type
+        """
+        # Check for explicit type field
+        if "docId" in data:
+            doc_id = data["docId"]
+            for doc_type, prefix in self.DOCUMENT_TYPES.items():
+                if doc_id.startswith(prefix):
+                    return doc_type
+                    
+        # Check for type-specific fields
+        if "diagramType" in data or "typeTool" in data:
+            return "diagram"
+        elif "promptText" in data or "generationActions" in data:
+            return "generator"
+        elif "apiKeys" in data or "llmConfigs" in data:
+            return "config"
+        elif "projectName" in data or "tasks" in data:
+            return "project"
+        elif "variables" in data and isinstance(data.get("variables"), dict):
+            if "immutable" in data["variables"] or "mutable" in data["variables"]:
+                return "variable"
+                
+        return "documentation"  # Default type
+
+    def extract_metadata(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Extract metadata from IDFW document
+        
+        Args:
+            data: Document data
+            
+        Returns:
+            Extracted metadata
+        """
+        metadata = data.get("metadata", {})
+        
+        # Add document-level metadata
+        metadata.update({
+            "title": data.get("title", "Untitled"),
+            "version": data.get("version", "1.0.0"),
+            "revision": data.get("revision", "_a1"),
+            "document_type": self.detect_document_type(data),
+            "has_variables": "variables" in data,
+            "has_tasks": "tasks" in data,
+            "has_references": "references" in data
+        })
+        
+        return metadata
+
+    def extract_variables(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Extract and categorize variables from IDFW document
+        
+        Args:
+            data: Document data
+            
+        Returns:
+            Categorized variables (immutable and mutable)
+        """
+        variables = data.get("variables", {})
+        
+        # Return empty dict if no variables
+        if not variables:
+            return {}
+        
+        # Handle both flat and categorized variable structures
+        if "immutable" in variables or "mutable" in variables:
+            return variables
+        else:
+            # Auto-categorize flat variables
+            categorized = {
+                "immutable": {},
+                "mutable": {}
+            }
+            
+            # Common immutable variable patterns
+            immutable_patterns = ["version", "id", "created", "author", "type"]
+            
+            for key, value in variables.items():
+                if any(pattern in key.lower() for pattern in immutable_patterns):
+                    categorized["immutable"][key] = value
+                else:
+                    categorized["mutable"][key] = value
+                    
+            return categorized
+
+    def parse_nested_references(self, data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Parse nested document references
+        
+        Args:
+            data: Document data
+            
+        Returns:
+            List of parsed references
+        """
+        references = data.get("references", [])
+        parsed_refs = []
+        
+        for ref in references:
+            if isinstance(ref, str):
+                # Simple string reference
+                parsed_refs.append({
+                    "type": "document",
+                    "id": ref,
+                    "resolved": False
+                })
+            elif isinstance(ref, dict):
+                # Complex reference object
+                parsed_refs.append({
+                    "type": ref.get("type", "document"),
+                    "id": ref.get("id", ref.get("docId", "unknown")),
+                    "version": ref.get("version"),
+                    "resolved": ref.get("resolved", False)
+                })
+                
+        return parsed_refs
+
+    def parse_with_validation(self, file_path: Union[str, Path]) -> tuple[Dict[str, Any], bool, Optional[str]]:
+        """
+        Parse and validate IDFW document in one operation
+        
+        Args:
+            file_path: Path to JSON file
+            
+        Returns:
+            Tuple of (parsed_data, is_valid, error_message)
+        """
+        try:
+            data = self.parse(file_path)
+            doc_type = self.detect_document_type(data)
+            is_valid, error = self.validate(data, doc_type)
+            
+            if is_valid:
+                logger.info(f"Successfully parsed and validated IDFW {doc_type} document")
+            else:
+                logger.warning(f"IDFW document validation failed: {error}")
+                
+            return data, is_valid, error
+        except Exception as e:
+            logger.error(f"Failed to parse IDFW document: {e}")
+            return {}, False, str(e)
+
+
 def initialize_schema_bridge(schema_dir: Optional[Path] = None) -> SchemaUnifier:
     """
     Initialize schema bridge with default configuration
@@ -527,11 +845,14 @@ def initialize_schema_bridge(schema_dir: Optional[Path] = None) -> SchemaUnifier
     """
     registry = SchemaRegistry(schema_dir)
 
+    # Initialize IDFW parser and register its schemas
+    idfw_parser = IDFWDocumentParser(registry)
+    
     # Register default conversion rules
     for rule in create_default_conversion_rules():
         registry.register_conversion_rule(rule)
 
     unifier = SchemaUnifier(registry)
 
-    logger.info("Schema bridge initialized")
+    logger.info("Schema bridge initialized with IDFW parser")
     return unifier
