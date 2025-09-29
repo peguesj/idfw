@@ -1,0 +1,83 @@
+[
+  {
+    "id": "req-001",
+    "method": "tools/list",
+    "params": {}
+  },
+  {
+    "id": "req-002",
+    "method": "tools/list",
+    "params": {
+      "category": "idfw"
+    }
+  },
+  {
+    "id": "req-003",
+    "method": "tools/schema",
+    "params": {
+      "tool_name": "idfw_create_document"
+    }
+  },
+  {
+    "id": "req-004",
+    "method": "tools/call",
+    "params": {
+      "tool_name": "unified_execute_command",
+      "arguments": {
+        "command": "generate",
+        "args": ["schema"],
+        "options": {
+          "output": "./schemas"
+        }
+      }
+    }
+  },
+  {
+    "id": "req-005",
+    "method": "tools/call",
+    "params": {
+      "tool_name": "agent_create_task",
+      "arguments": {
+        "agent_id": "agent-001",
+        "description": "Implement unified state management",
+        "priority": "high",
+        "metadata": {
+          "linear_issue": "PEG-123",
+          "estimated_hours": 8
+        }
+      }
+    }
+  },
+  {
+    "id": "req-006",
+    "method": "tools/call",
+    "params": {
+      "tool_name": "schema_convert",
+      "arguments": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "age": {"type": "integer"}
+          }
+        },
+        "source_format": "idfw",
+        "target_format": "force"
+      }
+    }
+  },
+  {
+    "id": "req-007",
+    "method": "tools/schema",
+    "params": {
+      "tool_name": "force_validate_schema"
+    }
+  },
+  {
+    "id": "req-008",
+    "method": "tools/list",
+    "params": {
+      "category": "agent"
+    }
+  }
+]

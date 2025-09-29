@@ -1,0 +1,38 @@
+# IDFWU Configuration
+project:
+  name: "IDFW Unified Framework"
+  version: "1.0.0"
+  linear_project_id: "4d649a6501f7"
+
+idfw:
+  enabled: true
+  schema_version: "2020-12"
+  generators:
+    - IDDG
+    - IDPG
+    - IDAA
+
+dev_sentinel:
+  enabled: true
+  agents:
+    - SAA
+    - VCMA
+    - VCLA
+    - CDIA
+    - RDIA
+
+integration:
+  command_prefix:
+    yung: "$"
+    idfw: "@"
+    unified: "#"
+    slash: "/"
+
+mcp:
+  stdio: true
+  http: true
+  port: 8888
+
+state:
+  sync_interval: 1000
+  cache_ttl: 3600

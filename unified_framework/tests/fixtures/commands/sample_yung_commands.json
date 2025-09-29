@@ -1,0 +1,123 @@
+{
+  "commands": [
+    {
+      "command": "$spawn",
+      "description": "Basic spawn command without arguments",
+      "expected": {
+        "prefix": "$",
+        "name": "spawn",
+        "args": [],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "$init project",
+      "description": "Init command with single argument",
+      "expected": {
+        "prefix": "$",
+        "name": "init",
+        "args": ["project"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "$build production staging",
+      "description": "Build command with multiple arguments",
+      "expected": {
+        "prefix": "$",
+        "name": "build",
+        "args": ["production", "staging"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "$deploy env=production region=us-east-1",
+      "description": "Deploy command with key-value arguments",
+      "expected": {
+        "prefix": "$",
+        "name": "deploy",
+        "args": [],
+        "kwargs": {
+          "env": "production",
+          "region": "us-east-1"
+        }
+      }
+    },
+    {
+      "command": "$test unit env=test --verbose --debug",
+      "description": "Test command with mixed arguments and flags",
+      "expected": {
+        "prefix": "$",
+        "name": "test",
+        "args": ["unit", "--verbose", "--debug"],
+        "kwargs": {
+          "env": "test"
+        }
+      }
+    },
+    {
+      "command": "$audit --strict --report=json",
+      "description": "Audit command with flags and key-value",
+      "expected": {
+        "prefix": "$",
+        "name": "audit",
+        "args": ["--strict"],
+        "kwargs": {
+          "--report": "json"
+        }
+      }
+    },
+    {
+      "command": "$config set timeout=30 retries=3",
+      "description": "Config command with subcommand and parameters",
+      "expected": {
+        "prefix": "$",
+        "name": "config",
+        "args": ["set"],
+        "kwargs": {
+          "timeout": "30",
+          "retries": "3"
+        }
+      }
+    },
+    {
+      "command": "$monitor status --interval=5",
+      "description": "Monitor command with argument and parameter",
+      "expected": {
+        "prefix": "$",
+        "name": "monitor",
+        "args": ["status"],
+        "kwargs": {
+          "--interval": "5"
+        }
+      }
+    },
+    {
+      "command": "$logs --tail=100 --follow",
+      "description": "Logs command with multiple flags",
+      "expected": {
+        "prefix": "$",
+        "name": "logs",
+        "args": ["--follow"],
+        "kwargs": {
+          "--tail": "100"
+        }
+      }
+    },
+    {
+      "command": "$status",
+      "description": "Simple status command",
+      "expected": {
+        "prefix": "$",
+        "name": "status",
+        "args": [],
+        "kwargs": {}
+      }
+    }
+  ],
+  "metadata": {
+    "description": "Sample YUNG commands for testing",
+    "version": "1.0.0",
+    "total_commands": 10
+  }
+}
