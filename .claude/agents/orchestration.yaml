@@ -1,0 +1,279 @@
+# IDFWU Agent Orchestration Configuration
+# Integrated Development Framework for Web Unification
+# Linear Project ID: 4d649a6501f7
+
+version: "1.0"
+project:
+  name: "IDFWU"
+  linear_project_id: "4d649a6501f7"
+  repository: "https://github.com/jeremiah/idfw"
+  primary_branch: "main"
+
+# Agent Departments and Hierarchical Organization
+departments:
+  product:
+    name: "Product Strategy Department"
+    description: "Defines product vision, requirements, and user experience"
+    lead_agent: "ProductOwnerAgent"
+    agents:
+      - ProductOwnerAgent
+      - UserExperienceAgent
+      - RequirementsAnalystAgent
+    responsibilities:
+      - Product roadmap planning
+      - Requirements gathering and analysis
+      - User experience design
+      - Stakeholder communication
+
+  project:
+    name: "Project Management Department"
+    description: "Manages project execution, timelines, and delivery"
+    lead_agent: "ProjectManagerAgent"
+    agents:
+      - ProjectManagerAgent
+      - ScrumMasterAgent
+      - ReleaseManagerAgent
+    responsibilities:
+      - Sprint planning and execution
+      - Resource allocation
+      - Risk management
+      - Release coordination
+
+  development:
+    name: "Development Department"
+    description: "Handles all software development activities"
+    lead_agent: "ArchitectAgent"
+    agents:
+      - ArchitectAgent
+      - BackendDeveloperAgent
+      - FrontendDeveloperAgent
+      - SchemaEngineerAgent
+      - AgentDeveloperAgent
+    responsibilities:
+      - Code architecture and design
+      - Feature implementation
+      - Database schema management
+      - Agent system development
+
+  integration:
+    name: "Integration & Infrastructure Department"
+    description: "Manages system integration and infrastructure"
+    lead_agent: "SystemIntegratorAgent"
+    agents:
+      - SystemIntegratorAgent
+      - DevOpsAgent
+      - DatabaseAdminAgent
+    responsibilities:
+      - System integration
+      - CI/CD pipeline management
+      - Database administration
+      - Infrastructure monitoring
+
+  quality:
+    name: "Quality Assurance Department"
+    description: "Ensures code quality, security, and documentation"
+    lead_agent: "QualityAssuranceAgent"
+    agents:
+      - QualityAssuranceAgent
+      - SecurityAuditorAgent
+      - PerformanceEngineerAgent
+      - DocumentationAgent
+    responsibilities:
+      - Test automation
+      - Security auditing
+      - Performance optimization
+      - Documentation maintenance
+
+# Communication Patterns and Message Routing
+communication:
+  patterns:
+    hierarchical:
+      description: "Department leads coordinate with team leads"
+      flow: "Department Lead → Team Lead → Individual Agents"
+
+    cross_functional:
+      description: "Direct communication between agents across departments"
+      flow: "Agent A ↔ Agent B (any department)"
+
+    broadcast:
+      description: "System-wide announcements and updates"
+      flow: "System → All Agents"
+
+  message_bus:
+    type: "event-driven"
+    topics:
+      - task.created
+      - task.updated
+      - task.completed
+      - agent.status.changed
+      - deployment.initiated
+      - build.status.changed
+      - test.results.available
+      - issue.created
+      - issue.resolved
+
+  protocols:
+    task_assignment:
+      - ProductOwner creates epic/story
+      - ProjectManager breaks down into tasks
+      - Architect reviews technical requirements
+      - Development agents claim tasks based on expertise
+
+    code_review:
+      - Developer completes implementation
+      - QualityAssurance runs automated tests
+      - SecurityAuditor performs security scan
+      - PerformanceEngineer validates performance
+
+    deployment:
+      - ReleaseManager initiates deployment
+      - DevOps executes deployment pipeline
+      - SystemIntegrator validates integration
+      - QualityAssurance runs smoke tests
+
+# Task Distribution Rules and Load Balancing
+task_distribution:
+  assignment_strategy: "expertise_weighted"
+  load_balancing:
+    enabled: true
+    max_concurrent_tasks_per_agent: 3
+    priority_queue: true
+
+  routing_rules:
+    - type: "feature_request"
+      route_to: ["ProductOwnerAgent", "RequirementsAnalystAgent"]
+      then: ["ArchitectAgent", "development"]
+
+    - type: "bug_report"
+      route_to: ["QualityAssuranceAgent", "development"]
+      priority: "high"
+
+    - type: "performance_issue"
+      route_to: ["PerformanceEngineerAgent", "ArchitectAgent"]
+      priority: "medium"
+
+    - type: "security_concern"
+      route_to: ["SecurityAuditorAgent"]
+      priority: "critical"
+
+    - type: "deployment_request"
+      route_to: ["ReleaseManagerAgent", "DevOpsAgent"]
+      requires_approval: true
+
+# Concurrency Limits and Resource Management
+concurrency:
+  global_limits:
+    max_concurrent_agents: 10
+    max_concurrent_tasks: 25
+
+  department_limits:
+    product: 3
+    project: 3
+    development: 5
+    integration: 3
+    quality: 4
+
+  rate_limiting:
+    api_calls_per_minute: 120
+    linear_api_calls_per_minute: 60
+    github_api_calls_per_minute: 60
+
+  error_handling:
+    retry_attempts: 3
+    backoff_strategy: "exponential"
+    circuit_breaker:
+      failure_threshold: 5
+      reset_timeout: 300s
+
+# Agent Lifecycle Management
+lifecycle:
+  initialization:
+    - Load agent configuration
+    - Connect to message bus
+    - Register with orchestrator
+    - Validate Linear/GitHub access
+
+  health_checks:
+    interval: 60s
+    timeout: 10s
+    endpoints:
+      - /health
+      - /status
+      - /metrics
+
+  shutdown:
+    graceful_timeout: 30s
+    cleanup_tasks: true
+    notify_dependencies: true
+
+# Monitoring and Metrics
+monitoring:
+  metrics:
+    - agent_status
+    - task_completion_rate
+    - response_time
+    - error_rate
+    - resource_utilization
+
+  alerting:
+    channels:
+      - linear_comments
+      - console_logs
+
+    thresholds:
+      error_rate: 5%
+      response_time: 30s
+      task_backlog: 10
+
+# Integration Configuration
+integrations:
+  linear:
+    project_id: "4d649a6501f7"
+    team_id: "to_be_configured"
+    webhook_url: "to_be_configured"
+
+  github:
+    repository: "jeremiah/idfw"
+    webhook_url: "to_be_configured"
+
+  claude:
+    model: "claude-sonnet-4-20250514"
+    max_tokens: 4000
+    temperature: 0.1
+
+# Security and Access Control
+security:
+  authentication:
+    type: "api_key"
+    rotation_interval: "30d"
+
+  authorization:
+    rbac:
+      enabled: true
+      roles:
+        - admin
+        - lead_agent
+        - agent
+        - readonly
+
+  audit_logging:
+    enabled: true
+    retention_period: "90d"
+    events:
+      - agent_login
+      - task_assignment
+      - code_changes
+      - deployments
+
+# Configuration Validation
+validation:
+  required_fields:
+    - agent_id
+    - department
+    - capabilities
+    - linear_integration
+
+  constraints:
+    agent_id: "^[A-Za-z][A-Za-z0-9]*Agent$"
+    department: ["product", "project", "development", "integration", "quality"]
+    max_capabilities: 10

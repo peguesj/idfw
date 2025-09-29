@@ -1,0 +1,168 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "idfwu"
+version = "1.0.0"
+description = "IDFWU - IDEA Framework Unified: Unification of IDFW and Dev Sentinel"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Jeremiah Pegues"}
+]
+keywords = ["idfw", "idea-framework", "dev-sentinel", "agent-orchestration", "mcp"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Code Generators",
+]
+
+dependencies = [
+    "fastapi>=0.108.0",
+    "uvicorn[standard]>=0.25.0",
+    "pydantic>=2.5.3",
+    "pydantic-settings>=2.1.0",
+    "click>=8.1.7",
+    "typer[all]>=0.9.0",
+    "rich>=13.7.0",
+    "jsonschema>=4.20.0",
+    "pyyaml>=6.0.1",
+    "python-dotenv>=1.0.0",
+    "msgpack>=1.0.7",
+    "websockets>=12.0",
+    "sqlalchemy>=2.0.25",
+    "alembic>=1.13.1",
+    "httpx>=0.26.0",
+    "aiohttp>=3.9.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "coverage[toml]>=7.4.0",
+    "black>=23.12.1",
+    "flake8>=7.0.0",
+    "isort>=5.13.2",
+    "mypy>=1.8.0",
+    "types-PyYAML>=6.0.12.12",
+    "types-requests>=2.31.0.20240106",
+]
+
+linear = [
+    "gql[all]>=3.5.0",
+]
+
+[project.urls]
+Homepage = "https://linear.app/pegues-innovations/project/idfwu-idea-framework-unified-4d649a6501f7"
+Repository = "https://github.com/[to-be-created]/idfw-unified"
+Documentation = "https://github.com/[to-be-created]/idfw-unified/tree/main/unified_framework_docs"
+
+[project.scripts]
+idfwu = "unified_framework.cli:main"
+
+[tool.setuptools]
+packages = ["unified_framework"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--cov=unified_framework",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+testpaths = ["unified_framework/tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+branch = true
+source = ["unified_framework"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/venv/*",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@abstractmethod",
+]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = false
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+follow_imports = "normal"
+ignore_missing_imports = true
+strict_equality = true
+pretty = true
+show_error_codes = true
+show_error_context = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
