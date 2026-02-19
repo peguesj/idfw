@@ -1,7 +1,7 @@
 {
   "id": "mcp_integration_pattern",
   "name": "MCP Integration Pattern",
-  "version": "1.0.0", 
+  "version": "1.0.0",
   "description": "Comprehensive approach to integrating systems with Model Context Protocol, derived from successful Force MCP server implementation",
   "category": "integration",
   "complexity": "high",
@@ -25,7 +25,7 @@
     },
     {
       "id": "implement_tool_discovery",
-      "type": "executable", 
+      "type": "executable",
       "description": "Implement comprehensive tool discovery mechanism",
       "action": "force_execute_tool",
       "parameters": {
@@ -47,7 +47,7 @@
     {
       "id": "test_integration",
       "type": "executable",
-      "description": "Test MCP server integration and functionality", 
+      "description": "Test MCP server integration and functionality",
       "action": "force_execute_tool",
       "parameters": {
         "toolId": "force_mcp_integration"
@@ -90,6 +90,22 @@
       "tool_accessibility": "38+ tools available via MCP",
       "client_compatibility": "VS Code, Claude Desktop"
     },
-    "tags": ["mcp", "integration", "protocol", "server", "client"]
+    "tags": [
+      "mcp",
+      "integration",
+      "protocol",
+      "server",
+      "client"
+    ],
+    "updated": "2026-02-19T00:00:00Z",
+    "version": "1.0.0"
+  },
+  "context": {
+    "scope": "project",
+    "applicability": "general"
+  },
+  "implementation": {
+    "steps": [],
+    "tools": []
   }
 }

@@ -1,6 +1,6 @@
 {
-  "$schema": "../schemas/force-schema.json",
-  "title": "Development Patterns for Agentic Workflows",
+  "id": "documentation_patterns",
+  "name": "Development Patterns for Agentic Workflows",
   "description": "Proven patterns for efficient agentic development workflows, documentation management, and project structure organization",
   "version": "1.0.0",
   "patterns": [
@@ -128,7 +128,7 @@
               "phase": "**Phase:** [Phase Name] `#phase-anchor`",
               "type": "**Type:** [Category] | [Subcategory]",
               "impact": "**Impact:** [High|Medium|Low]",
-              "changes": "**Changes Made:** - ✅ Completed items",
+              "changes": "**Changes Made:** - \u2705 Completed items",
               "references": "**Implementation References:** - [Links]"
             }
           }
@@ -136,7 +136,7 @@
         "code_templates": [
           {
             "name": "Changelog Entry Template",
-            "template": "### {timestamp} - {title}\\n**Phase:** {phase} `#{anchor}`\\n**Type:** {type}\\n**Impact:** {impact}\\n\\n**Changes Made:**\\n- ✅ {completed_items}\\n\\n**Implementation References:**\\n- [{ref_title}]({ref_link})"
+            "template": "### {timestamp} - {title}\\n**Phase:** {phase} `#{anchor}`\\n**Type:** {type}\\n**Impact:** {impact}\\n\\n**Changes Made:**\\n- \u2705 {completed_items}\\n\\n**Implementation References:**\\n- [{ref_title}]({ref_link})"
           }
         ]
       }
@@ -325,5 +325,12 @@
     "examples": [
       {}
     ]
-  }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "author": "idfw",
+    "created": "2026-02-19",
+    "updated": "2026-02-19T00:00:00Z"
+  },
+  "category": "workflow"
 }

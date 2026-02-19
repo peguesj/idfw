@@ -1,3 +1,6 @@
+import pytest
+pytestmark = pytest.mark.skip(reason="Hooks system removed - identified as bloat")
+
 """
 Comprehensive tests for the hooks system.
 """

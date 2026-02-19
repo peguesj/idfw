@@ -435,13 +435,7 @@ class ForceEngine:
             await self._record_learning_data(learning_record)
             
             logger.error(f"Tool execution failed for {tool_id}: {e}")
-            return {
-                "success": False,
-                "executionId": execution_id,
-                "error": str(e),
-                "executionTime": execution_time,
-                "timestamp": start_time.isoformat()
-            }
+            raise
     
     def execute_tool_sync(self, tool_id: str, parameters: Dict[str, Any], 
                          context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:

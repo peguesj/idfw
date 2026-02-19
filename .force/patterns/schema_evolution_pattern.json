@@ -1,13 +1,13 @@
 {
   "id": "schema_evolution_pattern",
-  "name": "Schema Evolution Pattern", 
+  "name": "Schema Evolution Pattern",
   "version": "1.0.0",
   "description": "Approach for evolving validation schemas while maintaining backward compatibility, proven with Force extended schema implementation",
   "category": "schema_management",
   "complexity": "high",
   "applicability": [
     "schema_design",
-    "system_evolution", 
+    "system_evolution",
     "backward_compatibility",
     "validation_systems"
   ],
@@ -33,7 +33,7 @@
     },
     {
       "id": "implement_schema_preference",
-      "type": "descriptive", 
+      "type": "descriptive",
       "description": "Implement schema preference logic for automatic selection",
       "guidance": "Prefer extended schema when available, fallback to standard schema, graceful error handling when neither exists."
     },
@@ -71,7 +71,7 @@
   ],
   "validationCriteria": [
     "Existing tools continue to validate successfully",
-    "New tools with custom categories validate correctly", 
+    "New tools with custom categories validate correctly",
     "Schema preference logic works as expected",
     "Performance impact is minimal",
     "Migration documentation is comprehensive"
@@ -83,6 +83,22 @@
       "tool_loading_improvement": "22.6%",
       "validation_flexibility": "significant"
     },
-    "tags": ["schema", "evolution", "validation", "compatibility", "flexibility"]
+    "tags": [
+      "schema",
+      "evolution",
+      "validation",
+      "compatibility",
+      "flexibility"
+    ],
+    "updated": "2026-02-19T00:00:00Z",
+    "version": "1.0.0"
+  },
+  "context": {
+    "scope": "project",
+    "applicability": "general"
+  },
+  "implementation": {
+    "steps": [],
+    "tools": []
   }
 }

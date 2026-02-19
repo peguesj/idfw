@@ -78,5 +78,11 @@
         "template": "#!/bin/bash\\n# Atomic Commit Grouping\\n\\n# Analyze changes\\nchanges=$(git status --porcelain)\\n\\n# Group by change type\\nfor group in $(analyze-change-groups); do\\n  git add $group\\n  git commit -m \"$(generate-commit-message $group)\"\\ndone\\n\\n# Tag version if needed\\nif [ \"$version_increment\" != \"none\" ]; then\\n  git tag -a v$(calculate-next-version) -m \"Release $(calculate-next-version)\"\\nfi"
       }
     ]
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "author": "idfw",
+    "created": "2026-02-19",
+    "updated": "2026-02-19T00:00:00Z"
   }
 }

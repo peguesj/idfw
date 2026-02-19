@@ -55,5 +55,11 @@
         "template": "### {timestamp} - {title}\\n**Phase:** {phase} `#{anchor}`\\n**Type:** {type}\\n**Impact:** {impact}\\n\\n**Changes Made:**\\n- \u2705 {completed_items}\\n\\n**Implementation References:**\\n- [{ref_title}]({ref_link})"
       }
     ]
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "author": "idfw",
+    "created": "2026-02-19",
+    "updated": "2026-02-19T00:00:00Z"
   }
 }

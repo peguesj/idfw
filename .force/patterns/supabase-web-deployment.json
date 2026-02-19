@@ -18,24 +18,9 @@
       "Network connectivity to Supabase required"
     ],
     "steps": [
-      {
-        "step": 1,
-        "action": "Verify project linking",
-        "command": "supabase status --linked",
-        "expected": "Project linked status confirmed"
-      },
-      {
-        "step": 2,
-        "action": "Execute database operation",
-        "command": "<base_command> --linked",
-        "expected": "Operation targets web instance"
-      },
-      {
-        "step": 3,
-        "action": "Verify operation success",
-        "command": "Check logs and status",
-        "expected": "Changes reflected in web dashboard"
-      }
+      "Verify project linking with supabase status --linked",
+      "Execute database operation with --linked flag",
+      "Verify operation success via logs and dashboard"
     ],
     "post_conditions": [
       "Changes visible in Supabase web dashboard",
@@ -92,5 +77,11 @@
       "any",
       "trade_offs"
     ]
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "author": "idfw",
+    "created": "2026-02-19",
+    "updated": "2026-02-19T00:00:00Z"
   }
 }

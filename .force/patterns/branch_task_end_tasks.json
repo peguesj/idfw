@@ -68,5 +68,11 @@
         "template": "#!/bin/bash\\n# Branch End Tasks for {branch_name}\\n\\n# Quality Checks\\nforce-execute code-quality-check\\nforce-execute security-analysis\\n\\n# Documentation\\nforce-execute docs-analysis\\nforce-execute generate-docs-update-summary\\n\\n# Release Preparation\\nforce-execute check-release-readiness\\nforce-execute generate-changelog\\n\\n# Version Management\\nforce-execute validate-version\\ngit tag -a v{version} -m \"Release {version}\""
       }
     ]
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "author": "idfw",
+    "created": "2026-02-19",
+    "updated": "2026-02-19T00:00:00Z"
   }
 }

@@ -65,5 +65,11 @@
         "template": "# Project Handoff: {project_name}\\n\\n## Executive Summary\\n{executive_summary}\\n\\n## Technical Context\\n{technical_context}\\n\\n## Current Status\\n{current_status}\\n\\n## Critical Dependencies\\n{dependencies}\\n\\n## Next Steps\\n{next_steps}\\n\\n## Knowledge Transfer\\n{knowledge_transfer}\\n\\n## Handoff Checklist\\n{checklist}"
       }
     ]
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "author": "idfw",
+    "created": "2026-02-19",
+    "updated": "2026-02-19T00:00:00Z"
   }
 }

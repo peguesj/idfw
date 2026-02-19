@@ -153,13 +153,14 @@ class SchemaRegistry:
         Get a schema by namespace and name
 
         Args:
-            namespace: Schema namespace
+            namespace: Schema namespace (string or enum)
             name: Schema name
 
         Returns:
             Schema definition or None if not found
         """
-        key = f"{namespace}:{name}"
+        namespace_value = namespace.value if hasattr(namespace, 'value') else namespace
+        key = f"{namespace_value}:{name}"
         return self.schemas.get(key)
 
     def list_schemas(

@@ -20,8 +20,15 @@ from datetime import datetime
 # Add parent directory to path for imports
 sys.path.append(str(Path(__file__).parent.parent))
 
-from agents.orchestrator_agent import OrchestratorAgent
-from agents.base_agent import LinearConfig, MessageBusConfig
+try:
+    from agents.cdia.orchestrator_agent import OrchestratorAgent
+except ImportError:
+    OrchestratorAgent = None
+try:
+    from agents.base_agent import LinearConfig, MessageBusConfig
+except ImportError:
+    LinearConfig = None
+    MessageBusConfig = None
 from services.apm_client import register_agent, heartbeat, notify
 
 # Configure logging

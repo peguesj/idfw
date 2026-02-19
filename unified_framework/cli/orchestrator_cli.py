@@ -22,8 +22,14 @@ import redis
 sys.path.append(str(Path(__file__).parent.parent))
 
 from services.orchestrator_service import OrchestratorService
-from agents.orchestrator_agent import OrchestratorAgent
-from agents.base_agent import MessagePriority
+try:
+    from agents.cdia.orchestrator_agent import OrchestratorAgent
+except ImportError:
+    OrchestratorAgent = None
+try:
+    from agents.base_agent import MessagePriority
+except ImportError:
+    MessagePriority = None
 
 
 class OrchestratorCLI:

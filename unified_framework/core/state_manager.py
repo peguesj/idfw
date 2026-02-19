@@ -605,6 +605,12 @@ class StateManager:
             return False
 
         async with self._lock:
+            # Clear persisted keys not in snapshot
+            current_keys = set(self.variables.keys())
+            snapshot_keys = set(snapshot.variables.keys())
+            for key in current_keys - snapshot_keys:
+                await self.persistence.delete(key)
+
             self.variables = snapshot.variables.copy()
 
             # Clear cache
