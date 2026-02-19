@@ -1,0 +1,7 @@
+setup.py
+liightbulb.egg-info/PKG-INFO
+liightbulb.egg-info/SOURCES.txt
+liightbulb.egg-info/dependency_links.txt
+liightbulb.egg-info/entry_points.txt
+liightbulb.egg-info/requires.txt
+liightbulb.egg-info/top_level.txt

@@ -17,9 +17,20 @@ import jsonschema
 import yaml
 from pydantic import BaseModel, Field, ConfigDict, field_validator
 
-
 # Configure logging
 logger = logging.getLogger(__name__)
+
+# Import converters if available (after logger is defined)
+try:
+    from .converters import (
+        IDFWToFORCEConverter,
+        FORCEToIDFWConverter,
+        BidirectionalConverter
+    )
+    CONVERTERS_AVAILABLE = True
+except ImportError:
+    CONVERTERS_AVAILABLE = False
+    logger.warning("Converters module not available")
 
 
 class SchemaFormat(str, Enum):
@@ -142,13 +153,14 @@ class SchemaRegistry:
         Get a schema by namespace and name
 
         Args:
-            namespace: Schema namespace
+            namespace: Schema namespace (string or enum)
             name: Schema name
 
         Returns:
             Schema definition or None if not found
         """
-        key = f"{namespace}:{name}"
+        namespace_value = namespace.value if hasattr(namespace, 'value') else namespace
+        key = f"{namespace_value}:{name}"
         return self.schemas.get(key)
 
     def list_schemas(
@@ -222,7 +234,14 @@ class SchemaUnifier:
             registry: Schema registry
         """
         self.registry = registry
-        logger.info("Initialized schema unifier")
+        
+        # Initialize converters if available
+        self.bidirectional_converter = None
+        if CONVERTERS_AVAILABLE:
+            self.bidirectional_converter = BidirectionalConverter()
+            logger.info("Initialized schema unifier with converters")
+        else:
+            logger.info("Initialized schema unifier without converters")
 
     def validate(
         self,
@@ -456,6 +475,81 @@ class SchemaUnifier:
         score = 0.6 * field_coverage + 0.4 * required_coverage
 
         return score
+    
+    def convert_idfw_to_force(self, idfw_data: Dict[str, Any]) -> Optional[Any]:
+        """
+        Convert IDFW document to FORCE tool using bidirectional converter
+        
+        Args:
+            idfw_data: IDFW document data
+            
+        Returns:
+            FORCETool object or None if converters not available
+        """
+        if not self.bidirectional_converter:
+            logger.warning("Bidirectional converter not available")
+            return None
+        
+        try:
+            return self.bidirectional_converter.convert(idfw_data, "idfw", "force")
+        except Exception as e:
+            logger.error(f"Error converting IDFW to FORCE: {e}")
+            return None
+    
+    def convert_force_to_idfw(self, force_data: Union[Dict[str, Any], Any]) -> Optional[Dict[str, Any]]:
+        """
+        Convert FORCE tool to IDFW document using bidirectional converter
+        
+        Args:
+            force_data: FORCE tool data or FORCETool object
+            
+        Returns:
+            IDFW document dict or None if converters not available
+        """
+        if not self.bidirectional_converter:
+            logger.warning("Bidirectional converter not available")
+            return None
+        
+        try:
+            return self.bidirectional_converter.convert(force_data, "force", "idfw")
+        except Exception as e:
+            logger.error(f"Error converting FORCE to IDFW: {e}")
+            return None
+    
+    def validate_conversion_round_trip(
+        self, 
+        data: Union[Dict[str, Any], Any],
+        source_format: str
+    ) -> tuple[bool, Optional[str]]:
+        """
+        Validate that data can be converted and converted back without loss
+        
+        Args:
+            data: Source data
+            source_format: Source format ("idfw" or "force")
+            
+        Returns:
+            Tuple of (is_valid, error_message)
+        """
+        if not self.bidirectional_converter:
+            return False, "Bidirectional converter not available"
+        
+        try:
+            return self.bidirectional_converter.validate_round_trip(data, source_format)
+        except Exception as e:
+            return False, f"Round-trip validation failed: {e}"
+    
+    def get_converter_stats(self) -> Optional[str]:
+        """
+        Get converter statistics report
+        
+        Returns:
+            Statistics report string or None if converters not available
+        """
+        if not self.bidirectional_converter:
+            return None
+        
+        return self.bidirectional_converter.get_conversion_report()
 
 
 def create_default_conversion_rules() -> List[ConversionRule]:

@@ -1,0 +1,348 @@
+2026-02-19 15:06:32,617 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:32,617 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:32,745 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:32,785 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:32,800 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:32,838 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:06:34,579 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:34,579 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:34,690 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:34,733 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:34,752 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:34,805 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:06:37,767 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:37,767 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:37,884 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:37,927 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:37,945 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:38,017 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:06:42,099 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:42,099 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:42,206 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:42,237 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:42,247 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:42,342 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:06:45,908 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:45,908 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:46,014 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:46,053 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:46,067 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:46,144 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:06:46,988 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:46,988 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:47,052 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:47,052 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:47,093 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:47,133 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:47,147 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:47,156 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:47,195 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:47,209 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:47,235 - __main__ - ERROR - Error cataloging resources: Failed to store catalog data: Expecting value: line 60207 column 27 (char 2143357)
+2026-02-19 15:06:47,259 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:06:47,612 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:47,612 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:47,720 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:47,764 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:47,779 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:47,829 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:47,829 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:47,922 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:06:47,940 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:47,978 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:47,991 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:48,144 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:06:48,249 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:06:48,249 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:06:48,365 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:06:48,402 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:06:48,416 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:06:48,583 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:07:40,180 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:07:40,181 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:07:40,322 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:07:40,356 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:07:40,370 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:07:40,553 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:10:13,275 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:10:13,275 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:10:13,698 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:10:13,838 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:10:13,879 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:10:14,372 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:10:18,362 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:10:18,362 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:10:18,616 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:10:18,701 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:10:18,726 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:10:19,042 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:10:28,040 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:10:28,040 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:10:28,308 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:10:28,391 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:10:28,424 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:10:28,701 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:10:48,399 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:10:48,399 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:10:48,683 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:10:48,777 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:10:48,802 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:10:49,130 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:20,836 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:20,836 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:20,953 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:20,985 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:20,995 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:21,144 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:21,144 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:21,256 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:21,280 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:21,292 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:21,304 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:21,388 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:21,388 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:21,506 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:21,551 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:21,564 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:21,570 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:21,924 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:25,018 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:25,018 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:25,123 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:25,155 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:25,166 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:25,453 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:26,942 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:26,942 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:27,048 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:27,081 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:27,091 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:27,258 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:27,258 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:27,361 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:27,366 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:27,399 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:27,410 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:27,595 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:27,595 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:27,703 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:27,704 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:27,738 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:27,750 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:28,073 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:30,005 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:30,005 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:30,115 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:30,151 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:30,163 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:30,473 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:30,992 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:30,992 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:31,131 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:31,146 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:31,146 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:31,168 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:31,183 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:31,267 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:31,304 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:31,321 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:31,355 - __main__ - ERROR - Error cataloging resources: Failed to store catalog data: Expecting ',' delimiter: line 151168 column 55 (char 5391229)
+2026-02-19 15:25:31,382 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:31,382 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:31,492 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:31,528 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:31,540 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:31,540 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:31,935 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:32,534 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:32,534 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:32,638 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:32,675 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:32,697 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:33,035 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:37,798 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:37,798 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:37,909 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:37,946 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:37,957 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:38,009 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:38,009 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:38,116 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:38,151 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:38,162 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:38,201 - __main__ - ERROR - Error cataloging resources: Failed to store catalog data: Expecting ',' delimiter: line 223379 column 35 (char 7984499)
+2026-02-19 15:25:38,368 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:40,833 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:40,833 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:40,939 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:40,970 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:40,980 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:41,384 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:42,410 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:42,410 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:42,520 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:42,551 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:42,564 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:42,981 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:43,469 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:43,469 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:43,575 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:43,606 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:43,618 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:44,047 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:45,909 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:45,909 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:46,015 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:46,050 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:46,063 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:46,103 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:46,104 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:46,210 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:46,243 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:46,254 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:46,289 - __main__ - ERROR - Error cataloging resources: Failed to store catalog data: Expecting property name enclosed in double quotes: line 208798 column 14 (char 7460867)
+2026-02-19 15:25:46,509 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:48,434 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:48,434 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:48,542 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:48,574 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:48,584 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:48,719 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:48,719 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:48,827 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:48,859 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:48,870 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:48,920 - __main__ - ERROR - Error cataloging resources: Failed to store catalog data: Expecting ',' delimiter: line 343511 column 34 (char 12287285)
+2026-02-19 15:25:49,029 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:50,777 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:50,777 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:50,880 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:50,911 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:50,922 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:51,379 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:54,518 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:54,518 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:54,627 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:54,662 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:54,672 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:55,129 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:25:56,171 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:25:56,171 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:25:56,278 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:25:56,309 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:25:56,319 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:25:56,810 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:00,702 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:00,703 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:00,808 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:00,839 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:00,848 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:01,351 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:06,192 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:06,192 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:06,329 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:06,379 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:06,395 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:06,996 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:09,839 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:09,839 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:09,974 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:10,016 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:10,030 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:10,250 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:10,250 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:10,383 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:10,427 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:10,441 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:10,512 - __main__ - ERROR - Error cataloging resources: Failed to store catalog data: Expecting ',' delimiter: line 485078 column 55 (char 17391788)
+2026-02-19 15:26:10,592 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:14,414 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:14,414 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:14,613 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:14,668 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:14,683 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:15,507 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:17,181 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:17,181 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:17,299 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:17,334 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:17,345 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:18,189 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:19,776 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:19,776 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:19,903 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:19,946 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:19,963 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:20,561 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:25,503 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:25,504 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:25,622 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:25,668 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:25,688 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:26,346 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:36,503 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:36,503 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:36,612 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:36,649 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:36,660 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:37,356 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:42,669 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:42,669 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:42,779 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:42,810 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:42,822 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:43,438 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:46,799 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:46,799 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:46,948 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:46,987 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:47,003 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:47,664 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:26:53,078 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:26:53,078 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:26:53,183 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:26:53,214 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:26:53,224 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:26:53,842 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:28:48,565 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:28:48,566 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:28:48,690 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:28:48,721 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:28:48,731 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:28:49,631 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:30:35,606 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:30:35,606 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:30:35,606 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:30:35,606 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:30:35,778 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:30:35,778 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:30:35,821 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:30:35,821 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:30:35,836 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:30:35,836 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:30:36,750 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:30:36,752 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:34:56,888 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:34:56,888 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:34:57,042 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:34:57,079 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:34:57,090 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:34:57,409 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:34:57,409 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:34:57,514 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:34:57,547 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:34:57,559 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:34:57,601 - __main__ - ERROR - Error cataloging resources: Failed to store catalog data: Expecting ',' delimiter: line 235306 column 55 (char 8401656)
+2026-02-19 15:34:58,107 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json
+2026-02-19 15:35:03,235 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:35:03,236 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:35:03,341 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/wiki
+2026-02-19 15:35:03,344 - __main__ - INFO - Cataloging file resources
+2026-02-19 15:35:03,350 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:35:03,390 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:35:03,404 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:35:03,458 - __main__ - INFO - Cataloging directory structure
+2026-02-19 15:35:03,498 - __main__ - INFO - Cataloging dependencies
+2026-02-19 15:35:03,513 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 15:35:03,558 - __main__ - ERROR - Error cataloging resources: Failed to store catalog data: Expecting value: line 1 column 1 (char 0)
+2026-02-19 15:35:04,622 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/wiki/.claude/hooks/data/resource_catalog.json

@@ -1,0 +1,51 @@
+// Version: 2.1.1
+// Author: Jeremiah Pegues <jeremiah@pegues.io>
+// License: MIT
+// Schema Documentation: Defines schema for Idea Diagram Configurations. References IDFW.schema.json for related properties.
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", // General schema reference
+  "$id": "https://example.com/IDDC.schema.json", // Unique identifier
+  "title": "IDDC", // Refers to IDFW.schema.json > properties.iddcs
+  "description": "Schema definition for an Idea Diagram Configuration (IDDC)", // Refers to IDFW.schema.json > properties.iddcs
+  "type": "object",
+  "properties": {
+    "diagId": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddcs > diagId
+    },
+    "diagramName": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddcs > diagramName
+    },
+    "typeTool": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddcs > typeTool
+    },
+    "diagramType": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddcs > diagramType
+    },
+    "generatorLibId": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddcs > generatorLibId
+    },
+    "purposeDescription": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddcs > purposeDescription
+    },
+    "relevantSection": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddcs > relevantSection
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last diagram update" // Refers to IDFW.schema.json > properties.iddcs > lastUpdated
+    },
+    "diagramStatus": {
+      "type": "string",
+      "description": "Current status of the diagram (draft, finalized, etc.)" // Refers to IDFW.schema.json > properties.iddcs > diagramStatus
+    }
+  },
+  "required": [
+    "diagId", // Required property
+    "diagramName", // Required property
+    "typeTool" // Required property
+  ],
+  "version": "2.1.1", // Schema version
+  "updated": "2025-01-01" // Last update timestamp
+}

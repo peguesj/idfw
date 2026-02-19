@@ -1,0 +1,273 @@
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idfwu.dev/schemas/force/monitoring-dashboard.json",
+  "title": "FORCE Monitoring Dashboard Component",
+  "description": "Comprehensive monitoring dashboard with granular widgets and performance tracing",
+  "type": "object",
+  "required": ["component_id", "type", "version", "frameworks", "capabilities", "configuration"],
+  "properties": {
+    "component_id": {
+      "type": "string",
+      "const": "monitoring-dashboard",
+      "description": "Unique identifier for the monitoring dashboard component"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["visualization", "monitoring", "observability"],
+      "default": "visualization"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "default": "1.0.0"
+    },
+    "frameworks": {
+      "type": "object",
+      "required": ["primary", "secondary", "ui"],
+      "properties": {
+        "primary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["OpenTelemetry", "Grafana", "Prometheus"]
+          },
+          "minItems": 1
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["Jaeger", "ELK Stack", "StatsD", "Fluentd"]
+          }
+        },
+        "ui": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["Material Design", "IBM Carbon", "Ant Design", "Clarity", "Lightning"]
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "required": ["metrics", "visualization", "integration"],
+      "properties": {
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "golden_signals": {
+              "type": "boolean",
+              "description": "Support for Google's Four Golden Signals"
+            },
+            "red_method": {
+              "type": "boolean",
+              "description": "Support for RED Method (Rate, Errors, Duration)"
+            },
+            "use_method": {
+              "type": "boolean",
+              "description": "Support for USE Method (Utilization, Saturation, Errors)"
+            },
+            "custom_metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "type": {"type": "string", "enum": ["counter", "gauge", "histogram", "summary"]},
+                  "unit": {"type": "string"},
+                  "aggregation": {"type": "string", "enum": ["sum", "avg", "min", "max", "p50", "p95", "p99"]}
+                }
+              }
+            }
+          }
+        },
+        "visualization": {
+          "type": "object",
+          "properties": {
+            "real_time": {"type": "boolean", "default": true},
+            "historical": {"type": "boolean", "default": true},
+            "predictive": {"type": "boolean", "default": false},
+            "interactive": {"type": "boolean", "default": true},
+            "export": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["png", "svg", "pdf", "json", "csv"]
+              }
+            }
+          }
+        },
+        "integration": {
+          "type": "object",
+          "properties": {
+            "otlp": {"type": "boolean", "description": "OpenTelemetry Protocol support"},
+            "prometheus": {"type": "boolean", "description": "Prometheus scraping support"},
+            "custom": {"type": "boolean", "description": "Custom integration support"},
+            "webhook": {"type": "boolean", "description": "Webhook integration"},
+            "linear": {"type": "boolean", "description": "Linear issue tracking integration"}
+          }
+        },
+        "widgets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "type", "position"],
+            "properties": {
+              "id": {"type": "string"},
+              "type": {
+                "type": "string",
+                "enum": [
+                  "metric-card", "chart-line", "chart-bar", "chart-pie",
+                  "gauge", "heatmap", "table", "log-viewer", "trace-tree",
+                  "flame-graph", "3d-graph", "timeline"
+                ]
+              },
+              "position": {
+                "type": "object",
+                "properties": {
+                  "x": {"type": "integer", "minimum": 0},
+                  "y": {"type": "integer", "minimum": 0},
+                  "width": {"type": "integer", "minimum": 1},
+                  "height": {"type": "integer", "minimum": 1}
+                }
+              },
+              "config": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "refresh_interval": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 60000,
+          "default": 5000,
+          "description": "Dashboard refresh interval in milliseconds"
+        },
+        "retention_period": {
+          "type": "string",
+          "pattern": "^\\d+[hdwmy]$",
+          "default": "30d",
+          "description": "Data retention period"
+        },
+        "sampling_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.1,
+          "description": "Telemetry sampling rate"
+        },
+        "alert_rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "condition", "action"],
+            "properties": {
+              "name": {"type": "string"},
+              "condition": {
+                "type": "object",
+                "properties": {
+                  "metric": {"type": "string"},
+                  "operator": {"type": "string", "enum": [">", "<", ">=", "<=", "==", "!="]},
+                  "threshold": {"type": "number"},
+                  "duration": {"type": "string", "pattern": "^\\d+[smh]$"}
+                }
+              },
+              "action": {
+                "type": "object",
+                "properties": {
+                  "type": {"type": "string", "enum": ["notify", "scale", "restart", "custom"]},
+                  "target": {"type": "string"},
+                  "parameters": {"type": "object"}
+                }
+              }
+            }
+          }
+        },
+        "scope_locks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "widget_id": {"type": "string"},
+              "locked_to": {"type": "string", "enum": ["task", "agent", "trace", "metric"]},
+              "filter": {"type": "object"}
+            }
+          }
+        },
+        "theme": {
+          "type": "string",
+          "enum": ["dark", "light", "midnight", "high-contrast"],
+          "default": "dark"
+        }
+      }
+    },
+    "hooks": {
+      "type": "object",
+      "properties": {
+        "telemetry": {
+          "type": "object",
+          "properties": {
+            "enabled": {"type": "boolean", "default": true},
+            "collector_endpoint": {"type": "string", "format": "uri"},
+            "batch_size": {"type": "integer", "default": 100},
+            "flush_interval": {"type": "integer", "default": 5000}
+          }
+        },
+        "performance": {
+          "type": "object",
+          "properties": {
+            "track_hooks": {"type": "boolean", "default": true},
+            "track_agents": {"type": "boolean", "default": true},
+            "track_tasks": {"type": "boolean", "default": true},
+            "baselines": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "avg_duration_ms": {"type": "number"},
+                  "memory_delta_mb": {"type": "number"},
+                  "cpu_threshold": {"type": "number"}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["component_id", "version"],
+        "properties": {
+          "component_id": {"type": "string"},
+          "version": {"type": "string"},
+          "optional": {"type": "boolean", "default": false}
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "author": {"type": "string"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "updated_at": {"type": "string", "format": "date-time"},
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "documentation_url": {"type": "string", "format": "uri"},
+        "license": {"type": "string"}
+      }
+    }
+  }
+}

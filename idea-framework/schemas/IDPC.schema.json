@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/idpc.schema.json",
+  "title": "IDPC",
+  "description": "Stores environment config for IDEA-based projects",
+  "type": "object",
+  "properties": {
+    "docId": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "projectName": {
+      "type": "string"
+    },
+    "apiKeys": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "llmConfigs": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "topP": {
+          "type": "number"
+        },
+        "maxTokens": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": true
+    },
+    "defaultGenerators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "typeTools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tool": {
+            "type": "string"
+          },
+          "subType": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "tool"
+        ]
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "security": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "projectActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifactId": {
+            "type": "string"
+          },
+          "actionType": {
+            "type": "string"
+          },
+          "inputRefs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "actionParams": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "artifactId",
+          "actionType"
+        ]
+      }
+    },
+    "versionControl": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "changeDescription": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "revision",
+          "date",
+          "changeDescription"
+        ]
+      }
+    }
+  },
+  "required": [
+    "docId",
+    "version"
+  ],
+  "version": "2.1.1",
+  "updated": "2025-01-01"
+}
