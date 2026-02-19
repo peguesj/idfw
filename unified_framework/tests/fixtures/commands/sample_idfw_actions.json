@@ -1,0 +1,126 @@
+{
+  "actions": [
+    {
+      "command": "@define",
+      "description": "Basic define action",
+      "expected": {
+        "prefix": "@",
+        "name": "define",
+        "args": [],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "@generate document",
+      "description": "Generate action with type argument",
+      "expected": {
+        "prefix": "@",
+        "name": "generate",
+        "args": ["document"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "@validate schema.json",
+      "description": "Validate action with file path",
+      "expected": {
+        "prefix": "@",
+        "name": "validate",
+        "args": ["schema.json"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "@diagram flowchart format=svg",
+      "description": "Diagram action with type and format",
+      "expected": {
+        "prefix": "@",
+        "name": "diagram",
+        "args": ["flowchart"],
+        "kwargs": {
+          "format": "svg"
+        }
+      }
+    },
+    {
+      "command": "@variable set name=value",
+      "description": "Variable action with operation and assignment",
+      "expected": {
+        "prefix": "@",
+        "name": "variable",
+        "args": ["set"],
+        "kwargs": {
+          "name": "value"
+        }
+      }
+    },
+    {
+      "command": "@project create name=MyProject template=basic",
+      "description": "Project action with multiple parameters",
+      "expected": {
+        "prefix": "@",
+        "name": "project",
+        "args": ["create"],
+        "kwargs": {
+          "name": "MyProject",
+          "template": "basic"
+        }
+      }
+    },
+    {
+      "command": "@document new type=specification version=1.0.0",
+      "description": "Document action with type and version",
+      "expected": {
+        "prefix": "@",
+        "name": "document",
+        "args": ["new"],
+        "kwargs": {
+          "type": "specification",
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "command": "@template apply base-template",
+      "description": "Template action with template name",
+      "expected": {
+        "prefix": "@",
+        "name": "template",
+        "args": ["apply", "base-template"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "@export output=result.json format=json",
+      "description": "Export action with output file and format",
+      "expected": {
+        "prefix": "@",
+        "name": "export",
+        "args": [],
+        "kwargs": {
+          "output": "result.json",
+          "format": "json"
+        }
+      }
+    },
+    {
+      "command": "@diagram sequence actors=3 interactions=5",
+      "description": "Diagram action with numeric parameters",
+      "expected": {
+        "prefix": "@",
+        "name": "diagram",
+        "args": ["sequence"],
+        "kwargs": {
+          "actors": "3",
+          "interactions": "5"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "description": "Sample IDFW actions for testing",
+    "version": "1.0.0",
+    "total_actions": 10,
+    "namespace": "idfw"
+  }
+}

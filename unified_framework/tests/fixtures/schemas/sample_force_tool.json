@@ -1,0 +1,31 @@
+{
+  "name": "SampleTool",
+  "description": "A sample FORCE tool for testing",
+  "parameters": {
+    "input_file": {
+      "type": "string",
+      "description": "Path to input file",
+      "required": true
+    },
+    "output_format": {
+      "type": "string",
+      "description": "Output format (json, yaml, xml)",
+      "default": "json"
+    },
+    "verbose": {
+      "type": "boolean",
+      "description": "Enable verbose logging",
+      "default": false
+    }
+  },
+  "execution": {
+    "command": "sample_tool",
+    "timeout": 300,
+    "retry_count": 3
+  },
+  "metadata": {
+    "version": "2.1.0",
+    "author": "FORCE Team",
+    "category": "utility"
+  }
+}

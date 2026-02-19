@@ -1,0 +1,134 @@
+[
+  {
+    "id": "req-001",
+    "result": {
+      "tools": [
+        {
+          "name": "idfw_create_document",
+          "description": "Create a new IDFW document with specified type and content",
+          "category": "idfw"
+        },
+        {
+          "name": "force_validate_schema",
+          "description": "Validate a schema against Force validation rules",
+          "category": "force"
+        },
+        {
+          "name": "unified_execute_command",
+          "description": "Execute a unified framework command",
+          "category": "unified"
+        }
+      ]
+    },
+    "error": null
+  },
+  {
+    "id": "req-002",
+    "result": {
+      "tools": [
+        {
+          "name": "idfw_create_document",
+          "description": "Create a new IDFW document with specified type and content",
+          "category": "idfw"
+        }
+      ]
+    },
+    "error": null
+  },
+  {
+    "id": "req-003",
+    "result": {
+      "name": "idfw_create_document",
+      "description": "Create a new IDFW document with specified type and content",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "document_type": {
+            "type": "string",
+            "description": "Type of IDFW document to create",
+            "enum": ["pdd", "technical_spec", "architecture", "test_plan"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Document title"
+          },
+          "content": {
+            "type": "object",
+            "description": "Document content structure"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional metadata"
+          }
+        },
+        "required": ["document_type", "title", "content"]
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "req-004",
+    "result": {
+      "status": "success",
+      "command": "generate",
+      "output": "Schema generated successfully",
+      "files_created": [
+        "./schemas/idfw_document.json",
+        "./schemas/force_tool.json"
+      ]
+    },
+    "error": null
+  },
+  {
+    "id": "req-005",
+    "result": {
+      "task_id": "task-789",
+      "agent_id": "agent-001",
+      "description": "Implement unified state management",
+      "priority": "high",
+      "status": "pending",
+      "created_at": "2025-09-29T12:00:00Z"
+    },
+    "error": null
+  },
+  {
+    "id": "req-006",
+    "result": {
+      "converted_schema": {
+        "type": "object",
+        "attributes": {
+          "name": {"type": "string"},
+          "age": {"type": "number"}
+        }
+      },
+      "source_format": "idfw",
+      "target_format": "force",
+      "validation_status": "valid"
+    },
+    "error": null
+  },
+  {
+    "id": "req-error-001",
+    "result": null,
+    "error": {
+      "code": -32601,
+      "message": "Method not found: unknown/method"
+    }
+  },
+  {
+    "id": "req-error-002",
+    "result": null,
+    "error": {
+      "code": -32602,
+      "message": "Invalid parameter: tool_name is required"
+    }
+  },
+  {
+    "id": "req-error-003",
+    "result": null,
+    "error": {
+      "code": -32603,
+      "message": "Tool execution failed: ValueError: Invalid input"
+    }
+  }
+]

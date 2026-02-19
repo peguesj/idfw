@@ -1,0 +1,180 @@
+{
+  "commands": [
+    {
+      "command": "/agent-backend",
+      "description": "Basic agent backend command",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-backend",
+        "args": [],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/agent-frontend",
+      "description": "Agent frontend command",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-frontend",
+        "args": [],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/deploy-agent-team development",
+      "description": "Deploy agent team for development department",
+      "expected": {
+        "prefix": "/",
+        "name": "deploy-agent-team",
+        "args": ["development"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/agent-status --active",
+      "description": "Agent status with active filter",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-status",
+        "args": ["--active"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/agent-sync --force",
+      "description": "Force agent synchronization",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-sync",
+        "args": ["--force"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/fix-schema-conflicts",
+      "description": "Fix schema conflicts command",
+      "expected": {
+        "prefix": "/",
+        "name": "fix-schema-conflicts",
+        "args": [],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/implement-unified-cli",
+      "description": "Implement unified CLI command",
+      "expected": {
+        "prefix": "/",
+        "name": "implement-unified-cli",
+        "args": [],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/setup-mcp-server port=3000",
+      "description": "Setup MCP server with port configuration",
+      "expected": {
+        "prefix": "/",
+        "name": "setup-mcp-server",
+        "args": [],
+        "kwargs": {
+          "port": "3000"
+        }
+      }
+    },
+    {
+      "command": "/agent-product-owner",
+      "description": "Product owner agent command",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-product-owner",
+        "args": [],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/agent-qa tests=unit coverage=80",
+      "description": "QA agent with test parameters",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-qa",
+        "args": [],
+        "kwargs": {
+          "tests": "unit",
+          "coverage": "80"
+        }
+      }
+    },
+    {
+      "command": "/agent-devops environment=production region=us-west-2",
+      "description": "DevOps agent with deployment parameters",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-devops",
+        "args": [],
+        "kwargs": {
+          "environment": "production",
+          "region": "us-west-2"
+        }
+      }
+    },
+    {
+      "command": "/agent-security audit --strict",
+      "description": "Security agent with audit subcommand",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-security",
+        "args": ["audit", "--strict"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/agent-documentation generate=api format=markdown",
+      "description": "Documentation agent with generation parameters",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-documentation",
+        "args": [],
+        "kwargs": {
+          "generate": "api",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "command": "/agent-performance profile --detailed",
+      "description": "Performance agent with profiling",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-performance",
+        "args": ["profile", "--detailed"],
+        "kwargs": {}
+      }
+    },
+    {
+      "command": "/agent-integrator systems=idfw,force mode=bidirectional",
+      "description": "Integrator agent with multiple systems",
+      "expected": {
+        "prefix": "/",
+        "name": "agent-integrator",
+        "args": [],
+        "kwargs": {
+          "systems": "idfw,force",
+          "mode": "bidirectional"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "description": "Sample slash commands for agent operations",
+    "version": "1.0.0",
+    "total_commands": 15,
+    "agent_types": [
+      "product",
+      "project",
+      "development",
+      "integration",
+      "quality"
+    ]
+  }
+}

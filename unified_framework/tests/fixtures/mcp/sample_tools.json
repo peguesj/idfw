@@ -1,0 +1,212 @@
+[
+  {
+    "name": "idfw_create_document",
+    "description": "Create a new IDFW document with specified type and content",
+    "category": "idfw",
+    "parameters": [
+      {
+        "name": "document_type",
+        "type": "string",
+        "description": "Type of IDFW document to create",
+        "required": true,
+        "enum": ["pdd", "technical_spec", "architecture", "test_plan"]
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "Document title",
+        "required": true
+      },
+      {
+        "name": "content",
+        "type": "object",
+        "description": "Document content structure",
+        "required": true
+      },
+      {
+        "name": "metadata",
+        "type": "object",
+        "description": "Optional metadata",
+        "required": false
+      }
+    ],
+    "return_type": "object",
+    "examples": [
+      {
+        "document_type": "pdd",
+        "title": "New Feature Planning",
+        "content": {
+          "overview": "Feature overview",
+          "requirements": ["req1", "req2"]
+        }
+      }
+    ]
+  },
+  {
+    "name": "force_validate_schema",
+    "description": "Validate a schema against Force validation rules",
+    "category": "force",
+    "parameters": [
+      {
+        "name": "schema",
+        "type": "object",
+        "description": "Schema to validate",
+        "required": true
+      },
+      {
+        "name": "strict_mode",
+        "type": "boolean",
+        "description": "Enable strict validation",
+        "required": false,
+        "default": false
+      }
+    ],
+    "return_type": "object",
+    "examples": [
+      {
+        "schema": {
+          "type": "object",
+          "properties": {}
+        },
+        "strict_mode": true
+      }
+    ]
+  },
+  {
+    "name": "unified_execute_command",
+    "description": "Execute a unified framework command",
+    "category": "unified",
+    "parameters": [
+      {
+        "name": "command",
+        "type": "string",
+        "description": "Command to execute",
+        "required": true
+      },
+      {
+        "name": "args",
+        "type": "array",
+        "description": "Command arguments",
+        "required": false
+      },
+      {
+        "name": "options",
+        "type": "object",
+        "description": "Command options",
+        "required": false
+      }
+    ],
+    "return_type": "object",
+    "examples": [
+      {
+        "command": "generate",
+        "args": ["schema"],
+        "options": {
+          "output": "./schemas"
+        }
+      }
+    ]
+  },
+  {
+    "name": "agent_create_task",
+    "description": "Create a new task for an agent",
+    "category": "agent",
+    "parameters": [
+      {
+        "name": "agent_id",
+        "type": "string",
+        "description": "Target agent ID",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "Task description",
+        "required": true
+      },
+      {
+        "name": "priority",
+        "type": "string",
+        "description": "Task priority",
+        "required": false,
+        "enum": ["low", "normal", "high", "urgent"],
+        "default": "normal"
+      },
+      {
+        "name": "metadata",
+        "type": "object",
+        "description": "Task metadata",
+        "required": false
+      }
+    ],
+    "return_type": "object",
+    "examples": [
+      {
+        "agent_id": "agent-001",
+        "description": "Implement feature X",
+        "priority": "high"
+      }
+    ]
+  },
+  {
+    "name": "schema_convert",
+    "description": "Convert between IDFW and Force schema formats",
+    "category": "schema",
+    "parameters": [
+      {
+        "name": "schema",
+        "type": "object",
+        "description": "Schema to convert",
+        "required": true
+      },
+      {
+        "name": "source_format",
+        "type": "string",
+        "description": "Source schema format",
+        "required": true,
+        "enum": ["idfw", "force"]
+      },
+      {
+        "name": "target_format",
+        "type": "string",
+        "description": "Target schema format",
+        "required": true,
+        "enum": ["idfw", "force"]
+      }
+    ],
+    "return_type": "object",
+    "examples": [
+      {
+        "schema": {},
+        "source_format": "idfw",
+        "target_format": "force"
+      }
+    ]
+  },
+  {
+    "name": "command_parse",
+    "description": "Parse a command string into structured format",
+    "category": "command",
+    "parameters": [
+      {
+        "name": "command_string",
+        "type": "string",
+        "description": "Command string to parse",
+        "required": true
+      },
+      {
+        "name": "command_prefix",
+        "type": "string",
+        "description": "Expected command prefix ($, @, #, /)",
+        "required": false
+      }
+    ],
+    "return_type": "object",
+    "examples": [
+      {
+        "command_string": "$yung generate schema",
+        "command_prefix": "$"
+      }
+    ]
+  }
+]

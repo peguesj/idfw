@@ -1,0 +1,71 @@
+{
+  "snapshot_id": "snapshot_20250929_120000",
+  "timestamp": "2025-09-29T12:00:00.000000",
+  "description": "State snapshot before major system upgrade",
+  "variables": {
+    "global_config": {
+      "key": "global_config",
+      "value": {
+        "environment": "production",
+        "debug": false,
+        "max_retries": 3
+      },
+      "variable_type": "immutable",
+      "scope": "global",
+      "version": 1,
+      "created_at": "2025-09-29T10:00:00.000000",
+      "updated_at": "2025-09-29T10:00:00.000000",
+      "updated_by": "system",
+      "metadata": {
+        "source": "config_loader"
+      },
+      "tags": ["production", "config"]
+    },
+    "project_name": {
+      "key": "project_name",
+      "value": "IDFWU - IDEA Framework Unified",
+      "variable_type": "project",
+      "scope": "project",
+      "version": 1,
+      "created_at": "2025-09-29T10:00:00.000000",
+      "updated_at": "2025-09-29T10:00:00.000000",
+      "updated_by": "project_manager",
+      "metadata": {
+        "project_id": "4d649a6501f7"
+      },
+      "tags": ["project"]
+    },
+    "agent_status": {
+      "key": "agent_status",
+      "value": "active",
+      "variable_type": "mutable",
+      "scope": "agent",
+      "version": 2,
+      "created_at": "2025-09-29T11:00:00.000000",
+      "updated_at": "2025-09-29T11:30:00.000000",
+      "updated_by": "agent-001",
+      "metadata": {
+        "last_heartbeat": "2025-09-29T11:30:00Z"
+      },
+      "tags": ["agent", "status"]
+    },
+    "feature_flags": {
+      "key": "feature_flags",
+      "value": {
+        "enable_new_ui": false,
+        "enable_beta_features": false,
+        "enable_debug_mode": false
+      },
+      "variable_type": "mutable",
+      "scope": "global",
+      "version": 5,
+      "created_at": "2025-09-29T09:00:00.000000",
+      "updated_at": "2025-09-29T11:00:00.000000",
+      "updated_by": "admin",
+      "metadata": {
+        "last_modified": "2025-09-29T11:00:00Z"
+      },
+      "tags": ["config", "feature_flags"]
+    }
+  }
+}

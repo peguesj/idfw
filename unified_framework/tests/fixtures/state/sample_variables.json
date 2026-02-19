@@ -1,0 +1,127 @@
+[
+  {
+    "key": "global_config",
+    "value": {
+      "environment": "production",
+      "debug": false,
+      "max_retries": 3
+    },
+    "variable_type": "immutable",
+    "scope": "global",
+    "version": 1,
+    "updated_by": "system",
+    "metadata": {
+      "source": "config_loader",
+      "priority": "critical"
+    },
+    "tags": ["production", "config", "immutable"]
+  },
+  {
+    "key": "project_name",
+    "value": "IDFWU - IDEA Framework Unified",
+    "variable_type": "project",
+    "scope": "project",
+    "version": 1,
+    "updated_by": "project_manager",
+    "metadata": {
+      "project_id": "4d649a6501f7",
+      "team": "Pegues Innovations"
+    },
+    "tags": ["project", "metadata"]
+  },
+  {
+    "key": "agent_status",
+    "value": "active",
+    "variable_type": "mutable",
+    "scope": "agent",
+    "version": 3,
+    "updated_by": "agent-001",
+    "metadata": {
+      "last_heartbeat": "2025-09-29T12:00:00Z",
+      "tasks_completed": 42
+    },
+    "tags": ["agent", "status", "monitoring"]
+  },
+  {
+    "key": "session_token",
+    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+    "variable_type": "mutable",
+    "scope": "session",
+    "version": 1,
+    "updated_by": "auth_service",
+    "metadata": {
+      "expires_at": "2025-09-29T18:00:00Z",
+      "user_id": "user-123"
+    },
+    "tags": ["session", "auth", "temporary"]
+  },
+  {
+    "key": "task_result",
+    "value": {
+      "status": "completed",
+      "execution_time": 1.25,
+      "output": "Task processed successfully"
+    },
+    "variable_type": "mutable",
+    "scope": "task",
+    "version": 1,
+    "updated_by": "agent-002",
+    "metadata": {
+      "task_id": "task-456",
+      "started_at": "2025-09-29T12:00:00Z",
+      "completed_at": "2025-09-29T12:00:01Z"
+    },
+    "tags": ["task", "result"]
+  },
+  {
+    "key": "computed_metrics",
+    "value": {
+      "total_tasks": 150,
+      "success_rate": 0.95,
+      "avg_execution_time": 2.3
+    },
+    "variable_type": "computed",
+    "scope": "global",
+    "version": 5,
+    "updated_by": "metrics_calculator",
+    "metadata": {
+      "computed_at": "2025-09-29T12:00:00Z",
+      "data_window": "24h"
+    },
+    "tags": ["computed", "metrics", "analytics"]
+  },
+  {
+    "key": "document_params",
+    "value": {
+      "template": "technical_spec",
+      "format": "markdown",
+      "include_diagrams": true
+    },
+    "variable_type": "document",
+    "scope": "project",
+    "version": 2,
+    "updated_by": "doc_generator",
+    "metadata": {
+      "document_id": "doc-789",
+      "last_rendered": "2025-09-29T11:00:00Z"
+    },
+    "tags": ["document", "parameters", "template"]
+  },
+  {
+    "key": "feature_flags",
+    "value": {
+      "enable_new_ui": true,
+      "enable_beta_features": false,
+      "enable_debug_mode": false
+    },
+    "variable_type": "mutable",
+    "scope": "global",
+    "version": 8,
+    "updated_by": "admin",
+    "metadata": {
+      "last_modified": "2025-09-29T10:00:00Z",
+      "environment": "production"
+    },
+    "tags": ["config", "feature_flags", "toggles"]
+  }
+]

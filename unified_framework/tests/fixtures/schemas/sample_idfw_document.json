@@ -1,0 +1,26 @@
+{
+  "title": "Sample IDFW Document",
+  "description": "A sample document for testing IDFW schema validation",
+  "variables": {
+    "project_name": "Test Project",
+    "version": "1.0.0",
+    "author": "Test Author"
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "content": "This is an introduction section."
+    },
+    {
+      "id": "requirements",
+      "title": "Requirements",
+      "content": "This section lists requirements."
+    }
+  ],
+  "metadata": {
+    "created_at": "2025-09-29T00:00:00Z",
+    "updated_at": "2025-09-29T12:00:00Z",
+    "status": "draft"
+  }
+}

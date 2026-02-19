@@ -1,0 +1,48 @@
+[
+  {
+    "sender_id": "agent-001",
+    "receiver_id": "agent-002",
+    "message_type": "task_assignment",
+    "payload": {
+      "task_id": "task-123",
+      "description": "Implement feature X",
+      "deadline": "2025-09-30T23:59:59Z"
+    },
+    "priority": "high"
+  },
+  {
+    "sender_id": "agent-002",
+    "receiver_id": "agent-001",
+    "message_type": "task_completed",
+    "payload": {
+      "task_id": "task-123",
+      "result": {
+        "status": "success",
+        "artifacts": ["file1.py", "file2.py"]
+      }
+    },
+    "priority": "normal"
+  },
+  {
+    "sender_id": "agent-003",
+    "receiver_id": null,
+    "message_type": "broadcast_status",
+    "payload": {
+      "status": "online",
+      "capacity": 5,
+      "current_load": 2
+    },
+    "priority": "low"
+  },
+  {
+    "sender_id": "agent-004",
+    "receiver_id": "agent-001",
+    "message_type": "task_failed",
+    "payload": {
+      "task_id": "task-456",
+      "error": "Connection timeout",
+      "retry_count": 3
+    },
+    "priority": "urgent"
+  }
+]
