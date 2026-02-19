@@ -1,0 +1,426 @@
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$id": "https://idfwu.dev/schemas/force/dashboard-relationships.json",
+  "title": "Dashboard Widget Relationship Schema",
+  "description": "Defines relationships and interactions between widgets in a monitoring dashboard",
+  "type": "object",
+  "required": ["dashboardId", "version", "relationships"],
+  "properties": {
+    "dashboardId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique identifier for the dashboard"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "globalFilters": {
+      "type": "object",
+      "description": "Master filters that apply to all widgets",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "sticky": {
+          "type": "boolean",
+          "default": true,
+          "description": "Keep filters visible when scrolling"
+        },
+        "collapsible": {
+          "type": "boolean",
+          "default": true
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "type", "field"],
+            "properties": {
+              "id": {"type": "string"},
+              "type": {
+                "type": "string",
+                "enum": ["timeRange", "text", "select", "multiSelect", "range", "boolean", "custom"]
+              },
+              "field": {"type": "string"},
+              "label": {"type": "string"},
+              "defaultValue": {},
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {},
+                    "label": {"type": "string"},
+                    "icon": {"type": "string"}
+                  }
+                }
+              },
+              "validation": {
+                "type": "object",
+                "properties": {
+                  "required": {"type": "boolean"},
+                  "pattern": {"type": "string"},
+                  "min": {"type": "number"},
+                  "max": {"type": "number"}
+                }
+              }
+            }
+          }
+        },
+        "refreshControl": {
+          "type": "object",
+          "properties": {
+            "enabled": {"type": "boolean", "default": true},
+            "intervals": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "value": {"type": "integer"},
+                  "label": {"type": "string"},
+                  "unit": {
+                    "type": "string",
+                    "enum": ["ms", "s", "m", "h", "live"]
+                  }
+                }
+              },
+              "default": [
+                {"value": 0, "label": "Live", "unit": "live"},
+                {"value": 5000, "label": "5s", "unit": "ms"},
+                {"value": 30000, "label": "30s", "unit": "ms"},
+                {"value": 60000, "label": "1m", "unit": "ms"}
+              ]
+            },
+            "defaultInterval": {"type": "integer", "default": 5000}
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "description": "Define relationships between widgets",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "source", "targets"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique relationship identifier"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "drill-down",
+              "filter-cascade",
+              "scope-lock",
+              "data-sync",
+              "highlight",
+              "navigation",
+              "aggregation",
+              "parent-child",
+              "bidirectional-sync"
+            ]
+          },
+          "source": {
+            "type": "object",
+            "required": ["widgetId"],
+            "properties": {
+              "widgetId": {"type": "string"},
+              "event": {
+                "type": "string",
+                "enum": ["click", "select", "hover", "change", "refresh"]
+              },
+              "field": {"type": "string"},
+              "condition": {
+                "type": "object",
+                "properties": {
+                  "operator": {"type": "string"},
+                  "value": {}
+                }
+              }
+            }
+          },
+          "targets": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["widgetId", "action"],
+              "properties": {
+                "widgetId": {"type": "string"},
+                "action": {
+                  "type": "object",
+                  "required": ["type"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "filter",
+                        "highlight",
+                        "navigate",
+                        "refresh",
+                        "update",
+                        "show",
+                        "hide",
+                        "maximize",
+                        "focus"
+                      ]
+                    },
+                    "parameters": {
+                      "type": "object",
+                      "properties": {
+                        "field": {"type": "string"},
+                        "value": {},
+                        "operator": {"type": "string"},
+                        "transition": {
+                          "type": "object",
+                          "properties": {
+                            "duration": {"type": "integer"},
+                            "easing": {"type": "string"}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "propagate": {
+                  "type": "boolean",
+                  "default": true,
+                  "description": "Propagate action to child relationships"
+                }
+              }
+            }
+          },
+          "bidirectional": {
+            "type": "boolean",
+            "default": false
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": true
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "default": 50,
+            "description": "Execution priority for conflicting relationships"
+          }
+        }
+      }
+    },
+    "scopeLocks": {
+      "type": "array",
+      "description": "Define scope locking groups",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "widgets"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "widgets": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 2
+          },
+          "lockType": {
+            "type": "string",
+            "enum": ["inclusive", "exclusive"],
+            "default": "inclusive"
+          },
+          "scopeField": {"type": "string"},
+          "autoLock": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "drillDownPaths": {
+      "type": "array",
+      "description": "Define drill-down navigation paths",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "steps"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["level", "widget", "field"],
+              "properties": {
+                "level": {"type": "integer", "minimum": 0},
+                "widget": {"type": "string"},
+                "field": {"type": "string"},
+                "targetView": {
+                  "type": "string",
+                  "enum": ["same", "modal", "sidebar", "tab", "replace"]
+                },
+                "breadcrumb": {
+                  "type": "object",
+                  "properties": {
+                    "label": {"type": "string"},
+                    "icon": {"type": "string"}
+                  }
+                }
+              }
+            }
+          },
+          "reversible": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      }
+    },
+    "interactionGroups": {
+      "type": "array",
+      "description": "Group widgets for coordinated interactions",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "widgets", "interactions"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "widgets": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "interactions": {
+            "type": "object",
+            "properties": {
+              "synchronizedSelection": {"type": "boolean", "default": false},
+              "sharedTooltip": {"type": "boolean", "default": false},
+              "coordinatedZoom": {"type": "boolean", "default": false},
+              "linkedCursors": {"type": "boolean", "default": false}
+            }
+          }
+        }
+      }
+    },
+    "focusManagement": {
+      "type": "object",
+      "description": "Define focus behavior and tab navigation",
+      "properties": {
+        "enabled": {"type": "boolean", "default": true},
+        "defaultFocus": {"type": "string"},
+        "tabOrder": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "focusRules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "trigger": {
+                "type": "object",
+                "properties": {
+                  "widget": {"type": "string"},
+                  "event": {"type": "string"}
+                }
+              },
+              "target": {
+                "type": "object",
+                "properties": {
+                  "widget": {"type": "string"},
+                  "view": {
+                    "type": "string",
+                    "enum": ["top", "bottom", "tab", "modal"]
+                  },
+                  "scroll": {"type": "boolean", "default": true}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dataFlow": {
+      "type": "object",
+      "description": "Define data flow between widgets",
+      "properties": {
+        "pipelines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "source", "transformations", "destinations"],
+            "properties": {
+              "id": {"type": "string"},
+              "source": {
+                "type": "object",
+                "properties": {
+                  "widget": {"type": "string"},
+                  "field": {"type": "string"},
+                  "trigger": {
+                    "type": "string",
+                    "enum": ["change", "interval", "manual"]
+                  }
+                }
+              },
+              "transformations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {"type": "string"},
+                    "config": {"type": "object"}
+                  }
+                }
+              },
+              "destinations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "widget": {"type": "string"},
+                    "field": {"type": "string"},
+                    "merge": {
+                      "type": "string",
+                      "enum": ["replace", "append", "merge"],
+                      "default": "replace"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "stateManagement": {
+      "type": "object",
+      "description": "Dashboard state persistence and sharing",
+      "properties": {
+        "persistence": {
+          "type": "object",
+          "properties": {
+            "enabled": {"type": "boolean", "default": true},
+            "storage": {
+              "type": "string",
+              "enum": ["local", "session", "server", "url"],
+              "default": "local"
+            },
+            "includeFilters": {"type": "boolean", "default": true},
+            "includeLayout": {"type": "boolean", "default": true},
+            "includeWidgetState": {"type": "boolean", "default": true}
+          }
+        },
+        "sharing": {
+          "type": "object",
+          "properties": {
+            "enabled": {"type": "boolean", "default": true},
+            "generateUrl": {"type": "boolean", "default": true},
+            "includeData": {"type": "boolean", "default": false}
+          }
+        }
+      }
+    }
+  }
+}

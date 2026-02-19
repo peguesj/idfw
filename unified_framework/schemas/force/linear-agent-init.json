@@ -1,0 +1,305 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Linear Agent Initialization Schema",
+  "description": "FORCE schema for initializing Linear AI agents with OAuth2 authentication and GraphQL API access",
+  "type": "object",
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "pattern": "^linear-agent-[a-z0-9-]+$",
+      "description": "Unique identifier for the Linear agent"
+    },
+    "oauth_config": {
+      "type": "object",
+      "properties": {
+        "client_id": {
+          "type": "string",
+          "description": "OAuth2 client ID from Linear application settings"
+        },
+        "client_secret": {
+          "type": "string",
+          "description": "OAuth2 client secret (secure)"
+        },
+        "redirect_uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "OAuth2 redirect URI"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["read", "write", "issues:create", "comments:create", "admin"]
+          },
+          "description": "OAuth2 scopes for agent permissions"
+        },
+        "actor_mode": {
+          "type": "string",
+          "enum": ["user", "app"],
+          "default": "app",
+          "description": "Actor mode for actions (user or app)"
+        }
+      },
+      "required": ["client_id", "scopes"],
+      "description": "OAuth2 authentication configuration"
+    },
+    "graphql_config": {
+      "type": "object",
+      "properties": {
+        "endpoint": {
+          "type": "string",
+          "format": "uri",
+          "default": "https://api.linear.app/graphql",
+          "description": "Linear GraphQL API endpoint"
+        },
+        "rate_limits": {
+          "type": "object",
+          "properties": {
+            "requests_per_hour": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1500,
+              "default": 500,
+              "description": "API requests per hour limit"
+            },
+            "complexity_points_per_hour": {
+              "type": "integer",
+              "minimum": 1000,
+              "maximum": 250000,
+              "default": 200000,
+              "description": "Complexity points per hour limit"
+            }
+          }
+        },
+        "query_config": {
+          "type": "object",
+          "properties": {
+            "max_complexity": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "default": 1000,
+              "description": "Maximum query complexity"
+            },
+            "timeout_ms": {
+              "type": "integer",
+              "minimum": 1000,
+              "maximum": 300000,
+              "default": 30000,
+              "description": "Query timeout in milliseconds"
+            }
+          }
+        }
+      },
+      "description": "GraphQL API configuration"
+    },
+    "session_config": {
+      "type": "object",
+      "properties": {
+        "token_refresh": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic token refresh"
+        },
+        "session_timeout": {
+          "type": "integer",
+          "minimum": 3600,
+          "maximum": 86400,
+          "default": 86400,
+          "description": "Session timeout in seconds"
+        },
+        "retry_config": {
+          "type": "object",
+          "properties": {
+            "max_retries": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10,
+              "default": 3
+            },
+            "backoff_factor": {
+              "type": "number",
+              "minimum": 1.0,
+              "maximum": 5.0,
+              "default": 2.0
+            },
+            "initial_delay": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 10000,
+              "default": 1000,
+              "description": "Initial retry delay in milliseconds"
+            }
+          }
+        }
+      },
+      "description": "Session management configuration"
+    },
+    "workspace_config": {
+      "type": "object",
+      "properties": {
+        "workspace_id": {
+          "type": "string",
+          "description": "Linear workspace identifier"
+        },
+        "team_filters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Teams this agent can access"
+        },
+        "project_filters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Projects this agent can access"
+        },
+        "issue_filters": {
+          "type": "object",
+          "properties": {
+            "states": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "labels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "priorities": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4
+              }
+            }
+          }
+        }
+      },
+      "description": "Workspace access configuration"
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "issue_management": {
+          "type": "boolean",
+          "default": true,
+          "description": "Can create and update issues"
+        },
+        "comment_management": {
+          "type": "boolean",
+          "default": true,
+          "description": "Can create and manage comments"
+        },
+        "project_management": {
+          "type": "boolean",
+          "default": false,
+          "description": "Can manage projects"
+        },
+        "team_management": {
+          "type": "boolean",
+          "default": false,
+          "description": "Can manage teams"
+        },
+        "webhook_handling": {
+          "type": "boolean",
+          "default": true,
+          "description": "Can handle webhook notifications"
+        },
+        "real_time_sync": {
+          "type": "boolean",
+          "default": true,
+          "description": "Real-time synchronization enabled"
+        }
+      },
+      "description": "Agent capabilities"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable agent name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Agent description"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Agent version"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Agent creation timestamp"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        },
+        "owner": {
+          "type": "string",
+          "description": "Agent owner/creator"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Agent tags for categorization"
+        }
+      },
+      "required": ["name", "version"]
+    }
+  },
+  "required": ["agent_id", "oauth_config", "metadata"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "agent_id": "linear-agent-issue-tracker",
+      "oauth_config": {
+        "client_id": "abc123",
+        "scopes": ["read", "write", "issues:create", "comments:create"],
+        "actor_mode": "app"
+      },
+      "graphql_config": {
+        "rate_limits": {
+          "requests_per_hour": 500,
+          "complexity_points_per_hour": 200000
+        }
+      },
+      "session_config": {
+        "token_refresh": true,
+        "session_timeout": 86400
+      },
+      "workspace_config": {
+        "team_filters": ["engineering", "product"],
+        "issue_filters": {
+          "states": ["Todo", "In Progress", "Done"],
+          "priorities": [1, 2, 3]
+        }
+      },
+      "capabilities": {
+        "issue_management": true,
+        "comment_management": true,
+        "project_management": false
+      },
+      "metadata": {
+        "name": "Issue Tracker Agent",
+        "description": "Automated agent for tracking and managing Linear issues",
+        "version": "1.0.0",
+        "owner": "idfwu-system",
+        "tags": ["automation", "issue-tracking", "linear"]
+      }
+    }
+  ]
+}
