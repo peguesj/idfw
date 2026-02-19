@@ -310,9 +310,8 @@
         "variables": {
           "objectives": ["Complete project on time", "Stay within budget"]
         },
-        "instructions": { /* ...instructions... */ }
+        "instructions": {}
       }
-      // ...additional documents...
     ],
     "diagram": [
       {
@@ -330,9 +329,8 @@
         "variables": {
           "components": ["Frontend", "Backend", "Database"]
         },
-        "instructions": { /* ...instructions... */ }
+        "instructions": {}
       }
-      // ...additional diagrams...
     ],
     "asset": [
       {
@@ -350,7 +348,6 @@
           "format": "PNG"
         }
       }
-      // ...additional assets...
     ]
   },
   {
@@ -378,13 +375,5 @@
         "instructions": "nodes, connectors"
       }
     ]
-  }
-]
-    "references": [],
-    "formatType": "markdown",
-    "tasks": [
-      "FLUTTER_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
-    ],
-    "variables": {}
   }
 ]

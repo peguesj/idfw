@@ -34,7 +34,6 @@
         "sections": ["Overview", "System Components", "Data Flow", "Security"]
       }
     }
-    // ...additional documents...
   ],
   "diagram": [
     {
@@ -80,7 +79,6 @@
         ]
       }
     }
-    // ...additional diagrams...
   ],
   "asset": [
     {
@@ -114,6 +112,5 @@
         "LOGO_IMAGE.reviewDesign"
       ]
     }
-    // ...additional assets...
   ]
 }
