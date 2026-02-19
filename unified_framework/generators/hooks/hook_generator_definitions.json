@@ -1,0 +1,713 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "force://generators/hooks/definitions",
+  "title": "FORCE Hook Generator Component Definitions",
+  "version": "1.0.0",
+  "generators": [
+    {
+      "generator_id": "hook-generator-base",
+      "version": "1.0.0",
+      "type": "hook_component_generator",
+      "metadata": {
+        "name": "Base Hook Component Generator",
+        "description": "Generates FORCE-compliant hook components for IDFWU",
+        "author": "IDFWU System",
+        "created": "2025-10-08",
+        "capabilities": [
+          "schema_validation",
+          "component_generation",
+          "dependency_resolution",
+          "configuration_merging",
+          "test_generation"
+        ]
+      },
+      "generation_rules": {
+        "input_validation": {
+          "required_fields": ["type", "events", "handlers"],
+          "schema_ref": "force://schemas/hooks/base-component",
+          "validation_mode": "strict"
+        },
+        "output_format": {
+          "structure": "modular",
+          "languages": ["python", "javascript", "bash"],
+          "packaging": "force_component",
+          "documentation": "markdown"
+        },
+        "constraints": {
+          "max_complexity": 10,
+          "max_dependencies": 20,
+          "min_test_coverage": 0.8,
+          "required_documentation": true,
+          "security_validation": true
+        }
+      },
+      "templates": {
+        "python": {
+          "base_class": "unified_framework.hooks.BaseHookComponent",
+          "imports": [
+            "from unified_framework.hooks import HookRegistry, HookContext, HookType",
+            "from typing import Dict, Any, Optional, List",
+            "import json",
+            "import sys",
+            "import asyncio"
+          ],
+          "class_template": "class {ComponentName}(BaseHookComponent):\n    \"\"\"\n    {Description}\n    \n    Version: {version}\n    Type: {type}\n    \"\"\"\n    \n    def __init__(self, config: Dict[str, Any]):\n        super().__init__(config)\n        self.type = '{type}'\n        self.version = '{version}'\n        self.events = {events}\n        self.initialize_handlers()\n    \n    async def process(self, context: HookContext) -> Dict[str, Any]:\n        \"\"\"Process hook event\"\"\"\n        # Implementation here\n        pass"
+        },
+        "javascript": {
+          "base_class": "HookComponent",
+          "imports": [
+            "const { HookComponent, HookContext } = require('@idfwu/hooks');",
+            "const { validateSchema } = require('@idfwu/validation');",
+            "const fs = require('fs').promises;",
+            "const path = require('path');"
+          ],
+          "class_template": "class {ComponentName} extends HookComponent {\n  /**\n   * {Description}\n   * @version {version}\n   * @type {type}\n   */\n  constructor(config) {\n    super(config);\n    this.type = '{type}';\n    this.version = '{version}';\n    this.events = {events};\n    this.initializeHandlers();\n  }\n  \n  async process(context) {\n    // Implementation here\n  }\n}"
+        },
+        "bash": {
+          "shebang": "#!/usr/bin/env bash",
+          "header": "# {ComponentName}\n# {Description}\n# Version: {version}\n# Type: {type}",
+          "template": "set -euo pipefail\n\n# Configuration\nCOMPONENT_TYPE='{type}'\nCOMPONENT_VERSION='{version}'\nEVENTS=({events})\n\n# Process hook\nprocess_hook() {\n    local input=\"$(cat)\"\n    # Implementation here\n    echo \"${{input}}\" | python3 -m json.tool\n}\n\n# Main\nprocess_hook"
+        }
+      }
+    },
+    {
+      "generator_id": "prehook-generator",
+      "extends": "hook-generator-base",
+      "version": "1.0.0",
+      "metadata": {
+        "name": "PreHook Component Generator",
+        "description": "Generates prehook components with sentiment analysis and accuracy metrics",
+        "specialization": "prehook"
+      },
+      "required_components": [
+        "sentiment_analyzer",
+        "accuracy_evaluator",
+        "message_processor",
+        "scope_detector",
+        "token_manager"
+      ],
+      "default_configuration": {
+        "sentiment_analysis": {
+          "enabled": true,
+          "categories": [
+            "positive", "negative", "neutral", "urgent",
+            "frustrated", "excited", "confused", "satisfied"
+          ],
+          "confidence_threshold": 0.7,
+          "multi_label": true
+        },
+        "accuracy_metrics": {
+          "enabled": true,
+          "dimensions": [
+            "clarity", "completeness", "specificity", "actionability",
+            "technical_accuracy", "contextual_relevance", "complexity",
+            "urgency", "dependencies", "success_correlation",
+            "iterative_improvement", "custom"
+          ],
+          "weights": {
+            "clarity": 0.15,
+            "completeness": 0.15,
+            "specificity": 0.1,
+            "actionability": 0.2,
+            "technical_accuracy": 0.15,
+            "contextual_relevance": 0.15,
+            "complexity": 0.05,
+            "urgency": 0.05
+          },
+          "custom_evaluators": []
+        },
+        "message_processing": {
+          "scope_detection": true,
+          "uuid_assignment": true,
+          "reference_trails": true,
+          "token_management": {
+            "enabled": true,
+            "chunking": true,
+            "max_chunk_size": 1000,
+            "overlap_size": 200,
+            "caching": true,
+            "batching": true,
+            "compression": true
+          }
+        }
+      },
+      "generation_steps": [
+        {
+          "step": 1,
+          "action": "validate_input_schema",
+          "schema": "force://schemas/hooks/prehook-component",
+          "on_error": "abort"
+        },
+        {
+          "step": 2,
+          "action": "generate_sentiment_analyzer",
+          "template": "sentiment_analyzer_template",
+          "output": "components/sentiment_analyzer"
+        },
+        {
+          "step": 3,
+          "action": "generate_accuracy_evaluator",
+          "template": "accuracy_evaluator_template",
+          "output": "components/accuracy_evaluator"
+        },
+        {
+          "step": 4,
+          "action": "generate_message_processor",
+          "template": "message_processor_template",
+          "output": "components/message_processor"
+        },
+        {
+          "step": 5,
+          "action": "generate_scope_detector",
+          "template": "scope_detector_template",
+          "output": "components/scope_detector"
+        },
+        {
+          "step": 6,
+          "action": "integrate_components",
+          "components": [
+            "sentiment_analyzer",
+            "accuracy_evaluator",
+            "message_processor",
+            "scope_detector"
+          ],
+          "output": "prehook_component"
+        },
+        {
+          "step": 7,
+          "action": "generate_tests",
+          "coverage_target": 0.95,
+          "output": "tests/"
+        },
+        {
+          "step": 8,
+          "action": "generate_documentation",
+          "format": "markdown",
+          "output": "README.md"
+        }
+      ]
+    },
+    {
+      "generator_id": "posthook-generator",
+      "extends": "hook-generator-base",
+      "version": "1.0.0",
+      "metadata": {
+        "name": "PostHook Component Generator",
+        "description": "Generates posthook components with pattern recognition and reinforcement learning",
+        "specialization": "posthook"
+      },
+      "required_components": [
+        "pattern_recognizer",
+        "reinforcement_learner",
+        "execution_reporter",
+        "next_action_generator",
+        "dependency_tracker"
+      ],
+      "default_configuration": {
+        "pattern_recognition": {
+          "enabled": true,
+          "pattern_types": [
+            "success_patterns",
+            "failure_patterns",
+            "optimization_patterns",
+            "dependency_patterns",
+            "workflow_patterns",
+            "error_patterns"
+          ],
+          "min_confidence": 0.6,
+          "storage_location": "~/.claude/hooks/patterns",
+          "max_patterns": 1000,
+          "pattern_expiry_days": 30
+        },
+        "reinforcement_learning": {
+          "enabled": true,
+          "learning_rate": 0.01,
+          "exploration_rate": 0.1,
+          "memory_size": 10000,
+          "update_frequency": "on_completion",
+          "reward_function": "success_based",
+          "discount_factor": 0.95
+        },
+        "reporting": {
+          "execution_metrics": true,
+          "success_tracking": true,
+          "failure_analysis": true,
+          "next_actions": true,
+          "dependency_mapping": true,
+          "performance_trends": true
+        }
+      },
+      "generation_steps": [
+        {
+          "step": 1,
+          "action": "validate_input_schema",
+          "schema": "force://schemas/hooks/posthook-component"
+        },
+        {
+          "step": 2,
+          "action": "generate_pattern_recognizer",
+          "template": "pattern_recognizer_template"
+        },
+        {
+          "step": 3,
+          "action": "generate_reinforcement_learner",
+          "template": "reinforcement_learner_template"
+        },
+        {
+          "step": 4,
+          "action": "generate_execution_reporter",
+          "template": "execution_reporter_template"
+        },
+        {
+          "step": 5,
+          "action": "generate_next_action_generator",
+          "template": "next_action_generator_template"
+        },
+        {
+          "step": 6,
+          "action": "integrate_components",
+          "output": "posthook_component"
+        },
+        {
+          "step": 7,
+          "action": "generate_tests",
+          "output": "tests/"
+        }
+      ]
+    },
+    {
+      "generator_id": "link-cataloging-generator",
+      "extends": "hook-generator-base",
+      "version": "1.0.0",
+      "metadata": {
+        "name": "Link Cataloging Component Generator",
+        "description": "Generates components for link detection, classification, and cataloging",
+        "specialization": "link_cataloging"
+      },
+      "required_components": [
+        "link_detector",
+        "link_classifier",
+        "metadata_extractor",
+        "catalog_manager",
+        "dead_link_handler"
+      ],
+      "default_configuration": {
+        "link_detection": {
+          "enabled": true,
+          "patterns": [
+            {
+              "type": "url",
+              "regex": "https?://[^\\s]+"
+            },
+            {
+              "type": "file_path",
+              "regex": "(?:/[^\\s]+)+\\.[a-zA-Z]+"
+            },
+            {
+              "type": "linear_issue",
+              "regex": "PEG-\\d+"
+            },
+            {
+              "type": "github_pr",
+              "regex": "#\\d+"
+            },
+            {
+              "type": "commit_sha",
+              "regex": "[a-f0-9]{7,40}"
+            }
+          ],
+          "context_window": 100
+        },
+        "classification": {
+          "auto_classify": true,
+          "confidence_threshold": 0.7,
+          "categories": [
+            "documentation",
+            "api_reference",
+            "tutorial",
+            "repository",
+            "issue_tracker",
+            "deployment",
+            "monitoring",
+            "package_registry",
+            "community",
+            "tool",
+            "resource"
+          ],
+          "ml_model": "tfidf_classifier"
+        },
+        "metadata_extraction": {
+          "publishing_date": true,
+          "version_info": true,
+          "dependency_versions": true,
+          "relational_references": true,
+          "content_hash": true,
+          "author_info": true,
+          "last_modified": true
+        },
+        "catalog_management": {
+          "storage_format": "json",
+          "index_type": "inverted",
+          "deduplication": true,
+          "versioning": true
+        },
+        "dead_link_handling": {
+          "check_interval_hours": 24,
+          "retry_attempts": 3,
+          "quarantine_days": 7,
+          "auto_cleanup": true
+        }
+      },
+      "generation_steps": [
+        {
+          "step": 1,
+          "action": "validate_configuration",
+          "schema": "force://schemas/hooks/link-cataloging-component"
+        },
+        {
+          "step": 2,
+          "action": "generate_link_detector",
+          "template": "link_detector_template"
+        },
+        {
+          "step": 3,
+          "action": "generate_classifier",
+          "template": "link_classifier_template"
+        },
+        {
+          "step": 4,
+          "action": "generate_metadata_extractor",
+          "template": "metadata_extractor_template"
+        },
+        {
+          "step": 5,
+          "action": "generate_catalog_manager",
+          "template": "catalog_manager_template"
+        },
+        {
+          "step": 6,
+          "action": "integrate_components",
+          "output": "link_cataloging_component"
+        }
+      ]
+    },
+    {
+      "generator_id": "integration-hook-generator",
+      "extends": "hook-generator-base",
+      "version": "1.0.0",
+      "metadata": {
+        "name": "Integration Hook Component Generator",
+        "description": "Generates hooks for external system integrations",
+        "specialization": "integration"
+      },
+      "supported_integrations": {
+        "linear": {
+          "required_config": ["project_id", "team", "api_key"],
+          "handlers": [
+            "create_issue",
+            "update_status",
+            "add_comment",
+            "link_issues",
+            "manage_labels"
+          ],
+          "events": ["PostToolUse", "Stop", "SessionEnd"],
+          "api_version": "v1",
+          "rate_limit": "100/minute"
+        },
+        "agent_orchestration": {
+          "required_config": ["agent_types", "performance_tracking"],
+          "handlers": [
+            "track_performance",
+            "distribute_tasks",
+            "handle_failures",
+            "optimize_distribution",
+            "generate_reports"
+          ],
+          "events": ["PreToolUse", "PostToolUse", "SubagentStop"],
+          "concurrency_limit": 10,
+          "timeout_ms": 30000
+        },
+        "ide": {
+          "required_config": ["diagnostic_capture", "error_correlation"],
+          "handlers": [
+            "capture_diagnostics",
+            "analyze_errors",
+            "suggest_fixes",
+            "track_changes",
+            "sync_state"
+          ],
+          "events": ["PostToolUse", "Notification"],
+          "supported_ides": ["vscode", "cursor", "neovim"]
+        },
+        "todo_system": {
+          "required_config": ["task_extraction", "priority_scoring"],
+          "handlers": [
+            "extract_tasks",
+            "score_priority",
+            "track_completion",
+            "update_status",
+            "generate_summary"
+          ],
+          "events": ["UserPromptSubmit", "PostToolUse", "Stop"],
+          "priority_levels": ["critical", "high", "medium", "low"],
+          "auto_categorization": true
+        },
+        "mcp_protocol": {
+          "required_config": ["server_url", "capabilities"],
+          "handlers": [
+            "register_tools",
+            "handle_requests",
+            "send_responses",
+            "manage_sessions",
+            "sync_state"
+          ],
+          "events": ["SessionStart", "PreToolUse", "PostToolUse", "SessionEnd"],
+          "protocol_version": "1.0",
+          "transport": ["stdio", "websocket"]
+        }
+      },
+      "generation_process": {
+        "steps": [
+          {
+            "step": 1,
+            "action": "select_integration_type",
+            "input": "user_selection"
+          },
+          {
+            "step": 2,
+            "action": "validate_configuration",
+            "schema": "force://schemas/integrations/{type}"
+          },
+          {
+            "step": 3,
+            "action": "generate_handlers",
+            "template": "integration_handler_template"
+          },
+          {
+            "step": 4,
+            "action": "setup_event_bindings",
+            "template": "event_binding_template"
+          },
+          {
+            "step": 5,
+            "action": "create_integration_tests",
+            "template": "integration_test_template"
+          },
+          {
+            "step": 6,
+            "action": "generate_documentation",
+            "template": "integration_doc_template"
+          }
+        ]
+      }
+    },
+    {
+      "generator_id": "security-hook-generator",
+      "extends": "hook-generator-base",
+      "version": "1.0.0",
+      "metadata": {
+        "name": "Security Hook Component Generator",
+        "description": "Generates security-focused hook components for validation and compliance",
+        "specialization": "security"
+      },
+      "required_components": [
+        "pii_detector",
+        "vulnerability_scanner",
+        "compliance_validator",
+        "audit_logger",
+        "encryption_handler"
+      ],
+      "default_configuration": {
+        "pii_detection": {
+          "enabled": true,
+          "types": [
+            "email",
+            "phone",
+            "ssn",
+            "credit_card",
+            "api_key",
+            "jwt_token",
+            "password",
+            "ip_address"
+          ],
+          "action": "redact",
+          "logging": true
+        },
+        "vulnerability_scanning": {
+          "enabled": true,
+          "scan_types": [
+            "hardcoded_secrets",
+            "sql_injection",
+            "path_traversal",
+            "command_injection",
+            "insecure_random"
+          ],
+          "severity_threshold": "medium",
+          "block_on_critical": true
+        },
+        "compliance": {
+          "frameworks": ["GDPR", "SOC2", "HIPAA"],
+          "validation_mode": "strict",
+          "audit_required": true
+        },
+        "encryption": {
+          "algorithm": "AES-256-GCM",
+          "key_management": "vault",
+          "rotation_days": 90
+        }
+      },
+      "generation_steps": [
+        {
+          "step": 1,
+          "action": "validate_security_requirements",
+          "compliance_check": true
+        },
+        {
+          "step": 2,
+          "action": "generate_security_components",
+          "components": [
+            "pii_detector",
+            "vulnerability_scanner",
+            "compliance_validator"
+          ]
+        },
+        {
+          "step": 3,
+          "action": "setup_audit_logging",
+          "template": "audit_logger_template"
+        },
+        {
+          "step": 4,
+          "action": "configure_encryption",
+          "template": "encryption_handler_template"
+        },
+        {
+          "step": 5,
+          "action": "generate_security_tests",
+          "coverage_requirement": 1.0
+        }
+      ]
+    },
+    {
+      "generator_id": "vectorization-hook-generator",
+      "extends": "hook-generator-base",
+      "version": "1.0.0",
+      "metadata": {
+        "name": "Vectorization & RAG Hook Component Generator",
+        "description": "Generates components for semantic search and RAG capabilities",
+        "specialization": "vectorization"
+      },
+      "required_components": [
+        "text_chunker",
+        "embedding_generator",
+        "similarity_searcher",
+        "context_assembler",
+        "index_manager"
+      ],
+      "default_configuration": {
+        "chunking": {
+          "strategy": "semantic",
+          "max_chunk_size": 1000,
+          "min_chunk_size": 100,
+          "overlap_size": 200,
+          "sentence_boundaries": true
+        },
+        "embeddings": {
+          "dimension": 512,
+          "model": "tfidf",
+          "normalization": true,
+          "cache_enabled": true
+        },
+        "similarity": {
+          "metric": "cosine",
+          "threshold": 0.7,
+          "top_k": 10,
+          "reranking": true
+        },
+        "indexing": {
+          "type": "inverted",
+          "update_strategy": "incremental",
+          "optimization_interval": 3600
+        },
+        "context_assembly": {
+          "max_context_size": 4000,
+          "relevance_weighting": true,
+          "temporal_decay": 0.95
+        }
+      },
+      "generation_steps": [
+        {
+          "step": 1,
+          "action": "configure_vectorization",
+          "validate_dimensions": true
+        },
+        {
+          "step": 2,
+          "action": "generate_chunking_component",
+          "template": "text_chunker_template"
+        },
+        {
+          "step": 3,
+          "action": "generate_embedding_component",
+          "template": "embedding_generator_template"
+        },
+        {
+          "step": 4,
+          "action": "generate_search_component",
+          "template": "similarity_searcher_template"
+        },
+        {
+          "step": 5,
+          "action": "generate_index_manager",
+          "template": "index_manager_template"
+        },
+        {
+          "step": 6,
+          "action": "integrate_rag_pipeline",
+          "output": "vectorization_component"
+        }
+      ]
+    }
+  ],
+  "validation_rules": {
+    "generator_validation": {
+      "required_fields": [
+        "generator_id",
+        "version",
+        "metadata",
+        "generation_steps"
+      ],
+      "id_pattern": "^[a-z0-9-]+generator$",
+      "version_pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "component_validation": {
+      "max_size_kb": 500,
+      "required_tests": true,
+      "documentation_required": true,
+      "security_scan": true
+    },
+    "output_validation": {
+      "schema_compliance": "strict",
+      "lint_check": true,
+      "type_checking": true,
+      "performance_benchmarks": true
+    }
+  },
+  "usage_examples": {
+    "generate_prehook": {
+      "command": "force generate hook --type prehook --name custom-analyzer",
+      "config_file": "prehook_config.json",
+      "output_directory": "./components/hooks/"
+    },
+    "generate_integration": {
+      "command": "force generate hook --type integration --integration linear",
+      "config_file": "linear_integration.json",
+      "output_directory": "./integrations/"
+    },
+    "validate_component": {
+      "command": "force validate hook --component ./my_hook.py",
+      "schema": "force://schemas/hooks/base-component",
+      "strict_mode": true
+    }
+  }
+}

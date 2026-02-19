@@ -1,0 +1,63 @@
+// Version: 2.1.1
+// Author: Jeremiah Pegues <jeremiah@pegues.io>
+// License: MIT
+// Schema Documentation: Defines schema for Idea Project Generator. References IDFW.schema.json for related properties.
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", // General schema reference
+  "$id": "https://example.com/idpg.schema.json", // Unique identifier
+  "title": "IDPG", // Refers to IDFW.schema.json > properties.idfpjs
+  "description": "Idea Framework Project Generator", // Refers to IDFW.schema.json > properties.idfpjs
+  "type": "object",
+  "properties": {
+    "promptId": {
+      "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > items > promptId
+    },
+    "promptText": {
+      "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > items > promptText
+    },
+    "desiredOutputType": {
+      "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > items > desiredOutputType
+    },
+    "contextRefs": {
+      "type": "array",
+      "items": {
+        "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > items > contextRefs
+      }
+    },
+    "generationActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifactId": {
+            "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > items > generationActions > artifactId
+          },
+          "actionType": {
+            "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > items > generationActions > actionType
+          },
+          "inputRefs": {
+            "type": "array",
+            "items": {
+              "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > items > generationActions > inputRefs
+            }
+          },
+          "actionParams": {
+            "type": "object" // Refers to IDFW.schema.json > properties.idfpjs > items > generationActions > actionParams
+          }
+        },
+        "required": [
+          "artifactId", // Required for generationActions
+          "actionType" // Required for generationActions
+        ]
+      }
+    }
+  },
+  "required": [
+    "promptId", // Required property
+    "promptText", // Required property
+    "desiredOutputType" // Required property
+  ],
+  "version": "2.1.1", // Schema version
+  "updated": "2025-01-01" // Last update timestamp
+}

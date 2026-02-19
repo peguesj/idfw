@@ -1,0 +1,511 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Linear Agent Deployment Schema",
+  "description": "FORCE schema for deploying Linear AI agents with automated setup and configuration",
+  "type": "object",
+  "properties": {
+    "deployment_id": {
+      "type": "string",
+      "pattern": "^deploy-[a-z0-9-]+$",
+      "description": "Unique deployment identifier"
+    },
+    "agent_config": {
+      "$ref": "linear-agent-init.json",
+      "description": "Agent initialization configuration"
+    },
+    "deployment_strategy": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["standalone", "cluster", "distributed"],
+          "default": "standalone",
+          "description": "Deployment architecture type"
+        },
+        "environment": {
+          "type": "string",
+          "enum": ["development", "staging", "production"],
+          "default": "development",
+          "description": "Target deployment environment"
+        },
+        "scaling": {
+          "type": "object",
+          "properties": {
+            "min_instances": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "max_instances": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            },
+            "auto_scale": {
+              "type": "boolean",
+              "default": false
+            },
+            "scale_triggers": {
+              "type": "object",
+              "properties": {
+                "cpu_threshold": {
+                  "type": "number",
+                  "minimum": 0.1,
+                  "maximum": 1.0,
+                  "default": 0.8
+                },
+                "memory_threshold": {
+                  "type": "number",
+                  "minimum": 0.1,
+                  "maximum": 1.0,
+                  "default": 0.8
+                },
+                "request_rate": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 100,
+                  "description": "Requests per minute trigger"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Deployment strategy configuration"
+    },
+    "infrastructure": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string",
+          "enum": ["docker", "kubernetes", "serverless", "local"],
+          "default": "docker",
+          "description": "Infrastructure platform"
+        },
+        "resources": {
+          "type": "object",
+          "properties": {
+            "cpu_limit": {
+              "type": "string",
+              "pattern": "^\\d+(\\.\\d+)?[m]?$",
+              "default": "500m",
+              "description": "CPU limit (millicores)"
+            },
+            "memory_limit": {
+              "type": "string",
+              "pattern": "^\\d+[MGT]i?$",
+              "default": "512Mi",
+              "description": "Memory limit"
+            },
+            "storage_limit": {
+              "type": "string",
+              "pattern": "^\\d+[MGT]i?$",
+              "default": "1Gi",
+              "description": "Storage limit"
+            }
+          }
+        },
+        "networking": {
+          "type": "object",
+          "properties": {
+            "ports": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                  },
+                  "protocol": {
+                    "type": "string",
+                    "enum": ["TCP", "UDP"],
+                    "default": "TCP"
+                  }
+                },
+                "required": ["name", "port"]
+              },
+              "default": [
+                {
+                  "name": "http",
+                  "port": 8080,
+                  "protocol": "TCP"
+                }
+              ]
+            },
+            "load_balancer": {
+              "type": "boolean",
+              "default": false
+            },
+            "ingress": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "domain": {
+                  "type": "string",
+                  "format": "hostname"
+                },
+                "tls": {
+                  "type": "boolean",
+                  "default": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Infrastructure configuration"
+    },
+    "monitoring": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "collection_interval": {
+              "type": "integer",
+              "minimum": 5,
+              "maximum": 300,
+              "default": 30,
+              "description": "Metrics collection interval in seconds"
+            },
+            "retention_period": {
+              "type": "string",
+              "pattern": "^\\d+[hdw]$",
+              "default": "7d",
+              "description": "Metrics retention period"
+            },
+            "endpoints": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["prometheus", "graphite", "influxdb", "custom"]
+              },
+              "default": ["prometheus"]
+            }
+          }
+        },
+        "logging": {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "string",
+              "enum": ["DEBUG", "INFO", "WARN", "ERROR"],
+              "default": "INFO"
+            },
+            "format": {
+              "type": "string",
+              "enum": ["json", "text"],
+              "default": "json"
+            },
+            "outputs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["stdout", "file", "syslog", "elasticsearch"]
+              },
+              "default": ["stdout"]
+            }
+          }
+        },
+        "health_checks": {
+          "type": "object",
+          "properties": {
+            "readiness": {
+              "type": "object",
+              "properties": {
+                "endpoint": {
+                  "type": "string",
+                  "default": "/health/ready"
+                },
+                "interval": {
+                  "type": "integer",
+                  "minimum": 5,
+                  "default": 10,
+                  "description": "Check interval in seconds"
+                },
+                "timeout": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 5,
+                  "description": "Check timeout in seconds"
+                }
+              }
+            },
+            "liveness": {
+              "type": "object",
+              "properties": {
+                "endpoint": {
+                  "type": "string",
+                  "default": "/health/live"
+                },
+                "interval": {
+                  "type": "integer",
+                  "minimum": 5,
+                  "default": 30,
+                  "description": "Check interval in seconds"
+                },
+                "timeout": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 5,
+                  "description": "Check timeout in seconds"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Monitoring and observability configuration"
+    },
+    "security": {
+      "type": "object",
+      "properties": {
+        "secrets_management": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": ["kubernetes", "vault", "aws-secrets", "azure-keyvault", "env"],
+              "default": "env"
+            },
+            "encryption": {
+              "type": "boolean",
+              "default": true
+            },
+            "rotation": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "interval": {
+                  "type": "string",
+                  "pattern": "^\\d+[hdw]$",
+                  "default": "30d"
+                }
+              }
+            }
+          }
+        },
+        "network_policies": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": false
+            },
+            "ingress_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "ports": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            },
+            "egress_rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "to": {
+                    "type": "string"
+                  },
+                  "ports": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Security configuration"
+    },
+    "deployment_pipeline": {
+      "type": "object",
+      "properties": {
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["build", "test", "deploy", "validate", "rollback"]
+              },
+              "commands": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "conditions": {
+                "type": "object",
+                "properties": {
+                  "on_success": {
+                    "type": "string",
+                    "enum": ["continue", "stop", "rollback"]
+                  },
+                  "on_failure": {
+                    "type": "string",
+                    "enum": ["continue", "stop", "rollback"]
+                  }
+                }
+              }
+            },
+            "required": ["name", "type"]
+          },
+          "default": [
+            {
+              "name": "validate-config",
+              "type": "validate",
+              "conditions": {
+                "on_success": "continue",
+                "on_failure": "stop"
+              }
+            },
+            {
+              "name": "deploy-agent",
+              "type": "deploy",
+              "conditions": {
+                "on_success": "continue",
+                "on_failure": "rollback"
+              }
+            },
+            {
+              "name": "health-check",
+              "type": "validate",
+              "conditions": {
+                "on_success": "continue",
+                "on_failure": "rollback"
+              }
+            }
+          ]
+        },
+        "rollback": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": true
+            },
+            "strategy": {
+              "type": "string",
+              "enum": ["blue-green", "rolling", "recreate"],
+              "default": "rolling"
+            },
+            "triggers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["health-check-failure", "high-error-rate", "manual"]
+              },
+              "default": ["health-check-failure"]
+            }
+          }
+        }
+      },
+      "description": "Deployment pipeline configuration"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "deployed_by": {
+          "type": "string",
+          "description": "User or system that initiated deployment"
+        },
+        "deployment_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Deployment timestamp"
+        },
+        "version": {
+          "type": "string",
+          "description": "Deployment version"
+        },
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$",
+          "description": "Git commit SHA"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": ["deployment_id", "agent_config"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "deployment_id": "deploy-linear-agent-prod-001",
+      "agent_config": {
+        "agent_id": "linear-agent-issue-tracker",
+        "oauth_config": {
+          "client_id": "abc123",
+          "scopes": ["read", "write", "issues:create"],
+          "actor_mode": "app"
+        },
+        "metadata": {
+          "name": "Production Issue Tracker",
+          "version": "1.0.0"
+        }
+      },
+      "deployment_strategy": {
+        "type": "cluster",
+        "environment": "production",
+        "scaling": {
+          "min_instances": 2,
+          "max_instances": 10,
+          "auto_scale": true
+        }
+      },
+      "infrastructure": {
+        "platform": "kubernetes",
+        "resources": {
+          "cpu_limit": "1000m",
+          "memory_limit": "1Gi"
+        }
+      },
+      "monitoring": {
+        "enabled": true,
+        "metrics": {
+          "collection_interval": 30,
+          "endpoints": ["prometheus"]
+        }
+      }
+    }
+  ]
+}

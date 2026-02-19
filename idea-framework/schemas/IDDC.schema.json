@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/IDDC.schema.json",
+  "title": "IDDC",
+  "description": "Schema definition for an Idea Diagram Configuration (IDDC)",
+  "type": "object",
+  "properties": {
+    "diagId": {
+      "type": "string"
+    },
+    "diagramName": {
+      "type": "string"
+    },
+    "typeTool": {
+      "type": "string"
+    },
+    "diagramType": {
+      "type": "string"
+    },
+    "generatorLibId": {
+      "type": "string"
+    },
+    "purposeDescription": {
+      "type": "string"
+    },
+    "relevantSection": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last diagram update"
+    },
+    "diagramStatus": {
+      "type": "string",
+      "description": "Current status of the diagram (draft, finalized, etc.)"
+    }
+  },
+  "required": [
+    "diagId",
+    "diagramName",
+    "typeTool"
+  ],
+  "version": "2.1.1",
+  "updated": "2025-01-01"
+}

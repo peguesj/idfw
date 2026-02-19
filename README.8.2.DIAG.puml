@@ -1,0 +1,36 @@
+@startuml "IDEA Process"
+    skinparam rectangle {
+    BackgroundColor<<Document>> LightBlue
+    BackgroundColor<<Diagram>> LightGreen
+    BackgroundColor<<Variable>> LightYellow
+    }
+
+    rectangle DocumentManager <<Document>> {
+    ["Define IDFW Project"]
+    ["Generate Documents"]
+    [Validate Documents]
+    [Store Documents]
+    [Feedback Loop for Documents]
+    }
+
+    rectangle DiagramManager <<Diagram>> {
+    [Generate Diagrams]
+    [Validate Diagrams]
+    [Store Diagrams]
+    [Feedback Loop for Diagrams]
+    }
+
+    rectangle VariableManager <<Variable>> {
+    [Initialize Variables]
+    [Store in Variables]
+    }
+
+    DocumentManager --> DiagramManager : Coordinates
+    DiagramManager --> VariableManager : Utilizes
+    VariableManager --> DocumentManager : Updates Variables
+    DocumentManager --> VariableManager : Store Documents
+    DocumentManager --> DocumentManager : Initiate Feedback Loop
+    DiagramManager --> VariableManager : Store Diagrams
+    DiagramManager --> DiagramManager : Initiate Feedback Loop
+    DocumentManager --> "Finalize Output"
+@enduml

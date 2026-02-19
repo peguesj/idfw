@@ -1,24 +1,17 @@
-"""Setup script for IDFWU - IDEA Framework Unified."""
+"""Setup script for IDFW - IDEA Definition Framework."""
 
 from setuptools import setup, find_packages
 
 setup(
-    name="idfwu",
+    name="idfw",
     version="1.0.0",
-    description="IDFWU - IDEA Framework Unified: Unification of IDFW and Dev Sentinel",
+    description="IDFW - IDEA Definition Framework: Unified schema, agent orchestration, FORCE governance, and MCP integration",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="Jeremiah Pegues",
     license="MIT",
-    url="https://linear.app/pegues-innovations/project/idfwu-idea-framework-unified-4d649a6501f7",
-    project_urls={
-        "Repository": "https://github.com/[to-be-created]/idfw-unified",
-        "Documentation": "https://github.com/[to-be-created]/idfw-unified/tree/main/unified_framework_docs",
-        "Issue Tracker": "https://github.com/[to-be-created]/idfw-unified/issues",
-        "Linear Project": "https://linear.app/pegues-innovations/project/idfwu-idea-framework-unified-4d649a6501f7",
-    },
     packages=find_packages(exclude=["tests", "tests.*"]),
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     install_requires=[
         "fastapi>=0.108.0",
         "uvicorn[standard]>=0.25.0",
@@ -36,52 +29,14 @@ setup(
         "alembic>=1.13.1",
         "httpx>=0.26.0",
         "aiohttp>=3.9.1",
+        "mcp>=0.5.0",
+        "python-multipart>=0.0.6",
     ],
-    extras_require={
-        "dev": [
-            "pytest>=7.4.3",
-            "pytest-asyncio>=0.21.1",
-            "pytest-cov>=4.1.0",
-            "pytest-mock>=3.12.0",
-            "coverage[toml]>=7.4.0",
-            "black>=23.12.1",
-            "flake8>=7.0.0",
-            "isort>=5.13.2",
-            "mypy>=1.8.0",
-            "types-PyYAML>=6.0.12.12",
-            "types-requests>=2.31.0.20240106",
-        ],
-        "linear": [
-            "gql[all]>=3.5.0",
-        ],
-    },
     entry_points={
         "console_scripts": [
-            "idfwu=unified_framework.cli:main",
+            "idfw=unified_framework.cli:main",
         ],
     },
-    classifiers=[
-        "Development Status :: 4 - Beta",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Programming Language :: Python :: 3.12",
-        "Topic :: Software Development :: Libraries :: Application Frameworks",
-        "Topic :: Software Development :: Code Generators",
-    ],
-    keywords=[
-        "idfw",
-        "idea-framework",
-        "dev-sentinel",
-        "yung",
-        "agent-orchestration",
-        "mcp",
-        "schema-management",
-        "linear-integration",
-    ],
     include_package_data=True,
     zip_safe=False,
 )

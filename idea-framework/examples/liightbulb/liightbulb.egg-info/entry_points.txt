@@ -1,0 +1,2 @@
+[console_scripts]
+idfw = liightbulb.idfw:main

@@ -1,0 +1,129 @@
+{
+  // Claude Code Settings
+  "claude-code.autoApproveTools": true,
+  "claude-code.permissions.defaultMode": "bypassPermissions",
+  "claude-code.environmentVariables": [
+    "LINEAR_PROJECT_ID=4d649a6501f7",
+    "PROJECT_NAME=IDFWU",
+    "PYTHONPATH=${workspaceFolder}"
+  ],
+  "claude-code.useNodeExecution": true,
+
+  // IDFWU - IDEA Framework Unified Project Settings
+  "project.name": "IDFW Unified Framework",
+  "project.linearId": "4d649a6501f7",
+
+  // Editor Configuration
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.rulers": [80, 120],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  // File Associations
+  "files.associations": {
+    "*.idfw": "json",
+    "*.force": "json",
+    "*.yung": "yaml",
+    "*.claude": "markdown"
+  },
+
+  // File Exclusions
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true,
+    "**/node_modules": true,
+    "**/.venv": true,
+    "**/venv": true
+  },
+
+  // Search Exclusions
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/venv": true,
+    "**/.git": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/__pycache__": true,
+    "**/coverage": true,
+    "**/.pytest_cache": true
+  },
+
+  // Python Configuration
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.formatting.provider": "black",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": [
+    "unified_framework/tests"
+  ],
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+
+  // TypeScript/JavaScript Configuration
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // Git Configuration
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+
+  // Terminal Configuration
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}",
+    "LINEAR_PROJECT_ID": "4d649a6501f7"
+  },
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceFolder}",
+    "LINEAR_PROJECT_ID": "4d649a6501f7"
+  },
+
+  // Agent Team Configuration
+  "idfw.agentTeam": {
+    "enabled": true,
+    "departments": ["product", "project", "development", "integration", "quality"],
+    "concurrentAgents": 5,
+    "linearIntegration": true
+  },
+
+  // IDFW Settings
+  "idfw.schemaVersion": "2020-12",
+  "idfw.generators": ["IDDG", "IDPG", "IDAA"],
+  "idfw.validation": {
+    "enabled": true,
+    "onSave": true,
+    "strictMode": false
+  },
+
+  // FORCE Settings
+  "force.components": {
+    "tools": true,
+    "patterns": true,
+    "constraints": true,
+    "governance": true,
+    "variants": true,
+    "protocols": true
+  },
+  "force.validation": {
+    "useExtendedSchema": true,
+    "autoFix": true
+  },
+
+  // Linear Integration
+  "linear.projectId": "4d649a6501f7",
+  "linear.projectName": "IDFWU - IDEA Framework Unified",
+  "linear.team": "Pegues Innovations",
+  "linear.autoCreateIssues": true,
+  "linear.updateOnCommit": true,
+  "linear.trackProgress": true
+}

@@ -1,0 +1,924 @@
+2026-02-19 13:13:18,335 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:18,335 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:18,338 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:18,338 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:18,339 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:18,340 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:18,545 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:18,545 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:18,548 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:18,549 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:18,550 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:18,552 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:18,794 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:18,794 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:18,798 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:18,799 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:18,799 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:18,802 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:19,029 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:19,029 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:19,031 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:19,032 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:19,033 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:19,035 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:19,329 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:19,329 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:19,331 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:19,332 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:19,333 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:19,335 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:19,469 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:19,469 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:19,471 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:19,472 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:19,473 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:19,476 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:19,743 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:19,743 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:19,746 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:19,748 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:19,749 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:19,752 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:19,945 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:19,945 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:19,948 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:19,949 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:19,950 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:19,953 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:28,802 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:28,802 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:28,804 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:28,805 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:28,806 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:28,809 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:29,335 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:29,335 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:29,337 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:29,338 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:29,339 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:29,343 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:29,500 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:29,500 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:29,503 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:29,504 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:29,505 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:29,510 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:29,603 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:29,603 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:29,605 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:29,606 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:29,607 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:29,612 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:29,882 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:29,882 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:29,884 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:29,885 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:29,886 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:29,890 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:29,890 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:29,891 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:29,893 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:29,894 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:29,895 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:29,900 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:32,573 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:32,573 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:32,575 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:32,576 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:32,577 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:32,583 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:32,663 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:32,663 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:32,665 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:32,666 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:32,666 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:32,672 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:33,040 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:33,040 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:33,043 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:33,044 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:33,045 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:33,052 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:33,084 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:33,084 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:33,086 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:33,087 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:33,088 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:33,094 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:33,278 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:33,278 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:33,280 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:33,281 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:33,282 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:33,289 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:33,502 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:33,502 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:33,504 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:33,505 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:33,505 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:33,513 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:33,735 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:33,735 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:33,737 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:33,738 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:33,739 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:33,747 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:33,824 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:33,824 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:33,827 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:33,827 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:33,828 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:33,836 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:39,062 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:39,062 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:39,064 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:39,065 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:39,066 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:39,075 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:39,339 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:39,339 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:39,341 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:39,342 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:39,343 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:39,352 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:40,494 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:40,494 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:40,497 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:40,497 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:40,498 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:40,508 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:40,792 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:40,792 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:40,794 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:40,795 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:40,796 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:40,806 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:43,034 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:43,034 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:43,037 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:43,038 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:43,039 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:43,048 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:45,421 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:45,421 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:45,425 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:45,426 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:45,426 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:45,438 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:45,653 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:45,653 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:45,655 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:45,656 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:45,658 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:45,673 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:46,197 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:46,197 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:46,199 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:46,201 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:46,201 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:46,214 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:46,361 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:46,361 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:46,363 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:46,364 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:46,365 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:46,378 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:46,658 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:46,658 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:46,661 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:46,664 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:46,665 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:46,680 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:49,917 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:49,917 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:49,917 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:49,917 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:49,920 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:49,922 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:49,924 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:49,924 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:49,927 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:49,927 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:49,942 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:49,943 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:50,214 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:50,214 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:50,216 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:50,217 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:50,219 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:50,237 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:50,237 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:50,237 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:50,241 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:50,243 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:50,245 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:50,263 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:50,651 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:50,651 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:50,654 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:50,656 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:50,658 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:50,675 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:50,703 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:50,703 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:50,705 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:50,706 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:50,707 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:50,724 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:55,122 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:55,122 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:55,125 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:55,125 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:55,126 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:55,141 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:55,928 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:55,928 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:55,930 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:55,931 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:55,932 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:55,946 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:56,246 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:56,246 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:56,248 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:56,249 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:56,250 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:56,266 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:56,863 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:56,863 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:56,865 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:56,868 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:56,869 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:56,885 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:56,956 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:56,957 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:56,959 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:56,960 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:56,962 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:56,978 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:57,109 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:57,109 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:57,111 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:57,112 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:57,113 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:57,130 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:57,346 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:57,346 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:57,348 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:57,350 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:57,352 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:57,373 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:57,403 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:57,403 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:57,406 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:57,407 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:57,408 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:57,423 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:57,612 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:57,613 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:57,615 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:57,616 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:57,617 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:57,633 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:57,690 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:57,690 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:57,692 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:57,693 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:57,694 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:57,709 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:58,090 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:58,090 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:58,093 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:58,094 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:58,095 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:58,111 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:58,349 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:58,349 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:58,352 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:58,352 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:58,353 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:58,369 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:59,196 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:59,196 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:59,198 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:59,199 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:59,200 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:59,216 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:59,519 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:59,519 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:59,522 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:59,522 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:59,523 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:59,540 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:13:59,904 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:13:59,904 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:13:59,906 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:13:59,907 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:13:59,908 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:13:59,925 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:05,499 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:05,499 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:05,502 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:05,503 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:05,503 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:05,527 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:05,823 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:05,823 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:05,829 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:05,830 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:05,831 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:05,868 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:06,111 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:06,111 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:06,114 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:06,115 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:06,117 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:06,161 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:06,335 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:06,335 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:06,341 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:06,346 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:06,347 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:06,375 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:06,808 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:06,808 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:06,810 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:06,811 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:06,812 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:06,848 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:08,190 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:08,190 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:08,192 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:08,193 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:08,194 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:08,212 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:08,737 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:08,737 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:08,740 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:08,741 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:08,741 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:08,760 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:09,319 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:09,319 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:09,321 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:09,322 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:09,323 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:09,342 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:09,429 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:09,429 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:09,431 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:09,432 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:09,433 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:09,456 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:09,699 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:09,699 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:09,701 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:09,702 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:09,703 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:09,724 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:09,892 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:09,892 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:09,895 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:09,896 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:09,897 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:09,918 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:10,141 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:10,142 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:10,144 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:10,145 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:10,146 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:10,164 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:10,392 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:10,392 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:10,395 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:10,396 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:10,397 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:10,415 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:10,548 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:10,548 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:10,551 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:10,552 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:10,553 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:10,575 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:10,734 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:10,734 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:10,736 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:10,737 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:10,738 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:10,756 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:11,234 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:11,234 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:11,238 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:11,239 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:11,240 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:11,260 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:12,511 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:12,511 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:12,514 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:12,514 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:12,515 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:12,532 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:12,726 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:12,726 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:12,729 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:12,731 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:12,732 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:12,752 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:13,209 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:13,209 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:13,212 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:13,213 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:13,214 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:13,232 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:13,434 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:13,434 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:13,436 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:13,437 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:13,438 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:13,454 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:13,771 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:13,771 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:13,773 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:13,774 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:13,775 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:13,801 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:14,110 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:14,110 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:14,113 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:14,114 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:14,115 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:14,132 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:14,632 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:14,632 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:14,636 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:14,637 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:14,637 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:14,663 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:15,300 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:15,300 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:15,303 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:15,304 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:15,304 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:15,322 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:15,947 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:15,947 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:15,950 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:15,952 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:15,952 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:15,969 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:16,337 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:16,337 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:16,339 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:16,342 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:16,343 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:16,362 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:17,700 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:17,700 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:17,700 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:17,701 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:17,703 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:17,703 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:17,704 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:17,704 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:17,705 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:17,705 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:17,721 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:17,721 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:17,985 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:17,985 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:17,989 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:17,992 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:17,993 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:18,013 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:18,157 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:18,157 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:18,160 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:18,161 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:18,161 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:18,185 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:18,225 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:18,225 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:18,228 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:18,229 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:18,231 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:18,249 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:18,473 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:18,473 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:18,473 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:18,474 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:18,476 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:18,477 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:18,478 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:18,478 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:18,479 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:18,479 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:18,498 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:18,500 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:18,697 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:18,697 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:18,699 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:18,700 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:18,700 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:18,718 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:18,788 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:18,788 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:18,790 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:18,791 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:18,792 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:18,811 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:19,123 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:19,123 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:19,127 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:19,128 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:19,129 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:19,145 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:19,404 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:19,404 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:19,407 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:19,408 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:19,409 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:19,425 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:21,272 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:21,272 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:21,275 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:21,277 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:21,278 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:21,294 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:22,019 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:22,019 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:22,021 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:22,022 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:22,023 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:22,042 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:22,142 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:22,142 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:22,145 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:22,147 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:22,148 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:22,166 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:25,078 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:25,078 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:25,081 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:25,082 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:25,082 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:25,101 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:25,540 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:25,540 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:25,542 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:25,544 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:25,544 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:25,565 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:26,913 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:26,913 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:26,917 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:26,920 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:26,921 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:26,945 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:29,046 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:29,046 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:29,048 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:29,049 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:29,050 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:29,099 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:30,813 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:30,813 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:30,815 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:30,816 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:30,817 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:30,837 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:32,763 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:32,763 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:32,766 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:32,767 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:32,768 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:32,789 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:35,119 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:35,119 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:35,125 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:35,128 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:35,129 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:35,151 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:38,892 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:38,892 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:38,895 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:38,896 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:38,897 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:38,916 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:14:39,925 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:14:39,925 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:14:39,928 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:14:39,929 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:14:39,930 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:14:39,946 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:15:26,321 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:15:26,321 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:15:26,324 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:15:26,325 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:15:26,326 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:15:26,345 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:15:26,903 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:15:26,903 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:15:26,906 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:15:26,908 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:15:26,909 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:15:26,926 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:15:29,720 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:15:29,721 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:15:29,723 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:15:29,726 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:15:29,727 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:15:29,745 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:15:43,532 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:15:43,532 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:15:43,535 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:15:43,536 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:15:43,537 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:15:43,556 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:15:46,896 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:15:46,896 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:15:46,899 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:15:46,900 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:15:46,901 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:15:46,918 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:15:54,004 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:15:54,004 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:15:54,007 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:15:54,008 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:15:54,009 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:15:54,039 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:44,300 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:44,300 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:44,302 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:44,303 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:44,304 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:44,323 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:44,574 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:44,574 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:44,577 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:44,578 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:44,578 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:44,594 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:44,840 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:44,840 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:44,842 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:44,843 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:44,844 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:44,861 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:49,413 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:49,413 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:49,415 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:49,416 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:49,417 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:49,437 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:54,960 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:54,960 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:54,962 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:54,963 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:54,963 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:54,979 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:55,404 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:55,404 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:55,406 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:55,407 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:55,408 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:55,423 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:55,807 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:55,807 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:55,809 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:55,810 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:55,812 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:55,838 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:56,194 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:56,194 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:56,196 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:56,197 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:56,198 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:56,215 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:31:56,592 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:31:56,592 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:31:56,594 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:31:56,595 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:31:56,596 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:31:56,612 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:00,085 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:00,085 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:00,087 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:00,088 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:00,089 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:00,105 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:00,684 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:00,685 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:00,687 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:00,689 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:00,690 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:00,710 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:01,298 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:01,298 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:01,300 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:01,301 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:01,301 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:01,317 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:01,872 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:01,872 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:01,877 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:01,878 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:01,879 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:01,898 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:04,908 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:04,908 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:04,910 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:04,911 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:04,911 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:04,928 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:05,363 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:05,363 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:05,366 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:05,366 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:05,367 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:05,382 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:09,385 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:09,385 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:09,387 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:09,388 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:09,389 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:09,405 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:09,902 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:09,902 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:09,904 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:09,905 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:09,906 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:09,921 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:10,356 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:10,356 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:10,359 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:10,360 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:10,361 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:10,377 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:10,699 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:10,699 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:10,702 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:10,702 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:10,703 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:10,718 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:14,572 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:14,572 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:14,574 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:14,575 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:14,576 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:14,592 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:15,075 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:15,075 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:15,077 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:15,078 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:15,079 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:15,095 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:15,451 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:15,451 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:15,453 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:15,454 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:15,455 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:15,471 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:15,917 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:15,917 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:15,919 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:15,920 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:15,921 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:15,937 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:17,934 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:17,934 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:17,937 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:17,937 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:17,938 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:17,953 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:18,455 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:18,455 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:18,457 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:18,458 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:18,458 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:18,476 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:18,927 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:18,927 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:18,930 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:18,931 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:18,931 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:18,950 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:19,345 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:19,345 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:19,347 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:19,348 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:19,349 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:19,367 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:23,824 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:23,824 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:23,826 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:23,827 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:23,828 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:23,843 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:24,494 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:24,494 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:24,497 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:24,497 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:24,498 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:24,513 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:24,797 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:24,797 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:24,799 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:24,800 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:24,800 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:24,815 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:25,313 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:25,313 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:25,315 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:25,316 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:25,317 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:25,332 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:29,135 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:29,135 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:29,137 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:29,138 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:29,139 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:29,154 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:29,772 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:29,772 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:29,774 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:29,775 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:29,775 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:29,791 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:30,294 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:30,294 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:30,296 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:30,297 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:30,298 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:30,314 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:30,767 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:30,767 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:30,769 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:30,770 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:30,770 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:30,787 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:34,399 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:34,399 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:34,401 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:34,402 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:34,403 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:34,420 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:34,807 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:34,807 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:34,809 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:34,810 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:34,812 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:34,827 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:35,230 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:35,230 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:35,232 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:35,233 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:35,233 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:35,249 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:35,939 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:35,939 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:35,941 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:35,942 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:35,943 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:35,958 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:41,626 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:41,626 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:41,629 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:41,629 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:41,630 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:41,645 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:45,874 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:45,874 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:45,876 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:45,877 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:45,878 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:45,893 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:46,336 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:46,336 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:46,339 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:46,340 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:46,341 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:46,356 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:49,774 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:49,774 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:49,777 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:49,777 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:49,778 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:49,793 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:50,277 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:50,277 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:50,279 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:50,280 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:50,281 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:50,296 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:32:54,050 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:32:54,050 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:32:54,052 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:32:54,053 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:32:54,054 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:32:54,069 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json
+2026-02-19 13:34:47,778 - __main__ - INFO - Cataloging project resources: /Users/jeremiah/Developer/idfw/idea-framework
+2026-02-19 13:34:47,778 - __main__ - INFO - Cataloging file resources
+2026-02-19 13:34:47,781 - __main__ - INFO - Cataloging directory structure
+2026-02-19 13:34:47,781 - __main__ - INFO - Cataloging dependencies
+2026-02-19 13:34:47,782 - __main__ - INFO - Cataloging API endpoints
+2026-02-19 13:34:47,798 - __main__ - INFO - Resource cataloging completed: /Users/jeremiah/Developer/idfw/idea-framework/.claude/hooks/data/resource_catalog.json

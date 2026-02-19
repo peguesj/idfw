@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/IDDG.schema.json",
+  "title": "IDDG",
+  "description": "Schema definition for an Idea Document Generator (IDDG)",
+  "type": "object",
+  "properties": {
+    "docId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "ownerTeam": {
+      "type": "string"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "formatType": {
+      "type": "string"
+    },
+    "generatorId": {
+      "type": "string"
+    },
+    "contentRef": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last document update"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the document (draft, published, etc.)"
+    }
+  },
+  "required": [
+    "docId",
+    "title",
+    "purpose"
+  ],
+  "version": "2.1.1",
+  "updated": "2025-01-01"
+}

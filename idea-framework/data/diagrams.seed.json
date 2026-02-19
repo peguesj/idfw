@@ -1,0 +1,804 @@
+[
+  {
+    "diagId": "SYSTEM_CONTEXT_DIAGRAM",
+    "diagramName": "System Context Diagram",
+    "purpose": "Purpose of the System Context Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": ["actors", "systems"],
+        "triggers": [
+          {
+            "type": "dotNotation",
+            "path": "system.update",
+            "action": "modify"
+          },
+          {
+            "type": "custom",
+            "name": "onSystemModification",
+            "scope": ["variables", "settings"]
+          }
+        ]
+      }
+    ],
+    "variables": {
+      "actors": ["User", "Admin"],
+      "systems": ["Frontend", "Backend"]
+    },
+    "instructions": {
+      "nodes": [
+        { "id": "1", "type": "actor", "label": "User" },
+        { "id": "2", "type": "system", "label": "Frontend" },
+        { "id": "3", "type": "system", "label": "Backend" }
+      ],
+      "connectors": [
+        { "source": "1", "target": "2", "type": "uses" },
+        { "source": "2", "target": "3", "type": "communicates" }
+      ]
+    }
+  },
+  {
+    "diagId": "COMPONENT_DIAGRAM",
+    "diagramName": "Component Diagram",
+    "purpose": "Purpose of the Component Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": ["components", "interfaces"],
+        "triggers": ["onComponentChange"]
+      }
+    ],
+    "variables": {
+      "components": ["AuthService", "UserService"],
+      "interfaces": ["API"]
+    },
+    "instructions": {
+      "nodes": [
+        { "id": "A", "type": "component", "label": "AuthService" },
+        { "id": "B", "type": "component", "label": "UserService" },
+        { "id": "C", "type": "interface", "label": "API" }
+      ],
+      "connectors": [
+        { "source": "A", "target": "C", "type": "provides" },
+        { "source": "B", "target": "C", "type": "consumes" }
+      ]
+    }
+  },
+  {
+    "diagId": "ENTITY-RELATIONSHIP_DIAGRAM",
+    "diagramName": "Entity-Relationship Diagram",
+    "purpose": "Purpose of the Entity-Relationship Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": ["entities", "relationships"],
+        "triggers": ["onDataModelChange"]
+      }
+    ],
+    "variables": {
+      "entities": ["User", "Order", "Product"],
+      "relationships": ["One-to-Many", "Many-to-Many"]
+    }
+  },
+  {
+    "diagId": "USER_FLOW_DIAGRAM",
+    "diagramName": "User Flow Diagram",
+    "purpose": "Purpose of the User Flow Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onUserFlowChange"]
+      }
+    ],
+    "variables": {
+      "users": ["Visitor", "RegisteredUser"],
+      "flows": ["Login", "Purchase"]
+    }
+  },
+  {
+    "diagId": "SECURITY_FLOW_DIAGRAM",
+    "diagramName": "Security Flow Diagram",
+    "purpose": "Purpose of the Security Flow Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onSecurityUpdate"]
+      }
+    ],
+    "variables": {
+      "securityMeasures": ["Encryption", "Authentication"],
+      "threats": ["DataBreach", "UnauthorizedAccess"]
+    }
+  },
+  {
+    "diagId": "INCIDENT_TIMELINE_DIAGRAM",
+    "diagramName": "Incident Timeline Diagram",
+    "purpose": "Purpose of the Incident Timeline Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onIncidentUpdate"]
+      }
+    ],
+    "variables": {
+      "incidents": ["Outage", "DataLoss"],
+      "timelines": ["Detection", "Resolution"]
+    }
+  },
+  {
+    "diagId": "CLASS_DIAGRAM",
+    "diagramName": "Class Diagram",
+    "purpose": "Purpose of the Class Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onClassChange"]
+      }
+    ],
+    "variables": {
+      "classes": ["User", "Product"],
+      "relationships": ["Inheritance", "Association"]
+    }
+  },
+  {
+    "diagId": "SEQUENCE_DIAGRAM",
+    "diagramName": "Sequence Diagram",
+    "purpose": "Purpose of the Sequence Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onSequenceChange"]
+      }
+    ],
+    "variables": {
+      "actors": ["User", "System"],
+      "messages": ["Request", "Response"]
+    }
+  },
+  {
+    "diagId": "ACTIVITY_DIAGRAM",
+    "diagramName": "Activity Diagram",
+    "purpose": "Purpose of the Activity Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onActivityChange"]
+      }
+    ],
+    "variables": {
+      "activities": ["Login", "Purchase"],
+      "transitions": ["Success", "Failure"]
+    }
+  },
+  {
+    "diagId": "STATE_TRANSITION_DIAGRAM",
+    "diagramName": "State Transition Diagram",
+    "purpose": "Purpose of the State Transition Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onStateChange"]
+      }
+    ],
+    "variables": {
+      "states": ["Active", "Inactive"],
+      "transitions": ["Activate", "Deactivate"]
+    }
+  },
+  {
+    "diagId": "PACKAGE_DIAGRAM",
+    "diagramName": "Package Diagram",
+    "purpose": "Purpose of the Package Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onPackageChange"]
+      }
+    ],
+    "variables": {
+      "packages": ["Core", "Utils"],
+      "dependencies": ["Core->Utils"]
+    }
+  },
+  {
+    "diagId": "COMMUNICATION_DIAGRAM",
+    "diagramName": "Communication Diagram",
+    "purpose": "Purpose of the Communication Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onCommunicationChange"]
+      }
+    ],
+    "variables": {
+      "entities": ["User", "System"],
+      "communications": ["Request", "Response"]
+    }
+  },
+  {
+    "diagId": "OBJECT_DIAGRAM",
+    "diagramName": "Object Diagram",
+    "purpose": "Purpose of the Object Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onObjectChange"]
+      }
+    ],
+    "variables": {
+      "objects": ["User", "Order"],
+      "relationships": ["Association", "Aggregation"]
+    }
+  },
+  {
+    "diagId": "TIMING_DIAGRAM",
+    "diagramName": "Timing Diagram",
+    "purpose": "Purpose of the Timing Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onTimingChange"]
+      }
+    ],
+    "variables": {
+      "timelines": ["Start", "End"],
+      "events": ["Event1", "Event2"]
+    }
+  },
+  {
+    "diagId": "INTERACTION_OVERVIEW_DIAGRAM",
+    "diagramName": "Interaction Overview Diagram",
+    "purpose": "Purpose of the Interaction Overview Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onInteractionChange"]
+      }
+    ],
+    "variables": {
+      "interactions": ["Interaction1", "Interaction2"],
+      "overviews": ["Overview1", "Overview2"]
+    }
+  },
+  {
+    "diagId": "USE_CASE_DIAGRAM",
+    "diagramName": "Use Case Diagram",
+    "purpose": "Purpose of the Use Case Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onUseCaseChange"]
+      }
+    ],
+    "variables": {
+      "useCases": ["Login", "Register"],
+      "actors": ["User", "Admin"]
+    }
+  },
+  {
+    "diagId": "DEPLOYMENT_DIAGRAM",
+    "diagramName": "Deployment Diagram",
+    "purpose": "Purpose of the Deployment Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onDeploymentChange"]
+      }
+    ],
+    "variables": {
+      "nodes": ["Server", "Database"],
+      "connections": ["Server->Database"]
+    }
+  },
+  {
+    "diagId": "NETWORK_DIAGRAM",
+    "diagramName": "Network Diagram",
+    "purpose": "Purpose of the Network Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onNetworkChange"]
+      }
+    ],
+    "variables": {
+      "devices": ["Router", "Switch"],
+      "connections": ["Router->Switch"]
+    }
+  },
+  {
+    "diagId": "BLOCK_DIAGRAM",
+    "diagramName": "Block Diagram",
+    "purpose": "Purpose of the Block Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onBlockChange"]
+      }
+    ],
+    "variables": {
+      "blocks": ["Block1", "Block2"],
+      "connections": ["Block1->Block2"]
+    }
+  },
+  {
+    "diagId": "FUNCTIONAL_BLOCK_DIAGRAM",
+    "diagramName": "Functional Block Diagram",
+    "purpose": "Purpose of the Functional Block Diagram diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onFunctionalBlockChange"]
+      }
+    ],
+    "variables": {
+      "functions": ["Function1", "Function2"],
+      "blocks": ["Block1", "Block2"]
+    }
+  },
+  {
+    "diagId": "FRONTEND_USER_INTERFACE_DIAGRAM",
+    "diagramName": "Frontend User Interface Diagram",
+    "purpose": "Visual representation of the frontend application's user interface components.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onFrontendUIChange"]
+      }
+    ],
+    "variables": {
+      "components": ["Header", "Footer"],
+      "layouts": ["Grid", "Flex"]
+    }
+  },
+  {
+    "diagId": "FRONTEND_STATE_MANAGEMENT_DIAGRAM",
+    "diagramName": "Frontend State Management Diagram",
+    "purpose": "Illustrates the state management and data flow within the frontend application.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onStateManagementChange"]
+      }
+    ],
+    "variables": {
+      "states": ["Loading", "Loaded"],
+      "actions": ["FetchData", "UpdateData"]
+    }
+  },
+  {
+    "diagId": "BACKEND_DATABASE_SCHEMA_DIAGRAM",
+    "diagramName": "Backend Database Schema Diagram",
+    "purpose": "Detailed schema of the backend application's database structure and relationships.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onDatabaseSchemaChange"]
+      }
+    ],
+    "variables": {
+      "tables": ["Users", "Orders"],
+      "relationships": ["One-to-Many", "Many-to-Many"]
+    }
+  },
+  {
+    "diagId": "BACKEND_API_ENDPOINTS_DIAGRAM",
+    "diagramName": "Backend API Endpoints Diagram",
+    "purpose": "Visual mapping of the backend application's API endpoints and their interactions.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onAPIEndpointsChange"]
+      }
+    ],
+    "variables": {
+      "endpoints": ["GET /users", "POST /orders"],
+      "methods": ["GET", "POST"]
+    }
+  },
+  {
+    "diagId": "MEAN_FRONTEND_COMPONENT_DIAGRAM",
+    "diagramName": "MEAN Frontend Component Diagram",
+    "purpose": "Shows the frontend components and their interactions in a MEAN stack application.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onFrontendComponentChange"]
+      }
+    ],
+    "variables": {
+      "components": ["Navbar", "Sidebar"],
+      "interactions": ["Click", "Hover"]
+    }
+  },
+  {
+    "diagId": "MEAN_BACKEND_API_DIAGRAM",
+    "diagramName": "MEAN Backend API Diagram",
+    "purpose": "Illustrates the backend API structure and endpoints in a MEAN stack application.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onBackendAPIChange"]
+      }
+    ],
+    "variables": {
+      "endpoints": ["GET /items", "POST /items"],
+      "methods": ["GET", "POST"]
+    }
+  },
+  {
+    "diagId": "MERN_FRONTEND_COMPONENT_DIAGRAM",
+    "diagramName": "MERN Frontend Component Diagram",
+    "purpose": "Shows the frontend components and their interactions in a MERN stack application.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onFrontendComponentChange"]
+      }
+    ],
+    "variables": {
+      "components": ["Navbar", "Sidebar"],
+      "interactions": ["Click", "Hover"]
+    }
+  },
+  {
+    "diagId": "MERN_BACKEND_API_DIAGRAM",
+    "diagramName": "MERN Backend API Diagram",
+    "purpose": "Illustrates the backend API structure and endpoints in a MERN stack application.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onBackendAPIChange"]
+      }
+    ],
+    "variables": {
+      "endpoints": ["GET /items", "POST /items"],
+      "methods": ["GET", "POST"]
+    }
+  },
+  {
+    "diagId": "ROR_DATABASE_RELATIONSHIP_DIAGRAM",
+    "diagramName": "Ruby on Rails Database Relationship Diagram",
+    "purpose": "Displays the database relationships and models in a Ruby on Rails application.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onDatabaseRelationshipChange"]
+      }
+    ],
+    "variables": {
+      "models": ["User", "Post"],
+      "relationships": ["One-to-Many", "Many-to-Many"]
+    }
+  },
+  {
+    "diagId": "ROR_API_ENDPOINTS_DIAGRAM",
+    "diagramName": "Ruby on Rails API Endpoints Diagram",
+    "purpose": "Visual mapping of the API endpoints in a Ruby on Rails application.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onAPIEndpointsChange"]
+      }
+    ],
+    "variables": {
+      "endpoints": ["GET /posts", "POST /posts"],
+      "methods": ["GET", "POST"]
+    }
+  },
+  {
+    "diagId": "FLUTTER_UI_COMPONENT_DIAGRAM",
+    "diagramName": "Flutter UI Component Diagram",
+    "purpose": "Illustrates the UI components and their interactions in a Flutter application.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onUIComponentChange"]
+      }
+    ],
+    "variables": {
+      "components": ["Button", "TextField"],
+      "interactions": ["Tap", "Type"]
+    }
+  },
+  {
+    "diagId": "NEW_DIAGRAM_ID",
+    "diagramName": "New Diagram Name",
+    "purpose": "Purpose of the new diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onNewDiagramChange"]
+      }
+    ],
+    "variables": {
+      "elements": ["Element1", "Element2"],
+      "connections": ["Element1->Element2"]
+    }
+  },
+  {
+    "diagId": "CUSTOM_DIAGRAM_ID",
+    "diagramName": "Custom Diagram Name",
+    "purpose": "Purpose of the custom diagram.",
+    "typeTool": "mermaid",
+    "diagramType": "diagram",
+    "generatorLibId": "mermaid_flowchart_generator",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "customGroup",
+        "triggers": [
+          {
+            "type": "filter",
+            "criteria": {
+              "section": "h1.Introduction"
+            }
+          },
+          {
+            "type": "manual",
+            "selection": ["CustomVar1", "CustomVar2"]
+          }
+        ]
+      }
+    ],
+    "variables": {
+      "customGroup": ["CustomVar1", "CustomVar2", "CustomVar3"]
+    }
+  }
+]

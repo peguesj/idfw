@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/idfw.schema.json",
+  "title": "IDFW",
+  "description": "Idea Definition Framework JSON Schema",
+  "type": "object",
+  "properties": {
+    "docId": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "overview": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "applicability": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "purpose",
+        "scope",
+        "applicability"
+      ]
+    },
+    "variables": {
+      "type": "object",
+      "properties": {
+        "constants": {
+          "type": "object"
+        },
+        "runtime": {
+          "type": "object",
+          "properties": {
+            "axisDefinitions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "axisName": {
+                    "type": "string"
+                  },
+                  "min": {
+                    "type": "number"
+                  },
+                  "max": {
+                    "type": "number"
+                  },
+                  "masterInfluence": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "axisName",
+                  "min",
+                  "max"
+                ]
+              }
+            },
+            "masterAxis": {
+              "type": "object",
+              "properties": {
+                "axisName": {
+                  "type": "string"
+                },
+                "min": {
+                  "type": "number"
+                },
+                "max": {
+                  "type": "number"
+                },
+                "formula": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "axisName",
+                "min",
+                "max",
+                "formula"
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "constants",
+        "runtime"
+      ]
+    },
+    "iddgs": {
+      "type": "array",
+      "items": {
+        "$ref": "./IDDG.schema.json"
+      }
+    },
+    "idfpjs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "idfpjId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "keyComponents": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "useCases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "axisCoordinates": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "idfpjId",
+          "title",
+          "description"
+        ]
+      }
+    },
+    "projectActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifactId": {
+            "type": "string"
+          },
+          "actionType": {
+            "type": "string"
+          },
+          "inputRefs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "actionParams": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "artifactId",
+          "actionType"
+        ]
+      }
+    },
+    "versionControl": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "changeDescription": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "revision",
+          "date",
+          "changeDescription"
+        ]
+      }
+    },
+    "updateDependencies": {
+      "type": "object",
+      "properties": {
+        "docRefLinks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "diagRefLinks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "autoRegenOnChange": {
+          "type": "boolean",
+          "description": "If true, diagrams/documents are regenerated when related data changes."
+        }
+      },
+      "required": [
+        "docRefLinks",
+        "diagRefLinks",
+        "autoRegenOnChange"
+      ]
+    },
+    "iddcs": { 
+      "type": "array",
+      "items": {
+        "$ref": "./IDDC.schema.json"
+      }
+    }
+  },
+  "required": [
+    "docId",
+    "version"
+  ],
+  "version": "2.1.1",
+  "updated": "2025-01-01"
+}

@@ -20,6 +20,12 @@ import httpx
 from gql import Client, gql
 from gql.transport.aiohttp import AIOHTTPTransport
 
+try:
+    from services.apm_client import register_agent as apm_register, heartbeat as apm_heartbeat
+except ImportError:
+    apm_register = None
+    apm_heartbeat = None
+
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -166,6 +172,10 @@ class BaseAgent(ABC):
             self._init_linear_client()
 
         logger.info(f"Initialized {agent_type} with ID: {agent_id}")
+
+        # Register with CCEM APM (fire-and-forget)
+        if apm_register:
+            apm_register(agent_id, "idfw", agent_type, "idle")
 
     def _init_linear_client(self) -> None:
         """Initialize Linear GraphQL client"""
@@ -386,6 +396,10 @@ class BaseAgent(ABC):
             self.active_tasks.remove(task_id)
             self.status = AgentStatus.ACTIVE if self.active_tasks else AgentStatus.IDLE
             self.metrics.last_active = datetime.utcnow()
+
+            # Send heartbeat to CCEM APM on task completion
+            if apm_heartbeat:
+                apm_heartbeat(self.agent_id, self.status.value, f"Task {task_id}: {task.status.value}")
 
         return task
 

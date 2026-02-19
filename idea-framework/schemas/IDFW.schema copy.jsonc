@@ -1,0 +1,252 @@
+// Version: 2.1.1
+// Author: Jeremiah Pegues <jeremiah@pegues.io>
+// License: MIT
+// Schema Documentation: Duplicate of IDFW.schema.jsonc for backup purposes. References IDFW.schema.json for property definitions.
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", // General schema reference
+  "$id": "https://example.com/idfw.schema.json", // Unique identifier
+  "title": "IDFW", // Refers to IDFW.schema.json > properties.idfw
+  "description": "Idea Definition Framework JSON Schema", // Refers to IDFW.schema.json > properties.description
+  "type": "object",
+  "properties": {
+    "docId": {
+      "type": "string" // Refers to IDFW.schema.json > properties.docId
+    },
+    "version": {
+      "type": "string" // Refers to IDFW.schema.json > properties.version
+    },
+    "revision": {
+      "type": "string" // Refers to IDFW.schema.json > properties.revision
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time" // Refers to IDFW.schema.json > properties.date
+    },
+    "overview": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string" // Refers to IDFW.schema.json > properties.overview > purpose
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string" // Refers to IDFW.schema.json > properties.overview > scope
+          }
+        },
+        "applicability": {
+          "type": "array",
+          "items": {
+            "type": "string" // Refers to IDFW.schema.json > properties.overview > applicability
+          }
+        }
+      },
+      "required": [
+        "purpose", // Required for overview
+        "scope", // Required for overview
+        "applicability" // Required for overview
+      ]
+    },
+    "variables": {
+      "type": "object",
+      "properties": {
+        "constants": {
+          "type": "object" // Refers to IDFW.schema.json > properties.variables > constants
+        },
+        "runtime": {
+          "type": "object",
+          "properties": {
+            "axisDefinitions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "axisName": {
+                    "type": "string" // Refers to IDFW.schema.json > properties.variables > runtime > axisDefinitions > axisName
+                  },
+                  "min": {
+                    "type": "number" // Refers to IDFW.schema.json > properties.variables > runtime > axisDefinitions > min
+                  },
+                  "max": {
+                    "type": "number" // Refers to IDFW.schema.json > properties.variables > runtime > axisDefinitions > max
+                  },
+                  "masterInfluence": {
+                    "type": "number" // Refers to IDFW.schema.json > properties.variables > runtime > axisDefinitions > masterInfluence
+                  }
+                },
+                "required": [
+                  "axisName", // Required for axisDefinitions
+                  "min", // Required for axisDefinitions
+                  "max" // Required for axisDefinitions
+                ]
+              }
+            },
+            "masterAxis": {
+              "type": "object",
+              "properties": {
+                "axisName": {
+                  "type": "string" // Refers to IDFW.schema.json > properties.variables > runtime > masterAxis > axisName
+                },
+                "min": {
+                  "type": "number" // Refers to IDFW.schema.json > properties.variables > runtime > masterAxis > min
+                },
+                "max": {
+                  "type": "number" // Refers to IDFW.schema.json > properties.variables > runtime > masterAxis > max
+                },
+                "formula": {
+                  "type": "string" // Refers to IDFW.schema.json > properties.variables > runtime > masterAxis > formula
+                }
+              },
+              "required": [
+                "axisName", // Required for masterAxis
+                "min", // Required for masterAxis
+                "max", // Required for masterAxis
+                "formula" // Required for masterAxis
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "constants", // Required for variables
+        "runtime" // Required for variables
+      ]
+    },
+    "iddgs": {
+      "type": "array",
+      "items": {
+        "$ref": "./IDDG.schema.json" // Refers to IDDG.schema.json
+      }
+    },
+    "idfpjs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "idfpjId": {
+            "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > idfpjId
+          },
+          "title": {
+            "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > title
+          },
+          "description": {
+            "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > description
+          },
+          "keyComponents": {
+            "type": "array",
+            "items": {
+              "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > keyComponents
+            }
+          },
+          "useCases": {
+            "type": "array",
+            "items": {
+              "type": "string" // Refers to IDFW.schema.json > properties.idfpjs > useCases
+            }
+          },
+          "axisCoordinates": {
+            "type": "object" // Refers to IDFW.schema.json > properties.idfpjs > axisCoordinates
+          }
+        },
+        "required": [
+          "idfpjId", // Required for idfpjs
+          "title", // Required for idfpjs
+          "description" // Required for idfpjs
+        ]
+      }
+    },
+    "projectActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifactId": {
+            "type": "string" // Refers to IDFW.schema.json > properties.projectActions > artifactId
+          },
+          "actionType": {
+            "type": "string" // Refers to IDFW.schema.json > properties.projectActions > actionType
+          },
+          "inputRefs": {
+            "type": "array",
+            "items": {
+              "type": "string" // Refers to IDFW.schema.json > properties.projectActions > inputRefs
+            }
+          },
+          "actionParams": {
+            "type": "object" // Refers to IDFW.schema.json > properties.projectActions > actionParams
+          }
+        },
+        "required": [
+          "artifactId", // Required for projectActions
+          "actionType" // Required for projectActions
+        ]
+      }
+    },
+    "versionControl": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string" // Refers to IDFW.schema.json > properties.versionControl > version
+          },
+          "revision": {
+            "type": "string" // Refers to IDFW.schema.json > properties.versionControl > revision
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time" // Refers to IDFW.schema.json > properties.versionControl > date
+          },
+          "changeDescription": {
+            "type": "string" // Refers to IDFW.schema.json > properties.versionControl > changeDescription
+          }
+        },
+        "required": [
+          "version", // Required for versionControl
+          "revision", // Required for versionControl
+          "date", // Required for versionControl
+          "changeDescription" // Required for versionControl
+        ]
+      }
+    },
+    "updateDependencies": {
+      "type": "object",
+      "properties": {
+        "docRefLinks": {
+          "type": "array",
+          "items": {
+            "type": "string" // Refers to IDFW.schema.json > properties.updateDependencies > docRefLinks
+          }
+        },
+        "diagRefLinks": {
+          "type": "array",
+          "items": {
+            "type": "string" // Refers to IDFW.schema.json > properties.updateDependencies > diagRefLinks
+          }
+        },
+        "autoRegenOnChange": {
+          "type": "boolean",
+          "description": "If true, diagrams/documents are regenerated when related data changes." // Refers to IDFW.schema.json > properties.updateDependencies > autoRegenOnChange
+        }
+      },
+      "required": [
+        "docRefLinks", // Required for updateDependencies
+        "diagRefLinks", // Required for updateDependencies
+        "autoRegenOnChange" // Required for updateDependencies
+      ]
+    },
+    "iddcs": { 
+      "type": "array",
+      "items": {
+        "$ref": "./IDDC.schema.json" // Refers to IDDC.schema.json
+      }
+    }
+  },
+  "required": [
+    "docId", // Required property
+    "version" // Required property
+  ],
+  "version": "2.1.1", // Schema version
+  "updated": "2025-01-01" // Last update timestamp
+}

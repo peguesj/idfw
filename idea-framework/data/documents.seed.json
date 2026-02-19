@@ -1,0 +1,912 @@
+[
+  {
+    "docId": "BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "Business Requirements Document",
+    "purpose": "Purpose of the Business Requirements Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "objectives",
+        "triggers": ["onChange", "onApproval"]
+      }
+    ],
+    "variables": {
+      "objectives": ["Define project scope", "Identify requirements"]
+    },
+    "instructions": {
+      "sections": ["Introduction", "Scope", "Requirements", "Conclusion"]
+    }
+  },
+  {
+    "docId": "FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+    "title": "Functional Requirements Specification",
+    "purpose": "Purpose of the Functional Requirements Specification document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "usability",
+        "triggers": ["onReview"]
+      }
+    ],
+    "variables": {
+      "usability": ["Responsive design", "Accessibility"]
+    },
+    "instructions": {
+      "sections": ["Feature List", "Use Cases", "User Stories"]
+    }
+  },
+  {
+    "docId": "TECHNICAL_ARCHITECTURE_DOCUMENT",
+    "title": "Technical Architecture Document",
+    "purpose": "Purpose of the Technical Architecture Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "architectureComponents",
+        "triggers": ["onSystemUpdate"]
+      }
+    ],
+    "variables": {
+      "architectureComponents": ["Microservices", "API Gateway"]
+    }
+  },
+  {
+    "docId": "API_REFERENCE_DOCUMENT",
+    "title": "API Reference Document",
+    "purpose": "Purpose of the API Reference Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "API_REFERENCE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "SECURITY_&_COMPLIANCE_DOCUMENT",
+    "title": "Security & Compliance Document",
+    "purpose": "Purpose of the Security & Compliance Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "SECURITY_&_COMPLIANCE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "GOVERNANCE_AND_UPDATES_DOCUMENT",
+    "title": "Governance and Updates Document",
+    "purpose": "Purpose of the Governance and Updates Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "GOVERNANCE_AND_UPDATES_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "BUSINESS_CASE_DOCUMENT",
+    "title": "Business Case Document",
+    "purpose": "Purpose of the Business Case Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "BUSINESS_CASE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "UX_GUIDELINES_DOCUMENT",
+    "title": "UX Guidelines Document",
+    "purpose": "Purpose of the UX Guidelines Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "UX_GUIDELINES_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "SOFTWARE_REQUIREMENTS_SPECIFICATION",
+    "title": "Software Requirements Specification",
+    "purpose": "Purpose of the Software Requirements Specification document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "SOFTWARE_REQUIREMENTS_SPECIFICATION.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "HIGH-LEVEL_DESIGN_DOCUMENT",
+    "title": "High-Level Design Document",
+    "purpose": "Purpose of the High-Level Design Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "HIGH-LEVEL_DESIGN_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "LOW-LEVEL_DESIGN_DOCUMENT",
+    "title": "Low-Level Design Document",
+    "purpose": "Purpose of the Low-Level Design Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "LOW-LEVEL_DESIGN_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "QUALITY_ASSURANCE_PLAN",
+    "title": "Quality Assurance Plan",
+    "purpose": "Purpose of the Quality Assurance Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "QUALITY_ASSURANCE_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "TEST_MANAGEMENT_PLAN",
+    "title": "Test Management Plan",
+    "purpose": "Purpose of the Test Management Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "TEST_MANAGEMENT_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "REQUIREMENTS_TRACEABILITY_MATRIX",
+    "title": "Requirements Traceability Matrix",
+    "purpose": "Purpose of the Requirements Traceability Matrix document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "REQUIREMENTS_TRACEABILITY_MATRIX.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "DEPLOYMENT_IMPLEMENTATION_PLAN",
+    "title": "Deployment Implementation Plan",
+    "purpose": "Purpose of the Deployment Implementation Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "DEPLOYMENT_IMPLEMENTATION_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "MAINTENANCE_PLAN",
+    "title": "Maintenance Plan",
+    "purpose": "Purpose of the Maintenance Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "MAINTENANCE_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "USER_ACCEPTANCE_TEST_PLAN",
+    "title": "User Acceptance Test Plan",
+    "purpose": "Purpose of the User Acceptance Test Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "USER_ACCEPTANCE_TEST_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "PROJECT_MANAGEMENT_PLAN",
+    "title": "Project Management Plan",
+    "purpose": "Purpose of the Project Management Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "PROJECT_MANAGEMENT_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "RISK_MANAGEMENT_PLAN",
+    "title": "Risk Management Plan",
+    "purpose": "Purpose of the Risk Management Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "RISK_MANAGEMENT_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "CONFIGURATION_MANAGEMENT_PLAN",
+    "title": "Configuration Management Plan",
+    "purpose": "Purpose of the Configuration Management Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "CONFIGURATION_MANAGEMENT_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "DATA_MIGRATION_PLAN",
+    "title": "Data Migration Plan",
+    "purpose": "Purpose of the Data Migration Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "DATA_MIGRATION_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "BUSINESS_CONTINUITY_PLAN",
+    "title": "Business Continuity Plan",
+    "purpose": "Purpose of the Business Continuity Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "BUSINESS_CONTINUITY_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "DISASTER_RECOVERY_PLAN",
+    "title": "Disaster Recovery Plan",
+    "purpose": "Purpose of the Disaster Recovery Plan document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "DISASTER_RECOVERY_PLAN.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "SYSTEM_ARCHITECTURE_DOCUMENT",
+    "title": "System Architecture Document",
+    "purpose": "Purpose of the System Architecture Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "SYSTEM_ARCHITECTURE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "INTERFACE_CONTROL_DOCUMENT",
+    "title": "Interface Control Document",
+    "purpose": "Purpose of the Interface Control Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "INTERFACE_CONTROL_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "SYSTEM_REQUIREMENTS_DOCUMENT",
+    "title": "System Requirements Document",
+    "purpose": "Purpose of the System Requirements Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "SYSTEM_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "TECHNICAL_SPECIFICATION_DOCUMENT",
+    "title": "Technical Specification Document",
+    "purpose": "Purpose of the Technical Specification Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "TECHNICAL_SPECIFICATION_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "FEATURE_DESCRIPTION_DOCUMENT",
+    "title": "Feature Description Document",
+    "purpose": "Purpose of the Feature Description Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "FEATURE_DESCRIPTION_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "CHANGE_REQUEST_DOCUMENT",
+    "title": "Change Request Document",
+    "purpose": "Purpose of the Change Request Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "CHANGE_REQUEST_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "NON-FUNCTIONAL_REQUIREMENTS_DOCUMENT",
+    "title": "Non-Functional Requirements Document",
+    "purpose": "Purpose of the Non-Functional Requirements Document document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "NON-FUNCTIONAL_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "STANDARD_OPERATING_PROCEDURES",
+    "title": "Standard Operating Procedures",
+    "purpose": "Purpose of the Standard Operating Procedures document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "STANDARD_OPERATING_PROCEDURES.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "FRONTEND_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "Frontend Business Requirements Document",
+    "purpose": "Defines the business requirements for frontend application development using modern frameworks.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "FRONTEND_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "FRONTEND_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+    "title": "Frontend Functional Requirements Specification",
+    "purpose": "Details the functional requirements for frontend components and user interfaces.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "FRONTEND_FUNCTIONAL_REQUIREMENTS_SPECIFICATION.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "FRONTEND_TECHNICAL_ARCHITECTURE_DOCUMENT",
+    "title": "Frontend Technical Architecture Document",
+    "purpose": "Describes the technical architecture specific to frontend frameworks like React, Angular, and NextJS.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "FRONTEND_TECHNICAL_ARCHITECTURE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "BACKEND_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "Backend Business Requirements Document",
+    "purpose": "Defines the business requirements for backend application development using various frameworks.",
+    "ownerTeam": "Backend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "BACKEND_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "BACKEND_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+    "title": "Backend Functional Requirements Specification",
+    "purpose": "Details the functional requirements for backend services and APIs.",
+    "ownerTeam": "Backend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "BACKEND_FUNCTIONAL_REQUIREMENTS_SPECIFICATION.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "BACKEND_TECHNICAL_ARCHITECTURE_DOCUMENT",
+    "title": "Backend Technical Architecture Document",
+    "purpose": "Describes the technical architecture specific to backend frameworks like Node.js, Ruby on Rails, and Django.",
+    "ownerTeam": "Backend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "BACKEND_TECHNICAL_ARCHITECTURE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "MEAN_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "MEAN Stack Business Requirements Document",
+    "purpose": "Defines the business requirements for projects using the MEAN stack (MongoDB, Express.js, Angular, Node.js).",
+    "ownerTeam": "Full-Stack Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "MEAN_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "MEAN_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+    "title": "MEAN Stack Functional Requirements Specification",
+    "purpose": "Details the functional requirements for MEAN stack components and integrations.",
+    "ownerTeam": "Full-Stack Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "MEAN_FUNCTIONAL_REQUIREMENTS_SPECIFICATION.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "MEAN_TECHNICAL_ARCHITECTURE_DOCUMENT",
+    "title": "MEAN Stack Technical Architecture Document",
+    "purpose": "Describes the technical architecture specific to the MEAN stack (MongoDB, Express.js, Angular, Node.js).",
+    "ownerTeam": "Full-Stack Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "MEAN_TECHNICAL_ARCHITECTURE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "MERN_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "MERN Stack Business Requirements Document",
+    "purpose": "Defines the business requirements for projects using the MERN stack (MongoDB, Express.js, React, Node.js).",
+    "ownerTeam": "Full-Stack Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "MERN_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "MERN_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+    "title": "MERN Stack Functional Requirements Specification",
+    "purpose": "Details the functional requirements for MERN stack components and integrations.",
+    "ownerTeam": "Full-Stack Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "MERN_FUNCTIONAL_REQUIREMENTS_SPECIFICATION.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "MERN_TECHNICAL_ARCHITECTURE_DOCUMENT",
+    "title": "MERN Stack Technical Architecture Document",
+    "purpose": "Describes the technical architecture specific to the MERN stack (MongoDB, Express.js, React, Node.js).",
+    "ownerTeam": "Full-Stack Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "MERN_TECHNICAL_ARCHITECTURE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "ANGULAR_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "Angular Business Requirements Document",
+    "purpose": "Defines the business requirements for projects using the Angular framework.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "ANGULAR_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "ANGULAR_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+    "title": "Angular Functional Requirements Specification",
+    "purpose": "Details the functional requirements for Angular components and services.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "ANGULAR_FUNCTIONAL_REQUIREMENTS_SPECIFICATION.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "ANGULAR_TECHNICAL_ARCHITECTURE_DOCUMENT",
+    "title": "Angular Technical Architecture Document",
+    "purpose": "Describes the technical architecture specific to the Angular framework.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "ANGULAR_TECHNICAL_ARCHITECTURE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "REACT_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "React Business Requirements Document",
+    "purpose": "Defines the business requirements for projects using the React framework.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "REACT_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "REACT_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+    "title": "React Functional Requirements Specification",
+    "purpose": "Details the functional requirements for React components and state management.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "REACT_FUNCTIONAL_REQUIREMENTS_SPECIFICATION.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "REACT_TECHNICAL_ARCHITECTURE_DOCUMENT",
+    "title": "React Technical Architecture Document",
+    "purpose": "Describes the technical architecture specific to the React framework.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "REACT_TECHNICAL_ARCHITECTURE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "NEXTJS_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "NextJS Business Requirements Document",
+    "purpose": "Defines the business requirements for projects using the NextJS framework.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "NEXTJS_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "NEXTJS_FUNCTIONAL_REQUIREMENTS_SPECIFICATION",
+    "title": "NextJS Functional Requirements Specification",
+    "purpose": "Details the functional requirements for NextJS pages and API routes.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "NEXTJS_FUNCTIONAL_REQUIREMENTS_SPECIFICATION.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "NEXTJS_TECHNICAL_ARCHITECTURE_DOCUMENT",
+    "title": "NextJS Technical Architecture Document",
+    "purpose": "Describes the technical architecture specific to the NextJS framework.",
+    "ownerTeam": "Frontend Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "NEXTJS_TECHNICAL_ARCHITECTURE_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "FORESTADMIN_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "ForestAdmin Business Requirements Document",
+    "purpose": "Defines the business requirements for projects using ForestAdmin for admin panel solutions.",
+    "ownerTeam": "Full-Stack Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "FORESTADMIN_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "FLUTTER_BUSINESS_REQUIREMENTS_DOCUMENT",
+    "title": "Flutter Business Requirements Document",
+    "purpose": "Defines the business requirements for mobile application development using Flutter.",
+    "ownerTeam": "Mobile Development Team",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      "FLUTTER_BUSINESS_REQUIREMENTS_DOCUMENT.update(all)"
+    ],
+    "variables": {}
+  },
+  {
+    "docId": "NEW_DOCUMENT_ID",
+    "title": "New Document Title",
+    "purpose": "Purpose of the new document.",
+    "ownerTeam": "Team responsible for this document",
+    "version": "1.0.0",
+    "revision": "a1",
+    "dateCreated": "2025-01-01",
+    "dateUpdated": "2025-01-01",
+    "references": [],
+    "formatType": "markdown",
+    "tasks": [
+      {
+        "operation": "UPDATE",
+        "target": "all",
+        "triggers": ["onChange", "onApproval"]
+      }
+    ],
+    "variables": {
+      "newVariable": "Value for new variable"
+    }
+  }
+]

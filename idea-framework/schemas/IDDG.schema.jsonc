@@ -1,0 +1,57 @@
+// Version: 2.1.1
+// Author: Jeremiah Pegues <jeremiah@pegues.io>
+// License: MIT
+// Schema Documentation: Defines schema for Idea Document Generators. References IDFW.schema.json for related properties.
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", // General schema reference
+  "$id": "https://example.com/IDDG.schema.json", // Unique identifier
+  "title": "IDDG", // Refers to IDFW.schema.json > properties.iddgs
+  "description": "Schema definition for an Idea Document Generator (IDDG)", // Refers to IDFW.schema.json > properties.iddgs
+  "type": "object",
+  "properties": {
+    "docId": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddgs > docId
+    },
+    "title": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddgs > title
+    },
+    "purpose": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddgs > purpose
+    },
+    "ownerTeam": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddgs > ownerTeam
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string" // Refers to IDFW.schema.json > properties.iddgs > references
+      }
+    },
+    "formatType": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddgs > formatType
+    },
+    "generatorId": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddgs > generatorId
+    },
+    "contentRef": {
+      "type": "string" // Refers to IDFW.schema.json > properties.iddgs > contentRef
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last document update" // Refers to IDFW.schema.json > properties.iddgs > lastUpdated
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the document (draft, published, etc.)" // Refers to IDFW.schema.json > properties.iddgs > status
+    }
+  },
+  "required": [
+    "docId", // Required property
+    "title", // Required property
+    "purpose" // Required property
+  ],
+  "version": "2.1.1", // Schema version
+  "updated": "2025-01-01" // Last update timestamp
+}

@@ -33,6 +33,13 @@ mcp:
   http: true
   port: 8888
 
+linear:
+  api_key: "${LINEAR_API_KEY}"
+  project_id: "4d649a6501f7"
+  team: "Pegues Innovations"
+  workspace: "pegues-innovations"
+  base_url: "https://api.linear.app/graphql"
+
 state:
   sync_interval: 1000
   cache_ttl: 3600

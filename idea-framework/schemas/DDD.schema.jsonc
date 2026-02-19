@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/ddd.schema.json",
+  "title": "DDD Schema",
+  "description": "Schema stub for Domain-Driven Design definitions within the Idea Definition Framework.",
+  "type": "object",
+  "properties": {
+    "idfpjs": {
+      "type": "array",
+      "items": {
+        "$ref": "./IDFPJ.schema.jsonc"
+      },
+      "description": "Array of Idea Definition Framework Project Journeys"
+    }
+  }
+}

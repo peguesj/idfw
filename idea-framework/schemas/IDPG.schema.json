@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/idpg.schema.json",
+  "title": "IDPG",
+  "description": "Idea Framework Project Generator",
+  "type": "object",
+  "properties": {
+    "promptId": {
+      "type": "string"
+    },
+    "promptText": {
+      "type": "string"
+    },
+    "desiredOutputType": {
+      "type": "string"
+    },
+    "contextRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "generationActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifactId": {
+            "type": "string"
+          },
+          "actionType": {
+            "type": "string"
+          },
+          "inputRefs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "actionParams": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "artifactId",
+          "actionType"
+        ]
+      }
+    }
+  },
+  "required": [
+    "promptId",
+    "promptText",
+    "desiredOutputType"
+  ],
+  "version": "2.1.1",
+  "updated": "2025-01-01"
+}
