@@ -1,8 +1,9 @@
 """
-IDFWU - IDEA Framework Unified
+IDFW - IDEA Definition Framework
 Linear Project: 4d649a6501f7
 
-Unified framework for IDFW (IDEA Definition Framework) and Dev Sentinel integration.
+Unified framework consolidating IDFW schemas, Dev Sentinel agents,
+FORCE governance, MCP protocol, and CLI tooling.
 """
 
 __version__ = "1.0.0"

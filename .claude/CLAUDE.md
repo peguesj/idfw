@@ -42,7 +42,18 @@
 - [x] **CP-17**: Build checkpoint/rollback for orchestration (20% current maturity)
 - After CP-17: Run /upm verify
 
-### Phase 4: Quality & Documentation (Planned)
+### Phase 4: Consolidation (Complete)
+- [x] **B01**: Package foundation (pyproject.toml, setup.py, requirements)
+- [x] **B02**: FORCE framework (.force/ + force/ from dev_sentinel)
+- [x] **B03**: Unified framework core (core/, schemas/ from idfwu)
+- [x] **B04**: Agents and orchestration (agents from idfwu + dev_sentinel)
+- [x] **B05**: Services and monitoring (services/, hooks/, monitoring/ from idfwu)
+- [x] **B06**: CLI, MCP, and integration (CLI, MCP, dev_sentinel package, integration)
+- [x] **B07**: Tests and planning docs (14 test files, planning artifacts)
+- [x] **B08**: Integration verification (exports, CHANGELOG, docs)
+- After B08: `pip install -e ".[dev]"` && `idfw --help` && `pytest`
+
+### Phase 5: Quality & Documentation (Planned)
 - [ ] **CP-18**: Add test coverage to dev_sentinel (currently 0 tests)
 - [ ] **CP-19**: Fix 2 broken documentation links (SQ-07)
 - [ ] **CP-20**: Bring IDFW documentation from 45% to 70%
