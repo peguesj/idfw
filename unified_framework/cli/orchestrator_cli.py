@@ -255,7 +255,7 @@ class OrchestratorCLI:
     
     async def monitor_logs(self, follow: bool = False):
         """Monitor orchestrator logs"""
-        log_file = Path("/Users/jeremiah/Developer/idfwu/logs/orchestrator.log")
+        log_file = Path(__file__).parent.parent.parent / "logs" / "orchestrator.log"
         
         if not log_file.exists():
             click.echo("Log file not found")

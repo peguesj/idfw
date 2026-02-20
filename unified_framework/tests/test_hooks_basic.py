@@ -9,7 +9,7 @@ from pathlib import Path
 
 # Import the hooks system
 import sys
-sys.path.append('/Users/jeremiah/Developer/idfwu')
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from unified_framework.hooks import (
     initialize_hooks_system, get_initialized_system,

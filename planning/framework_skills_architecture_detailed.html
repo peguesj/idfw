@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORCE & IDEA Framework - Complete Skills Architecture</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a1a;
+            --bg-secondary: #12122a;
+            --bg-tertiary: #1a1a3a;
+            --accent-cyan: #00d4ff;
+            --accent-green: #00ff88;
+            --accent-purple: #9d4edd;
+            --accent-orange: #ff8c00;
+            --accent-pink: #ff006e;
+            --accent-yellow: #ffd60a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --border-subtle: rgba(255,255,255,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1600px; margin: 0 auto; padding: 2rem; }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.1);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: white;
+            border-color: transparent;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        /* Framework Section */
+        .framework-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-subtle);
+        }
+        .framework-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .framework-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        .force-icon { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); }
+        .idea-icon { background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow)); }
+        .framework-title { font-size: 1.5rem; font-weight: 700; }
+        .framework-subtitle { color: var(--text-secondary); font-size: 0.9rem; }
+        
+        /* Layer Sections */
+        .layer-container {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .layer-section {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-cyan);
+        }
+        .layer-section.foundation { border-left-color: var(--accent-cyan); }
+        .layer-section.orchestration { border-left-color: var(--accent-purple); }
+        .layer-section.runtime { border-left-color: var(--accent-green); }
+        .layer-section.compliance { border-left-color: var(--accent-orange); }
+        .layer-section.evolution { border-left-color: var(--accent-pink); }
+        .layer-section.inception { border-left-color: var(--accent-green); }
+        .layer-section.documentation { border-left-color: var(--accent-yellow); }
+        .layer-section.engineering { border-left-color: var(--accent-purple); }
+        .layer-section.assurance { border-left-color: var(--accent-orange); }
+        
+        .layer-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        .layer-letter {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        .layer-letter.f { background: rgba(0,212,255,0.2); color: var(--accent-cyan); }
+        .layer-letter.o { background: rgba(157,78,221,0.2); color: var(--accent-purple); }
+        .layer-letter.r { background: rgba(0,255,136,0.2); color: var(--accent-green); }
+        .layer-letter.c { background: rgba(255,140,0,0.2); color: var(--accent-orange); }
+        .layer-letter.e { background: rgba(255,0,110,0.2); color: var(--accent-pink); }
+        .layer-letter.i { background: rgba(0,255,136,0.2); color: var(--accent-green); }
+        .layer-letter.d { background: rgba(255,214,10,0.2); color: var(--accent-yellow); }
+        .layer-letter.a { background: rgba(255,140,0,0.2); color: var(--accent-orange); }
+        
+        .layer-info h3 { font-size: 1.1rem; font-weight: 600; }
+        .layer-info span { font-size: 0.8rem; color: var(--text-secondary); }
+        .layer-toggle {
+            margin-left: auto;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        .layer-section.expanded .layer-toggle { transform: rotate(180deg); }
+        
+        /* Module Grid */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .module-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.2s;
+        }
+        .module-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 4px 20px rgba(0,212,255,0.1);
+        }
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .module-id {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            background: rgba(0,212,255,0.1);
+            color: var(--accent-cyan);
+            border-radius: 4px;
+        }
+        .module-name { font-weight: 600; font-size: 0.95rem; }
+        .module-purpose {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .skill-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            background: rgba(0,255,136,0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        
+        /* Skills List */
+        .skills-list {
+            display: none;
+            margin-top: 0.75rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .module-card.expanded .skills-list { display: block; }
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            transition: background 0.2s;
+        }
+        .skill-item:hover { background: rgba(255,255,255,0.05); }
+        .skill-id {
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.65rem;
+            color: var(--accent-purple);
+            min-width: 60px;
+        }
+        .skill-name {
+            font-family: 'Monaco', 'Consolas', monospace;
+            color: var(--accent-cyan);
+            flex: 1;
+        }
+        .skill-complexity {
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+        .skill-complexity.low { background: rgba(0,255,136,0.2); color: var(--accent-green); }
+        .skill-complexity.medium { background: rgba(255,214,10,0.2); color: var(--accent-yellow); }
+        .skill-complexity.high { background: rgba(255,0,110,0.2); color: var(--accent-pink); }
+        
+        /* Expand Button */
+        .expand-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        .expand-btn:hover { text-decoration: underline; }
+        
+        /* Integration Section */
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1rem;
+        }
+        .integration-card {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid var(--border-subtle);
+        }
+        .integration-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .integration-arrow { color: var(--accent-purple); font-size: 1.2rem; }
+        .integration-badge {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .integration-badge.force { background: rgba(0,212,255,0.2); color: var(--accent-cyan); }
+        .integration-badge.idea { background: rgba(0,255,136,0.2); color: var(--accent-green); }
+        .integration-purpose {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Architecture Diagram */
+        .arch-diagram {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .arch-title { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent-cyan); }
+        .arch-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .arch-layer {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+        .arch-layer-label {
+            text-align: right;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .arch-layer-modules {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .arch-module {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .container { padding: 1rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .module-grid { grid-template-columns: 1fr; }
+            .integration-grid { grid-template-columns: 1fr; }
+            .arch-layer { grid-template-columns: 1fr; }
+            .arch-layer-label { text-align: left; }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-tertiary); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FORCE & IDEA Framework</h1>
+            <p class="subtitle">Complete Skills Architecture — 247 Skills Across 24 Modules</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">156</div>
+                <div class="stat-label">FORCE Skills</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">91</div>
+                <div class="stat-label">IDEA Skills</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15</div>
+                <div class="stat-label">FORCE Modules</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">9</div>
+                <div class="stat-label">IDEA Modules</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Integrations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">FORCE Layers</div>
+            </div>
+        </div>
+        
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="force">FORCE Framework</button>
+            <button class="tab-btn" data-tab="idea">IDEA Framework</button>
+            <button class="tab-btn" data-tab="integration">Integration Points</button>
+            <button class="tab-btn" data-tab="architecture">Architecture View</button>
+        </div>
+        
+        <!-- FORCE Framework Tab -->
+        <div id="force" class="tab-content active">
+            <div class="framework-section">
+                <div class="framework-header">
+                    <div class="framework-icon force-icon">F</div>
+                    <div>
+                        <div class="framework-title">FORCE Framework</div>
+                        <div class="framework-subtitle">Foundation • Orchestration • Runtime • Compliance • Evolution</div>
+                    </div>
+                </div>
+                
+                <div class="layer-container">
+                    <!-- Foundation Layer -->
+                    <div class="layer-section foundation expanded">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter f">F</div>
+                            <div class="layer-info">
+                                <h3>Foundation Layer</h3>
+                                <span>4 Modules • 42 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid">
+                            <!-- F.1 Context Management -->
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">F.1</span>
+                                    <span class="module-name">Context Management Engine</span>
+                                </div>
+                                <div class="module-purpose">Prevent "Instruction Watering Down" through strategic context hygiene</div>
+                                <span class="skill-count">📦 12 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">F1-001</span><span class="skill-name">context_window_analyzer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-002</span><span class="skill-name">context_pruning_engine</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-003</span><span class="skill-name">context_snapshot_manager</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-004</span><span class="skill-name">context_partition_handler</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-005</span><span class="skill-name">context_merge_reconciler</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-006</span><span class="skill-name">relevance_scoring_engine</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-007</span><span class="skill-name">context_compaction_engine</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-008</span><span class="skill-name">context_thread_persistence</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-009</span><span class="skill-name">context_hygiene_reporter</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-010</span><span class="skill-name">load_context_initializer</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-011</span><span class="skill-name">token_budget_enforcer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F1-012</span><span class="skill-name">instruction_dilution_detector</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- F.2 Progressive Disclosure -->
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">F.2</span>
+                                    <span class="module-name">Progressive Disclosure Engine</span>
+                                </div>
+                                <div class="module-purpose">Load only relevant information when needed (Claude Code pattern)</div>
+                                <span class="skill-count">📦 10 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">F2-001</span><span class="skill-name">skill_discovery_scanner</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-002</span><span class="skill-name">on_demand_skill_loader</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-003</span><span class="skill-name">metadata_index_builder</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-004</span><span class="skill-name">semantic_intent_matcher</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-005</span><span class="skill-name">lazy_script_executor</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-006</span><span class="skill-name">template_on_demand_fetcher</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-007</span><span class="skill-name">documentation_stream_loader</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-008</span><span class="skill-name">disclosure_order_optimizer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-009</span><span class="skill-name">frontmatter_yaml_extractor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F2-010</span><span class="skill-name">relevance_threshold_tuner</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- F.3 Token Optimization -->
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">F.3</span>
+                                    <span class="module-name">Token Optimization System</span>
+                                </div>
+                                <div class="module-purpose">Maximize reasoning capacity through efficient token usage</div>
+                                <span class="skill-count">📦 8 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">F3-001</span><span class="skill-name">token_counter_realtime</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F3-002</span><span class="skill-name">response_length_optimizer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F3-003</span><span class="skill-name">redundancy_eliminator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F3-004</span><span class="skill-name">summary_compression_engine</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F3-005</span><span class="skill-name">code_vs_prose_balancer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F3-006</span><span class="skill-name">reasoning_token_allocator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F3-007</span><span class="skill-name">context_window_forecaster</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F3-008</span><span class="skill-name">chunking_strategy_selector</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- F.4 Memory & State -->
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">F.4</span>
+                                    <span class="module-name">Memory & State Management</span>
+                                </div>
+                                <div class="module-purpose">Manage persistent state across sessions</div>
+                                <span class="skill-count">📦 12 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">F4-001</span><span class="skill-name">session_state_persister</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-002</span><span class="skill-name">cross_session_memory</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-003</span><span class="skill-name">project_memory_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-004</span><span class="skill-name">learning_memory_store</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-005</span><span class="skill-name">conversation_history_indexer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-006</span><span class="skill-name">state_diff_tracker</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-007</span><span class="skill-name">memory_expiration_manager</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-008</span><span class="skill-name">state_rollback_handler</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-009</span><span class="skill-name">memory_encryption_handler</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-010</span><span class="skill-name">memory_export_import</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-011</span><span class="skill-name">knowledge_graph_builder</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">F4-012</span><span class="skill-name">entity_relationship_tracker</span><span class="skill-complexity high">High</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Orchestration Layer -->
+                    <div class="layer-section orchestration">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter o">O</div>
+                            <div class="layer-info">
+                                <h3>Orchestration Layer</h3>
+                                <span>4 Modules • 48 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid" style="display:none;">
+                            <!-- O.1 Mode System -->
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">O.1</span>
+                                    <span class="module-name">Mode System (SPARC)</span>
+                                </div>
+                                <div class="module-purpose">Specialized AI roles with least-privilege permissions</div>
+                                <span class="skill-count">📦 20 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">O1-001</span><span class="skill-name">mode_security_auditor</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-002</span><span class="skill-name">mode_documentation_writer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-003</span><span class="skill-name">mode_tdd_implementer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-004</span><span class="skill-name">mode_release_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-005</span><span class="skill-name">mode_architect_planner</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-006</span><span class="skill-name">mode_contractor_executor</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-007</span><span class="skill-name">mode_code_reviewer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-008</span><span class="skill-name">mode_debugger_investigator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-009</span><span class="skill-name">mode_refactorer_cleaner</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-010</span><span class="skill-name">mode_performance_optimizer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-011</span><span class="skill-name">mode_database_specialist</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-012</span><span class="skill-name">mode_api_designer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-013</span><span class="skill-name">mode_devops_engineer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-014</span><span class="skill-name">mode_frontend_specialist</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-015</span><span class="skill-name">mode_backend_specialist</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-016</span><span class="skill-name">mode_data_engineer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-017</span><span class="skill-name">mode_switcher_controller</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-018</span><span class="skill-name">mode_permission_validator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-019</span><span class="skill-name">mode_compositor_combiner</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O1-020</span><span class="skill-name">mode_permission_matrix_manager</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- O.2 Mission Control -->
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">O.2</span>
+                                    <span class="module-name">Mission Control</span>
+                                </div>
+                                <div class="module-purpose">Multi-agent spawning, monitoring, and coordination (Antigravity pattern)</div>
+                                <span class="skill-count">📦 12 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">O2-001</span><span class="skill-name">agent_instance_spawner</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-002</span><span class="skill-name">agent_status_monitor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-003</span><span class="skill-name">agent_graceful_terminator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-004</span><span class="skill-name">task_intelligent_dispatcher</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-005</span><span class="skill-name">workload_auto_balancer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-006</span><span class="skill-name">inter_agent_messenger</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-007</span><span class="skill-name">artifact_result_collector</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-008</span><span class="skill-name">async_feedback_injector</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-009</span><span class="skill-name">squadron_team_deployer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-010</span><span class="skill-name">dashboard_state_renderer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-011</span><span class="skill-name">agent_dependency_resolver</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O2-012</span><span class="skill-name">parallel_execution_coordinator</span><span class="skill-complexity high">High</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- O.3 Agent Coordination -->
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">O.3</span>
+                                    <span class="module-name">Agent Coordination Protocol</span>
+                                </div>
+                                <div class="module-purpose">Define how agents communicate and collaborate</div>
+                                <span class="skill-count">📦 8 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">O3-001</span><span class="skill-name">handoff_protocol_executor</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O3-002</span><span class="skill-name">artifact_format_standardizer</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">O3-003</span><span class="skill-name">conflict_resolution_engine</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O3-004</span><span class="skill-name">consensus_building_protocol</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O3-005</span><span class="skill-name">priority_negotiation_handler</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O3-006</span><span class="skill-name">resource_lock_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O3-007</span><span class="skill-name">event_broadcast_publisher</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">O3-008</span><span class="skill-name">subscription_event_listener</span><span class="skill-complexity low">Low</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- O.4 Workflow Orchestration -->
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">O.4</span>
+                                    <span class="module-name">Workflow Orchestration</span>
+                                </div>
+                                <div class="module-purpose">Define and execute complex multi-step workflows</div>
+                                <span class="skill-count">📦 8 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">O4-001</span><span class="skill-name">workflow_definition_parser</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O4-002</span><span class="skill-name">step_sequencer_executor</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O4-003</span><span class="skill-name">conditional_branch_handler</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O4-004</span><span class="skill-name">parallel_step_coordinator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">O4-005</span><span class="skill-name">retry_failure_handler</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O4-006</span><span class="skill-name">workflow_checkpoint_saver</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O4-007</span><span class="skill-name">workflow_resume_handler</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">O4-008</span><span class="skill-name">workflow_visualization_generator</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Runtime Layer -->
+                    <div class="layer-section runtime">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter r">R</div>
+                            <div class="layer-info">
+                                <h3>Runtime Layer</h3>
+                                <span>4 Modules • 36 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid" style="display:none;">
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">R.1</span>
+                                    <span class="module-name">Hook Lifecycle Engine</span>
+                                </div>
+                                <div class="module-purpose">Event-driven automation throughout development lifecycle</div>
+                                <span class="skill-count">📦 14 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">R1-001</span><span class="skill-name">hook_pre_save_executor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-002</span><span class="skill-name">hook_post_save_executor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-003</span><span class="skill-name">hook_pre_edit_executor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-004</span><span class="skill-name">hook_post_edit_executor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-005</span><span class="skill-name">hook_pre_commit_executor</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-006</span><span class="skill-name">hook_post_commit_executor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-007</span><span class="skill-name">hook_pre_push_executor</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-008</span><span class="skill-name">hook_post_push_executor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-009</span><span class="skill-name">hook_error_handler</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-010</span><span class="skill-name">hook_task_start_executor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-011</span><span class="skill-name">hook_task_complete_executor</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-012</span><span class="skill-name">hook_registry_manager</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-013</span><span class="skill-name">hook_chain_executor</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R1-014</span><span class="skill-name">hook_condition_evaluator</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">R.2</span>
+                                    <span class="module-name">MCP Integration Layer</span>
+                                </div>
+                                <div class="module-purpose">Model Context Protocol servers and context providers</div>
+                                <span class="skill-count">📦 10 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">R2-001</span><span class="skill-name">mcp_data_source_connector</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-002</span><span class="skill-name">mcp_ecosystem_integrator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-003</span><span class="skill-name">mcp_utility_executor</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-004</span><span class="skill-name">mcp_documentation_server</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-005</span><span class="skill-name">context_provider_codebase</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-006</span><span class="skill-name">context_provider_git_diff</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-007</span><span class="skill-name">context_provider_docs</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-008</span><span class="skill-name">context_provider_repo_map</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-009</span><span class="skill-name">mcp_server_registry_manager</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R2-010</span><span class="skill-name">context_size_optimizer</span><span class="skill-complexity high">High</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">R.3</span>
+                                    <span class="module-name">A2UI Integration</span>
+                                </div>
+                                <div class="module-purpose">Agent-to-UI protocol for structured interactions</div>
+                                <span class="skill-count">📦 6 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">R3-001</span><span class="skill-name">a2ui_message_emitter</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R3-002</span><span class="skill-name">a2ui_surface_renderer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R3-003</span><span class="skill-name">a2ui_event_receiver</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R3-004</span><span class="skill-name">a2ui_intent_confirmer</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R3-005</span><span class="skill-name">a2ui_data_binder</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R3-006</span><span class="skill-name">a2ui_native_wrapper</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">R.4</span>
+                                    <span class="module-name">Tool Execution Runtime</span>
+                                </div>
+                                <div class="module-purpose">Safe and monitored tool execution</div>
+                                <span class="skill-count">📦 6 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">R4-001</span><span class="skill-name">tool_sandboxed_executor</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">R4-002</span><span class="skill-name">tool_timeout_enforcer</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">R4-003</span><span class="skill-name">tool_output_validator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R4-004</span><span class="skill-name">tool_error_recovery</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R4-005</span><span class="skill-name">tool_permission_gate</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">R4-006</span><span class="skill-name">tool_usage_logger</span><span class="skill-complexity low">Low</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compliance Layer -->
+                    <div class="layer-section compliance">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter c">C</div>
+                            <div class="layer-info">
+                                <h3>Compliance Layer</h3>
+                                <span>2 Modules • 18 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid" style="display:none;">
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">C.1</span>
+                                    <span class="module-name">Governance Engine</span>
+                                </div>
+                                <div class="module-purpose">Hierarchical rule engineering and policy enforcement</div>
+                                <span class="skill-count">📦 11 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">C1-001</span><span class="skill-name">rule_team_level_enforcer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-002</span><span class="skill-name">rule_project_level_loader</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-003</span><span class="skill-name">rule_user_preference_applier</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-004</span><span class="skill-name">rule_remote_repository_syncer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-005</span><span class="skill-name">rule_definition_validator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-006</span><span class="skill-name">rule_conflict_resolver</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-007</span><span class="skill-name">policy_compliance_auditor</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-008</span><span class="skill-name">permission_boundary_enforcer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-009</span><span class="skill-name">approval_workflow_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-010</span><span class="skill-name">audit_trail_logger</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">C1-011</span><span class="skill-name">intelligent_rule_applier</span><span class="skill-complexity high">High</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">C.2</span>
+                                    <span class="module-name">Security Module</span>
+                                </div>
+                                <div class="module-purpose">Security scanning and enforcement</div>
+                                <span class="skill-count">📦 7 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">C2-001</span><span class="skill-name">secrets_exposure_scanner</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">C2-002</span><span class="skill-name">dependency_vulnerability_checker</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">C2-003</span><span class="skill-name">code_injection_detector</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">C2-004</span><span class="skill-name">authentication_pattern_validator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">C2-005</span><span class="skill-name">permission_escalation_detector</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">C2-006</span><span class="skill-name">network_access_validator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">C2-007</span><span class="skill-name">file_permission_auditor</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Evolution Layer -->
+                    <div class="layer-section evolution">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter e">E</div>
+                            <div class="layer-info">
+                                <h3>Evolution Layer</h3>
+                                <span>1 Module • 12 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid" style="display:none;">
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">E.1</span>
+                                    <span class="module-name">Learning & Analytics</span>
+                                </div>
+                                <div class="module-purpose">Pattern recognition, optimization, and continuous improvement</div>
+                                <span class="skill-count">📦 12 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">E1-001</span><span class="skill-name">success_pattern_recognizer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-002</span><span class="skill-name">failure_pattern_analyzer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-003</span><span class="skill-name">context_aware_suggester</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-004</span><span class="skill-name">rule_auto_updater</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-005</span><span class="skill-name">execution_efficiency_optimizer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-006</span><span class="skill-name">usage_analytics_tracker</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-007</span><span class="skill-name">feedback_sentiment_collector</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-008</span><span class="skill-name">knowledge_pattern_extractor</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-009</span><span class="skill-name">performance_metrics_collector</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-010</span><span class="skill-name">benchmark_comparator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-011</span><span class="skill-name">trend_analyzer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-012</span><span class="skill-name">recommendation_engine</span><span class="skill-complexity high">High</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- IDEA Framework Tab -->
+        <div id="idea" class="tab-content">
+            <div class="framework-section">
+                <div class="framework-header">
+                    <div class="framework-icon idea-icon">I</div>
+                    <div>
+                        <div class="framework-title">IDEA Framework</div>
+                        <div class="framework-subtitle">Inception • Documentation • Engineering • Assurance</div>
+                    </div>
+                </div>
+                
+                <div class="layer-container">
+                    <!-- Inception Layer -->
+                    <div class="layer-section inception expanded">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter i">I</div>
+                            <div class="layer-info">
+                                <h3>Inception Layer</h3>
+                                <span>2 Modules • 18 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid">
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">I.1</span>
+                                    <span class="module-name">Project Definition</span>
+                                </div>
+                                <div class="module-purpose">Initialize and configure projects with complete structure</div>
+                                <span class="skill-count">📦 12 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">I1-001</span><span class="skill-name">project_initializer_wizard</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-002</span><span class="skill-name">project_scope_definer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-003</span><span class="skill-name">milestone_timeline_planner</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-004</span><span class="skill-name">deliverable_tracker_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-005</span><span class="skill-name">resource_allocation_planner</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-006</span><span class="skill-name">risk_assessment_generator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-007</span><span class="skill-name">constraint_documentation</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-008</span><span class="skill-name">assumption_registry</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-009</span><span class="skill-name">project_template_applier</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-010</span><span class="skill-name">project_config_validator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-011</span><span class="skill-name">project_type_classifier</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">I1-012</span><span class="skill-name">kickoff_package_generator</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">I.2</span>
+                                    <span class="module-name">Stakeholder Management</span>
+                                </div>
+                                <div class="module-purpose">Manage stakeholders and communication</div>
+                                <span class="skill-count">📦 6 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">I2-001</span><span class="skill-name">stakeholder_registry</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">I2-002</span><span class="skill-name">raci_matrix_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">I2-003</span><span class="skill-name">communication_plan_builder</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">I2-004</span><span class="skill-name">stakeholder_impact_analyzer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">I2-005</span><span class="skill-name">meeting_notes_generator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">I2-006</span><span class="skill-name">status_report_generator</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Documentation Layer -->
+                    <div class="layer-section documentation">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter d">D</div>
+                            <div class="layer-info">
+                                <h3>Documentation Layer</h3>
+                                <span>3 Modules • 32 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid" style="display:none;">
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">D.1</span>
+                                    <span class="module-name">Requirements Documents</span>
+                                </div>
+                                <div class="module-purpose">Generate comprehensive requirements documentation</div>
+                                <span class="skill-count">📦 12 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">D1-001</span><span class="skill-name">brd_generator_full</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-002</span><span class="skill-name">frs_generator_full</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-003</span><span class="skill-name">prd_generator_product</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-004</span><span class="skill-name">srs_generator_software</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-005</span><span class="skill-name">user_story_epic_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-006</span><span class="skill-name">acceptance_criteria_writer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-007</span><span class="skill-name">use_case_documenter</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-008</span><span class="skill-name">nfr_requirements_documenter</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-009</span><span class="skill-name">moscow_prioritizer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-010</span><span class="skill-name">requirements_validator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-011</span><span class="skill-name">requirements_version_comparator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D1-012</span><span class="skill-name">requirements_exporter_multi</span><span class="skill-complexity low">Low</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">D.2</span>
+                                    <span class="module-name">Technical Documents</span>
+                                </div>
+                                <div class="module-purpose">Generate technical documentation</div>
+                                <span class="skill-count">📦 12 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">D2-001</span><span class="skill-name">sad_architecture_generator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-002</span><span class="skill-name">sdd_design_generator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-003</span><span class="skill-name">openapi_spec_generator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-004</span><span class="skill-name">database_design_documenter</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-005</span><span class="skill-name">interface_control_documenter</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-006</span><span class="skill-name">security_architecture_documenter</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-007</span><span class="skill-name">infrastructure_documenter</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-008</span><span class="skill-name">integration_guide_creator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-009</span><span class="skill-name">technical_debt_documenter</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-010</span><span class="skill-name">adr_decision_recorder</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-011</span><span class="skill-name">api_changelog_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D2-012</span><span class="skill-name">runbook_generator</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">D.3</span>
+                                    <span class="module-name">Operational Documents</span>
+                                </div>
+                                <div class="module-purpose">Generate operational and user-facing documentation</div>
+                                <span class="skill-count">📦 8 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">D3-001</span><span class="skill-name">user_guide_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D3-002</span><span class="skill-name">admin_guide_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D3-003</span><span class="skill-name">installation_guide_creator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D3-004</span><span class="skill-name">troubleshooting_guide_builder</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">D3-005</span><span class="skill-name">release_notes_generator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">D3-006</span><span class="skill-name">changelog_generator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">D3-007</span><span class="skill-name">readme_generator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">D3-008</span><span class="skill-name">contributing_guide_generator</span><span class="skill-complexity low">Low</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Engineering Layer -->
+                    <div class="layer-section engineering">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter e">E</div>
+                            <div class="layer-info">
+                                <h3>Engineering Layer</h3>
+                                <span>2 Modules • 30 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid" style="display:none;">
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">E.1</span>
+                                    <span class="module-name">Diagram Generation</span>
+                                </div>
+                                <div class="module-purpose">Generate all types of technical and business diagrams</div>
+                                <span class="skill-count">📦 22 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">E1-001</span><span class="skill-name">uml_class_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-002</span><span class="skill-name">uml_sequence_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-003</span><span class="skill-name">uml_activity_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-004</span><span class="skill-name">uml_component_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-005</span><span class="skill-name">uml_deployment_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-006</span><span class="skill-name">uml_use_case_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-007</span><span class="skill-name">uml_state_machine_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-008</span><span class="skill-name">erd_entity_relationship_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-009</span><span class="skill-name">bpmn_process_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-010</span><span class="skill-name">flowchart_mermaid_generator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-011</span><span class="skill-name">c4_context_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-012</span><span class="skill-name">c4_container_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-013</span><span class="skill-name">c4_component_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-014</span><span class="skill-name">c4_code_diagram_generator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-015</span><span class="skill-name">dfd_data_flow_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-016</span><span class="skill-name">network_topology_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-017</span><span class="skill-name">mindmap_generator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-018</span><span class="skill-name">gantt_timeline_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-019</span><span class="skill-name">swimlane_diagram_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-020</span><span class="skill-name">wireframe_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-021</span><span class="skill-name">sitemap_generator</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">E1-022</span><span class="skill-name">org_chart_generator</span><span class="skill-complexity low">Low</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">E.2</span>
+                                    <span class="module-name">Schema Management</span>
+                                </div>
+                                <div class="module-purpose">Manage and validate project schemas</div>
+                                <span class="skill-count">📦 8 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">E2-001</span><span class="skill-name">idpc_config_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E2-002</span><span class="skill-name">idpg_prompt_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E2-003</span><span class="skill-name">iddg_diagram_config_manager</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">E2-004</span><span class="skill-name">iddc_document_config_manager</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">E2-005</span><span class="skill-name">idda_artifact_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E2-006</span><span class="skill-name">idfv_variable_manager</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E2-007</span><span class="skill-name">schema_validator_engine</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">E2-008</span><span class="skill-name">schema_migration_handler</span><span class="skill-complexity high">High</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Assurance Layer -->
+                    <div class="layer-section assurance">
+                        <div class="layer-header" onclick="toggleLayer(this)">
+                            <div class="layer-letter a">A</div>
+                            <div class="layer-info">
+                                <h3>Assurance Layer</h3>
+                                <span>2 Modules • 19 Skills</span>
+                            </div>
+                            <span class="layer-toggle">▼</span>
+                        </div>
+                        <div class="module-grid" style="display:none;">
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">A.1</span>
+                                    <span class="module-name">Traceability</span>
+                                </div>
+                                <div class="module-purpose">Maintain requirements traceability and impact analysis</div>
+                                <span class="skill-count">📦 11 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">A1-001</span><span class="skill-name">rtm_matrix_generator</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-002</span><span class="skill-name">change_impact_analyzer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-003</span><span class="skill-name">requirements_coverage_analyzer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-004</span><span class="skill-name">document_dependency_mapper</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-005</span><span class="skill-name">change_history_tracker</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-006</span><span class="skill-name">version_diff_comparator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-007</span><span class="skill-name">audit_trail_generator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-008</span><span class="skill-name">cross_reference_validator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-009</span><span class="skill-name">backward_trace_analyzer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-010</span><span class="skill-name">forward_trace_analyzer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">A1-011</span><span class="skill-name">orphan_requirement_finder</span><span class="skill-complexity medium">Med</span></div>
+                                </div>
+                            </div>
+                            <div class="module-card" onclick="toggleModule(this)">
+                                <div class="module-header">
+                                    <span class="module-id">A.2</span>
+                                    <span class="module-name">Quality Assurance</span>
+                                </div>
+                                <div class="module-purpose">Ensure document and artifact quality</div>
+                                <span class="skill-count">📦 8 Skills</span>
+                                <div class="expand-btn">▶ Show skills</div>
+                                <div class="skills-list">
+                                    <div class="skill-item"><span class="skill-id">A2-001</span><span class="skill-name">document_quality_scorer</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A2-002</span><span class="skill-name">completeness_checker</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A2-003</span><span class="skill-name">consistency_validator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A2-004</span><span class="skill-name">grammar_style_checker</span><span class="skill-complexity low">Low</span></div>
+                                    <div class="skill-item"><span class="skill-id">A2-005</span><span class="skill-name">terminology_consistency_checker</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A2-006</span><span class="skill-name">smart_objective_validator</span><span class="skill-complexity medium">Med</span></div>
+                                    <div class="skill-item"><span class="skill-id">A2-007</span><span class="skill-name">testability_analyzer</span><span class="skill-complexity high">High</span></div>
+                                    <div class="skill-item"><span class="skill-id">A2-008</span><span class="skill-name">ambiguity_detector</span><span class="skill-complexity high">High</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Integration Tab -->
+        <div id="integration" class="tab-content">
+            <div class="framework-section">
+                <div class="framework-header">
+                    <div class="framework-icon" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));">⚡</div>
+                    <div>
+                        <div class="framework-title">Cross-Framework Integration</div>
+                        <div class="framework-subtitle">10 Integration Points Connecting FORCE and IDEA Frameworks</div>
+                    </div>
+                </div>
+                
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-001</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">hook_post_commit</code> ↔ <code style="color: var(--accent-green);">change_history_tracker</code></div>
+                        <div class="integration-purpose">Auto-track documentation changes on every commit</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-002</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">mode_documentation_writer</code> ↔ <code style="color: var(--accent-green);">brd_generator_full</code></div>
+                        <div class="integration-purpose">Generate BRD in documentation-only mode</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-003</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">context_provider_docs</code> ↔ <code style="color: var(--accent-green);">D1/D2 skills</code></div>
+                        <div class="integration-purpose">Index IDEA documents as MCP context</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-004</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">success_pattern_recognizer</code> ↔ <code style="color: var(--accent-green);">moscow_prioritizer</code></div>
+                        <div class="integration-purpose">Learn prioritization from historical patterns</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-005</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">squadron_team_deployer</code> ↔ <code style="color: var(--accent-green);">project_initializer_wizard</code></div>
+                        <div class="integration-purpose">Deploy coordinated agents for new project setup</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-006</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">audit_trail_logger</code> ↔ <code style="color: var(--accent-green);">audit_trail_generator</code></div>
+                        <div class="integration-purpose">Unified audit trail across both frameworks</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-007</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">rule_project_level_loader</code> ↔ <code style="color: var(--accent-green);">constraint_documentation</code></div>
+                        <div class="integration-purpose">Sync project rules with documented constraints</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-008</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">mcp_ecosystem_integrator</code> ↔ <code style="color: var(--accent-green);">rtm_matrix_generator</code></div>
+                        <div class="integration-purpose">Link RTM with GitHub issues and Jira tickets</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-009</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">mode_architect_planner</code> ↔ <code style="color: var(--accent-green);">sad_architecture_generator</code></div>
+                        <div class="integration-purpose">Plan mode automatically generates SAD</div>
+                    </div>
+                    
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <span class="integration-badge force">FORCE</span>
+                            <span class="integration-arrow">→</span>
+                            <span class="integration-badge idea">IDEA</span>
+                            <span style="margin-left: auto; font-size: 0.7rem; color: var(--text-secondary);">INT-010</span>
+                        </div>
+                        <div><code style="color: var(--accent-cyan);">context_compaction_engine</code> ↔ <code style="color: var(--accent-green);">requirements_exporter_multi</code></div>
+                        <div class="integration-purpose">Compact requirements for efficient context loading</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Architecture Tab -->
+        <div id="architecture" class="tab-content">
+            <div class="arch-diagram">
+                <div class="arch-title">Unified Framework Architecture</div>
+                <div class="arch-layers">
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-pink);">EVOLUTION</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Learning & Analytics</div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-orange);">COMPLIANCE</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Governance Engine</div>
+                            <div class="arch-module">Security Module</div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-green);">RUNTIME</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Hook Lifecycle</div>
+                            <div class="arch-module">MCP Integration</div>
+                            <div class="arch-module">A2UI Integration</div>
+                            <div class="arch-module">Tool Execution</div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-purple);">ORCHESTRATION</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Mode System</div>
+                            <div class="arch-module">Mission Control</div>
+                            <div class="arch-module">Agent Coordination</div>
+                            <div class="arch-module">Workflow</div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-cyan);">FOUNDATION</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Context Management</div>
+                            <div class="arch-module">Progressive Disclosure</div>
+                            <div class="arch-module">Token Optimization</div>
+                            <div class="arch-module">Memory & State</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arch-diagram">
+                <div class="arch-title">IDEA Framework Layers</div>
+                <div class="arch-layers">
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-orange);">ASSURANCE</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Traceability</div>
+                            <div class="arch-module">Quality Assurance</div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-purple);">ENGINEERING</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Diagram Generation (22 types)</div>
+                            <div class="arch-module">Schema Management</div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-yellow);">DOCUMENTATION</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Requirements (BRD, FRS, PRD, SRS)</div>
+                            <div class="arch-module">Technical (SAD, SDD, API)</div>
+                            <div class="arch-module">Operational (Guides, Notes)</div>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label" style="color: var(--accent-green);">INCEPTION</div>
+                        <div class="arch-layer-modules">
+                            <div class="arch-module">Project Definition</div>
+                            <div class="arch-module">Stakeholder Management</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+        
+        // Layer toggle
+        function toggleLayer(header) {
+            const section = header.closest('.layer-section');
+            const grid = section.querySelector('.module-grid');
+            section.classList.toggle('expanded');
+            if (grid.style.display === 'none' || !grid.style.display) {
+                grid.style.display = 'grid';
+            } else {
+                grid.style.display = 'none';
+            }
+        }
+        
+        // Module toggle
+        function toggleModule(card) {
+            card.classList.toggle('expanded');
+            const btn = card.querySelector('.expand-btn');
+            if (card.classList.contains('expanded')) {
+                btn.textContent = '▼ Hide skills';
+            } else {
+                btn.textContent = '▶ Show skills';
+            }
+        }
+    </script>
+</body>
+</html>

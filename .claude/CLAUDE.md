@@ -7,12 +7,21 @@
 - **APM**: http://localhost:3031 (project: idfw, 228 agents registered)
 
 ## Repositories
-| Repo | Path | Purpose |
-|------|------|---------|
-| IDFW | /Users/jeremiah/Developer/idfw | Core schemas & seed data |
-| IDFWU | /Users/jeremiah/Developer/idfwu | Unified framework (18 agents, 5 depts, CLI) |
-| IDFWU2 | /Users/jeremiah/Developer/idfwu2 | Planning & research (247-skill catalog) |
-| Dev Sentinel | /Users/jeremiah/Developer/dev_sentinel | FORCE framework (42+ tools, 5 agents) |
+| Repo | Path | Purpose | Status |
+|------|------|---------|--------|
+| IDFW | /Users/jeremiah/Developer/idfw | Unified framework (v1.0) | **ACTIVE** |
+| IDFWU | /Users/jeremiah/Developer/idfwu | Original unified framework | ARCHIVE (idfwu_mfs excluded by design) |
+| IDFWU2 | /Users/jeremiah/Developer/idfwu2 | Planning & research (247-skill catalog) | ARCHIVED |
+| Dev Sentinel | /Users/jeremiah/Developer/dev_sentinel | FORCE framework (42+ tools, 5 agents) | ARCHIVED |
+
+### STFU Analysis (2026-02-19)
+| Pair | Score | Verdict | Absorption |
+|------|-------|---------|------------|
+| idfw ↔ idfwu | 0.52 | REVIEW | 96.5% core absorbed; idfwu_mfs intentionally excluded |
+| idfw ↔ idfwu2 | 0.30 | ARCHIVE | 100% absorbed (all 7 files) |
+| idfw ↔ dev_sentinel | 0.26 | ARCHIVE | 97% absorbed (249/263 files) |
+
+**Note**: `.force/` = project-scope runtime config; `force/` = importable Python package. Both coexist by design.
 
 ## Implementation Checkpoints
 
@@ -67,8 +76,20 @@
 - [ ] **CP-25**: Map Claude Code product skills to IDEA framework
 - After CP-25: Full squadron re-scan to verify improvements
 
+### Phase 7: STFU Archive Sequence (In Progress)
+- [x] **CP-26**: Migrate 4 planning docs from idfwu2 (US-001)
+- [x] **CP-27**: Fix mcp version floor >=0.5.0 to >=1.6.0 (US-002)
+- [x] **CP-28**: Port Linear integration modules from idfwu (US-003)
+- [x] **CP-29**: Add [agents] optional dependency group (US-004)
+- [x] **CP-30**: Confirm test_converters.py coverage (US-005)
+- [x] **CP-31**: Port orchestrator launchers from idfwu (US-006)
+- [x] **CP-32**: Update CLAUDE.md with STFU results (US-007)
+- [ ] **CP-33**: Archive idfwu2 + dev_sentinel on GitHub (US-008)
+- [ ] **CP-34**: Final verification + idfwu archive + PR (US-009)
+- After CP-34: All source repos archived, IDFW is sole active repo
+
 ## Test Status
-- **569 tests passing** (557 pass + 12 skipped hooks tests)
+- **511 tests passing** (511 pass + 26 skipped)
 - Hooks tests skipped: intentionally removed bloat (7,098 LOC hooks system)
 - Schema validation: 8/8 schemas validate
 - FORCE validation: 68/68 PASS (100%)
