@@ -21,7 +21,7 @@ The **Idea Definition Framework (IDFW)** is a comprehensive specification design
 - **IDCMD (Command Definitions)**: Structured command definitions for framework interactions.
 
 ## 3. Schema & Structure
-The IDFW is defined as a JSON object adhering to the [IDFW.schema.json](#file:IDFW.schema.json) specifications. Below are references to key schema objects:
+The IDFW is defined as a JSON object adhering to the [IDFW.schema.json](../schemas/IDFW.schema.json) specifications. Below are references to key schema objects:
 
 ### 3.1 Axis Definitions
 ```jsonc

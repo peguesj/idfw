@@ -294,7 +294,7 @@ All Force components validate against the master schema located at `schemas/forc
 ## Support and Documentation
 
 - **Schema Reference:** [force-schema.json](schemas/force-schema.json)
-- **Tool Library:** [Git Workflow Tools](tools/git-workflow-tools.json)
+- **Tool Library:** [Git Workflow Tools](tools/git_workflow/)
 - **Pattern Library:** [Documentation Patterns](patterns/documentation-patterns.json)
 - **Constraint Library:** [Development Constraints](constraints/development-constraints.json)
 - **Learning Data:** [Development Learning](learning/development-learning.json)
