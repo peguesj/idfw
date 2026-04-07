@@ -104,11 +104,11 @@
 - [x] **CP-47**: Wire APM telemetry for /idea lifecycle (US-013)
 - [x] **CP-48**: Update UPM, CLAUDE.md, pyproject.toml for v4.0 (US-014)
 - [x] **CP-49**: Create v3.0 skills catalog machine-readable index (US-015)
-- [ ] **CP-50**: Integration test: full /idea flow end-to-end (US-016)
+- [x] **CP-50**: Integration test: full /idea flow end-to-end (US-016)
 - After CP-50: /idea new → discover → define → plan → execute works end-to-end
 
 ## Test Status
-- **511 tests passing** (511 pass + 26 skipped)
+- **535 tests passing** (535 pass + 26 skipped)
 - Hooks tests skipped: intentionally removed bloat (7,098 LOC hooks system)
 - Schema validation: 8/8 schemas validate
 - FORCE validation: 68/68 PASS (100%)
