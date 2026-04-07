@@ -76,7 +76,7 @@
 - [ ] **CP-25**: Map Claude Code product skills to IDEA framework
 - After CP-25: Full squadron re-scan to verify improvements
 
-### Phase 7: STFU Archive Sequence (In Progress)
+### Phase 7: STFU Archive Sequence (Complete)
 - [x] **CP-26**: Migrate 4 planning docs from idfwu2 (US-001)
 - [x] **CP-27**: Fix mcp version floor >=0.5.0 to >=1.6.0 (US-002)
 - [x] **CP-28**: Port Linear integration modules from idfwu (US-003)
@@ -84,9 +84,28 @@
 - [x] **CP-30**: Confirm test_converters.py coverage (US-005)
 - [x] **CP-31**: Port orchestrator launchers from idfwu (US-006)
 - [x] **CP-32**: Update CLAUDE.md with STFU results (US-007)
-- [ ] **CP-33**: Archive idfwu2 + dev_sentinel on GitHub (US-008)
-- [ ] **CP-34**: Final verification + idfwu archive + PR (US-009)
+- [x] **CP-33**: Archive idfwu2 + dev_sentinel on GitHub (US-008)
+- [x] **CP-34**: Final verification + idfwu archive + PR (US-009)
 - After CP-34: All source repos archived, IDFW is sole active repo
+
+### Phase 8: IDEA Framework v4.0 - Inception Layer (In Progress)
+- [x] **CP-35**: Create /idea skill scaffold with phase-based routing (US-001)
+- [x] **CP-36**: Implement /idea new - project initializer wizard (US-002)
+- [x] **CP-37**: Implement /idea discover - guided discovery (US-003)
+- [x] **CP-38**: Implement /idea define - PRD generation chain (US-004)
+- [x] **CP-39**: Implement /idea plan - UPM + Plane orchestration (US-005)
+- [x] **CP-40**: Implement /idea execute - formation deployment bridge (US-006)
+- [x] **CP-41**: Implement /idea status - unified lifecycle view (US-007)
+- [x] **CP-42**: Build project_type_classifier with IDFPJs mapping (US-008)
+- [x] **CP-43**: Build risk_assessment_generator (US-009)
+- [x] **CP-44**: Build kickoff_package_generator (US-010)
+- [x] **CP-45**: Build constraint and assumption registries (US-011)
+- [x] **CP-46**: Build RACI matrix and stakeholder impact (US-012)
+- [x] **CP-47**: Wire APM telemetry for /idea lifecycle (US-013)
+- [x] **CP-48**: Update UPM, CLAUDE.md, pyproject.toml for v4.0 (US-014)
+- [x] **CP-49**: Create v3.0 skills catalog machine-readable index (US-015)
+- [ ] **CP-50**: Integration test: full /idea flow end-to-end (US-016)
+- After CP-50: /idea new → discover → define → plan → execute works end-to-end
 
 ## Test Status
 - **511 tests passing** (511 pass + 26 skipped)
@@ -95,3 +114,25 @@
 - FORCE validation: 68/68 PASS (100%)
 - State manager: checkpoint/rollback fully operational
 - Wiki: 9 content pages with evolution tracing
+
+## CCEM APM Integration
+
+- **APM Dashboard**: http://localhost:3031
+- **APM Config**: /Users/jeremiah/Developer/idfw/apm/apm_config.json
+- **APM Port**: 3031
+- **Skills Path**: ~/.claude/skills/
+- **APM Log**: ~/Developer/ccem/apm/hooks/apm_server.log
+
+## Formation Deploy
+
+`/formation deploy` — always run as a background task. Return status messaging only upon completion.
+
+## Attribution Policy
+
+Never include "Generated with Claude Code", "Co-Authored-By: Claude", or any AI/Claude attribution in:
+- Pull request bodies or titles
+- Commit messages
+- Issue comments
+- Any externally submitted content (GitHub, GitLab, etc.)
+
+This is a hard rule with no exceptions.

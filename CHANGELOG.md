@@ -1,5 +1,27 @@
 # Changelog
 
+## [4.0.0] - 2026-02-20
+
+### Added
+- IDEA Framework v4.0 Inception Layer (`/idea` skill)
+- Guided project initialization wizard (`/idea new`)
+- Discovery phase with problem-statement and JTBD integration (`/idea discover`)
+- PRD generation chain with /prd and /ralph integration (`/idea define`)
+- UPM orchestration bridge (`/idea plan`, `/idea execute`)
+- Unified lifecycle status view (`/idea status`)
+- Project type classifier with IDFPJs mapping
+- Risk assessment generator (5 categories)
+- Kickoff package generator
+- Constraint and assumption registries
+- RACI matrix and stakeholder impact analysis
+- APM telemetry for /idea lifecycle events
+- Machine-readable skills catalog index (247 skills)
+- idea_context.json project context format
+
+### Changed
+- Version bump from 1.0.0 to 4.0.0 (aligning with v3.0 skills catalog)
+- Phase 8 checkpoints (CP-35 through CP-50) added to CLAUDE.md
+
 ## [1.0.0] - 2026-02-19
 
 ### Added
