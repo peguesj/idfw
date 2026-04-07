@@ -6,10 +6,11 @@ This directory contains comprehensive documentation for the unification of **IDF
 
 ## Project Status
 
-- **Phase**: Research & Planning Complete
-- **Version**: Documentation v1.0.0
-- **Date**: 2025-09-29
-- **Next Step**: Implementation Phase 1
+- **Phase**: v4.0 Shipped (Phase 8 Complete, Inception Layer)
+- **Version**: Documentation v4.0.0
+- **Date**: 2026-04-07
+- **Test Suite**: 535 pass, 26 skipped, 0 fail
+- **Schemas**: 8/8 validate, FORCE 68/68 PASS
 
 ## Documentation Structure
 
@@ -27,20 +28,26 @@ unified_framework_docs/
 ├── 02_SCHEMA_MAPPINGS/                  # Schema integration documentation
 │   └── Unified_Schema_Design.md         # Merged schema approach and mappings
 │
-├── 03_COMMAND_SYSTEMS/                  # Command system integration (planned)
+├── 03_COMMAND_SYSTEMS/                  # Command system integration
 │   ├── YUNG_Commands.md
 │   ├── IDFW_Actions.md
 │   └── Unified_Commands.md
 │
-├── 04_AGENT_INTEGRATION/                # Agent architecture (planned)
+├── 04_AGENT_INTEGRATION/                # Agent architecture
 │   ├── Agent_Wrappers.md
 │   └── Message_Bus_Integration.md
 │
-├── 05_MCP_PROTOCOL/                     # MCP integration (planned)
+├── 05_MCP_PROTOCOL/                     # MCP integration
 │   └── MCP_Extensions.md
 │
-└── 06_IMPLEMENTATION_PLAN/              # Implementation roadmap (planned)
-    └── Phase_Roadmap.md
+├── 06_IMPLEMENTATION_PLAN/              # Implementation roadmap
+│   └── Phase_Roadmap.md
+│
+├── 07_DISCOVERY_FRAMEWORK/              # v4.0 Project discovery system
+│   └── Discovery_Architecture.md        # Multi-source provider system
+│
+└── 08_IDEA_LIFECYCLE/                   # v4.0 /idea skill lifecycle
+    └── Lifecycle_Architecture.md        # new → discover → define → plan → execute
 ```
 
 ## Quick Reference
@@ -83,6 +90,11 @@ unified_framework_docs/
 2. **[Integration Points](01_ARCHITECTURE_OVERVIEW/Integration_Points.md)** - Key synergies identified
 3. **[Unified Architecture](01_ARCHITECTURE_OVERVIEW/Unified_Architecture.md)** - Proposed system design
 4. **[Schema Design](02_SCHEMA_MAPPINGS/Unified_Schema_Design.md)** - Schema unification strategy
+
+### v4.0 Documentation (New)
+
+5. **[Discovery Framework](07_DISCOVERY_FRAMEWORK/Discovery_Architecture.md)** - Multi-source project discovery
+6. **[IDEA Lifecycle](08_IDEA_LIFECYCLE/Lifecycle_Architecture.md)** - End-to-end idea-to-execution flow
 
 ### Deep Dives
 
@@ -225,6 +237,6 @@ This unified framework documentation combines analysis of:
 
 ---
 
-*Documentation Version: 1.0.0*
-*Last Updated: 2025-09-29*
-*Status: Research & Planning Complete*
+*Documentation Version: 4.0.0*
+*Last Updated: 2026-04-07*
+*Status: v4.0 Shipped — Phase 8 Complete*

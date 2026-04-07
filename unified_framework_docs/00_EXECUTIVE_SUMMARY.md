@@ -172,22 +172,65 @@ C4Context
 3. **Backward Compatibility**: Maintain legacy command support with deprecation warnings
 4. **Performance Impact**: Implement lazy loading and caching strategies
 
-## Next Steps
+## Current State (v4.0.0)
 
-1. Review and approve unification plan
-2. Set up development environment with Linear integration (Project ID: 4d649a6501f7)
-3. Create comprehensive Linear epic and milestone structure
-4. Begin Phase 1 implementation with issue tracking
-5. Establish testing framework with Linear integration
-6. Create migration guides with progress tracking
-7. Configure automated Linear updates for CI/CD pipeline
+The unification is complete. IDFW v4.0 ships the Inception Layer — a guided idea-to-execution lifecycle:
+
+| Phase | Checkpoints | Status |
+|-------|-------------|--------|
+| Phase 1: Schema & Data Integrity | CP-01 to CP-06 | Complete |
+| Phase 2: FORCE Schema Compliance | CP-07 to CP-12 | Complete |
+| Phase 3: Critical Gap Resolution | CP-13 to CP-17 | Complete |
+| Phase 4: Consolidation (4 repos → 1) | B01 to B08 | Complete |
+| Phase 5: Wiki & Test Hardening | CP-18 to CP-21 | Complete |
+| Phase 6: Quality & Documentation | CP-22 to CP-25 | In Progress |
+| Phase 7: STFU Archive Sequence | CP-26 to CP-34 | Complete |
+| Phase 8: IDEA Framework v4.0 | CP-35 to CP-50 | Complete |
+
+### Key Deliverables (v4.0)
+
+- **535 tests** passing (0 failures)
+- **8 schemas** validated, **68 FORCE tools** validated
+- **Project Discovery Framework** with 4 pluggable providers
+- **/idea lifecycle**: new → discover → define → plan → execute
+- **AG-UI daemon** with SSE streaming, decision gates, state management
+- **IDFWU macOS app** (SwiftUI) consuming the daemon API
+- **Skills catalog** (machine-readable index of all v3.0 skills)
+- **3 archived repos** (idfwu, idfwu2, dev_sentinel) absorbed into IDFW
+
+### Architecture (Implemented)
+
+```
+~/.claude/skills/idea/          # /idea skill (lifecycle orchestrator)
+├── server/                     # FastAPI daemon (AG-UI protocol)
+│   ├── app.py                  # Endpoints: health, events, state, decisions
+│   ├── events.py               # EventBus with 16 AG-UI event types
+│   └── storage.py              # SQLite persistence (gates, audits, events)
+├── contexts/                   # Project context JSON files
+└── ui/                         # Web dashboard
+
+unified_framework/
+├── core/                       # Schema bridge, converters
+├── discovery/                  # Multi-source project discovery
+│   ├── providers/              # Filesystem, Plane, APM, Config
+│   └── resolver.py             # Concurrent resolution + merge
+└── ...
+
+idea-framework/
+├── schemas/                    # 8 IDEA schemas (IDFW, IDDA, IDDV, etc.)
+├── skills_index.json           # v3.0 skills catalog
+└── phase_skill_mapping.json    # Phase → skill mapping
+
+.force/                         # FORCE framework (68 validated tools)
+dev_sentinel/                   # Dev Sentinel package (absorbed)
+```
 
 ## Conclusion
 
-The unification of IDFW and Dev Sentinel creates a comprehensive development framework that combines structured project management with autonomous execution capabilities. This integration leverages the strengths of both systems while maintaining their individual benefits, resulting in a powerful, unified development assistant.
+The unification of IDFW and Dev Sentinel is complete. The resulting framework provides structured project definitions (schemas), autonomous execution (agents + FORCE tools), and a guided inception layer (/idea lifecycle) — all consolidated into a single repository with comprehensive test coverage.
 
 ---
 
-*Document Version: 1.0.0*
-*Date: 2025-09-29*
-*Status: Planning Complete*
+*Document Version: 4.0.0*
+*Date: 2026-04-07*
+*Status: v4.0 Shipped*
