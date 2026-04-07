@@ -70,10 +70,10 @@
 - After CP-21: All tests green, wiki live, ready for v1.0 merge
 
 ### Phase 6: Quality & Documentation (Planned)
-- [ ] **CP-22**: Add test coverage to dev_sentinel (currently 0 tests)
-- [ ] **CP-23**: Fix 2 broken documentation links (SQ-07)
-- [ ] **CP-24**: Bring IDFW documentation from 45% to 70%
-- [ ] **CP-25**: Map Claude Code product skills to IDEA framework
+- [x] **CP-22**: Add test coverage to dev_sentinel (62 tests)
+- [x] **CP-23**: Fix broken documentation links (SQ-07)
+- [x] **CP-24**: Bring IDFW documentation from 45% to 70% (v4.0 docs added)
+- [x] **CP-25**: Map Claude Code product skills to IDEA framework
 - After CP-25: Full squadron re-scan to verify improvements
 
 ### Phase 7: STFU Archive Sequence (Complete)
@@ -108,7 +108,7 @@
 - After CP-50: /idea new → discover → define → plan → execute works end-to-end
 
 ## Test Status
-- **535 tests passing** (535 pass + 26 skipped)
+- **597 tests passing** (597 pass + 26 skipped)
 - Hooks tests skipped: intentionally removed bloat (7,098 LOC hooks system)
 - Schema validation: 8/8 schemas validate
 - FORCE validation: 68/68 PASS (100%)
