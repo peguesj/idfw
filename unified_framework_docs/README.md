@@ -8,9 +8,10 @@ This directory contains comprehensive documentation for the unification of **IDF
 
 - **Phase**: v4.0 Shipped (Phase 8 Complete, Inception Layer)
 - **Version**: Documentation v4.0.0
-- **Date**: 2026-04-07
-- **Test Suite**: 535 pass, 26 skipped, 0 fail
+- **Date**: 2026-04-11
+- **Test Suite**: 597 pass, 26 skipped, 0 fail
 - **Schemas**: 8/8 validate, FORCE 68/68 PASS
+- **Runtime**: /idea daemon live on port 4040, IDFWU macOS app live
 
 ## Documentation Structure
 
@@ -238,5 +239,5 @@ This unified framework documentation combines analysis of:
 ---
 
 *Documentation Version: 4.0.0*
-*Last Updated: 2026-04-07*
-*Status: v4.0 Shipped — Phase 8 Complete*
+*Last Updated: 2026-04-11*
+*Status: v4.0 Shipped — Phase 8 Complete, branch idfw/idea-v4-inception pending merge*

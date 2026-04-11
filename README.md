@@ -1,6 +1,6 @@
 # Idea Definition Framework (IDFW) README
 
-## Version: 2.1.1  
+## Version: 4.0.0  
 
 ## Table of Contents
 1. [High-Level Overview](#high-level-overview)

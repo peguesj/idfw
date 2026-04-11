@@ -4,12 +4,13 @@
 - **Type**: Framework unification across IDFW, IDFWU, IDFWU2, and Dev Sentinel
 - **Scope**: Schema validation, agent orchestration, FORCE integration, CLI unification, MCP protocol, documentation
 - **Branch**: main (v1.0 consolidated from 4 repos)
-- **APM**: http://localhost:3031 (project: idfw, 228 agents registered)
+- **APM**: http://localhost:3032 (project: idfw, global CCEM APM v9.0.0)
 
 ## Repositories
 | Repo | Path | Purpose | Status |
 |------|------|---------|--------|
 | IDFW | /Users/jeremiah/Developer/idfw | Unified framework (v1.0) | **ACTIVE** |
+| IDFWU (Swift macOS) | /Users/jeremiah/Developer/idfw-idfwu/IDFWU | SwiftUI macOS client (Inception Glass) | **ACTIVE** |
 | IDFWU | /Users/jeremiah/Developer/idfwu | Original unified framework | ARCHIVE (idfwu_mfs excluded by design) |
 | IDFWU2 | /Users/jeremiah/Developer/idfwu2 | Planning & research (247-skill catalog) | ARCHIVED |
 | Dev Sentinel | /Users/jeremiah/Developer/dev_sentinel | FORCE framework (42+ tools, 5 agents) | ARCHIVED |
@@ -117,11 +118,12 @@
 
 ## CCEM APM Integration
 
-- **APM Dashboard**: http://localhost:3031
+- **APM Dashboard**: http://localhost:3032
 - **APM Config**: /Users/jeremiah/Developer/idfw/apm/apm_config.json
-- **APM Port**: 3031
+- **APM Port**: 3032 (global CCEM APM v9.0.0, subdirectory-namespaced sessions)
 - **Skills Path**: ~/.claude/skills/
 - **APM Log**: ~/Developer/ccem/apm/hooks/apm_server.log
+- **Auth Session**: auth_sess_014ddf81a66cf178425843dd (permissive, allow_all)
 
 ## Formation Deploy
 

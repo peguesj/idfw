@@ -1,0 +1,9 @@
+{
+  "session_id": "21130a70-8174-4e99-b023-b55d86f9f589",
+  "created_at": "2026-03-02T21:33:34.236972Z",
+  "project_name": "idfw",
+  "project_root": "/Users/jeremiah/Developer/idfw",
+  "apm_port": 3032,
+  "apm_url": "http://localhost:3032",
+  "skills_path": "~/.claude/skills"
+}

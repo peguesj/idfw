@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.0.0] - 2026-02-20
+## [4.0.0] - 2026-02-20 (Phase 6 addendum 2026-04-11)
 
 ### Added
 - IDEA Framework v4.0 Inception Layer (`/idea` skill)
@@ -17,10 +17,21 @@
 - APM telemetry for /idea lifecycle events
 - Machine-readable skills catalog index (247 skills)
 - idea_context.json project context format
+- Project discovery framework with multi-source providers (CP-35)
+- `/idea` lifecycle integration tests - 24 tests (CP-50)
+- dev_sentinel test coverage - 62 tests (CP-22)
+- v4.0 documentation: discovery framework + IDEA lifecycle architecture (CP-24)
+- Claude Code product skills mapping to IDEA framework (CP-25)
+- `/idea` daemon running on port 4040 (`GET /api/v3/health`)
+- IDFWU native macOS Swift companion app
 
 ### Changed
 - Version bump from 1.0.0 to 4.0.0 (aligning with v3.0 skills catalog)
 - Phase 8 checkpoints (CP-35 through CP-50) added to CLAUDE.md
+- Test suite grew from 535 to 597 passing (0 fail, 26 skipped)
+
+### Fixed
+- 3 broken documentation links repaired (CP-23)
 
 ## [1.0.0] - 2026-02-19
 
