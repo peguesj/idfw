@@ -1,0 +1,131 @@
+{
+  "version": "4.0.0",
+  "description": "Maps IDEA lifecycle phases to Claude Code skills and IDFW catalog skills",
+  "generated": "2026-04-07",
+  "phases": {
+    "new": {
+      "description": "Project initialization via guided intake wizard (5-8 questions), producing idea_context.json",
+      "catalog_skills": [
+        "I1-001", "I1-002", "I1-009", "I1-010", "I1-011"
+      ],
+      "claude_code_skills": [],
+      "notes": "Maps to Initiation layer: project_initializer_wizard (I1-001) runs the intake, project_scope_definer (I1-002) captures scope, project_template_applier (I1-009) applies IDFPJs templates, project_config_validator (I1-010) validates the context file, project_type_classifier (I1-011) selects the IDFPJ project type. No external Claude Code skills invoked in this phase."
+    },
+    "discover": {
+      "description": "Guided discovery deepening user, market, and risk understanding; produces problem statement, JTBD, constraints, assumptions, scope, stakeholder RACI",
+      "catalog_skills": [
+        "I1-006", "I1-007", "I1-008", "I1-012",
+        "I2-001", "I2-002", "I2-004",
+        "D1-001", "D1-005",
+        "A2-002", "A2-008",
+        "E1-001"
+      ],
+      "claude_code_skills": [
+        "problem-statement",
+        "jobs-to-be-done",
+        "proto-persona",
+        "discovery-process",
+        "pestel-analysis",
+        "customer-journey-map"
+      ],
+      "notes": "Core phase for research. Invokes /problem-statement and /jobs-to-be-done directly. risk_assessment_generator (I1-006) scores risks, constraint_documentation (I1-007) and assumption_registry (I1-008) capture guardrails, kickoff_package_generator (I1-012) bundles artifacts. stakeholder_registry (I2-001), raci_matrix_generator (I2-002), and stakeholder_impact_analyzer (I2-004) handle RACI. Claude Code skills like proto-persona, discovery-process, pestel-analysis, and customer-journey-map are available for deeper discovery when project complexity warrants it."
+    },
+    "define": {
+      "description": "Converts discovery output into PRD markdown and machine-readable prd.json",
+      "catalog_skills": [
+        "D1-003", "D1-005", "D1-006", "D1-008", "D1-009",
+        "D2-001",
+        "G1-004", "G1-006", "G1-010",
+        "G2-007",
+        "A2-001", "A2-002", "A2-003"
+      ],
+      "claude_code_skills": [
+        "prd",
+        "prd-development",
+        "ralph",
+        "user-story",
+        "user-story-splitting",
+        "epic-breakdown-advisor",
+        "epic-hypothesis",
+        "lean-ux-canvas",
+        "positioning-statement"
+      ],
+      "notes": "Invokes /prd to generate PRD markdown, then /ralph to convert to prd.json. prd_generator_product (D1-003) is the primary catalog skill. user_story_epic_generator (D1-005) and acceptance_criteria_writer (D1-006) structure stories. moscow_prioritizer (D1-009) ranks features. sad_architecture_generator (D2-001) and diagram skills (G1-004, G1-006, G1-010) produce architecture visuals. schema_validator_engine (G2-007) validates output structure. Claude Code skills for user stories, epic breakdown, and lean UX canvas support detailed definition work."
+    },
+    "plan": {
+      "description": "Creates tracking infrastructure (Plane issues, CLAUDE.md checkpoints, risk matrix, milestone timeline) from the defined PRD",
+      "catalog_skills": [
+        "I1-003", "I1-005",
+        "I1-006",
+        "I2-003",
+        "O2-001", "O2-009", "O2-012",
+        "O4-001", "O4-002", "O4-006",
+        "G1-018", "G1-019",
+        "E1-009"
+      ],
+      "claude_code_skills": [
+        "upm",
+        "plane-pm",
+        "roadmap-planning",
+        "prioritization-advisor",
+        "feature-investment-advisor"
+      ],
+      "notes": "Invokes /upm plan to create Plane issues and checkpoints. milestone_timeline_planner (I1-003) and resource_allocation_planner (I1-005) structure the schedule. risk_assessment_generator (I1-006) produces the risk matrix. Orchestration skills (O2-001, O2-009, O2-012) prepare agent deployment topology. workflow_definition_parser (O4-001) and step_sequencer_executor (O4-002) define execution order. gantt_chart (G1-018) and swimlane_diagram (G1-019) visualize timelines. Claude Code skills /upm and /plane-pm are the primary bridges; roadmap-planning and prioritization-advisor provide strategic planning support."
+    },
+    "execute": {
+      "description": "Bridges to /upm build for formation-based agent deployment; runs squadrons, swarms, and agents against planned checkpoints",
+      "catalog_skills": [
+        "O1-003", "O1-005", "O1-006", "O1-007",
+        "O2-001", "O2-002", "O2-009", "O2-012",
+        "O4-002", "O4-004", "O4-005", "O4-006",
+        "R1-005", "R1-006", "R1-013",
+        "R2-001",
+        "C1-001", "C1-006", "C1-011",
+        "C2-001", "C2-002", "C2-003",
+        "E1-001", "E1-002", "E1-006", "E1-009",
+        "A1-001", "A1-002", "A1-004", "A1-005"
+      ],
+      "claude_code_skills": [
+        "upm",
+        "formation",
+        "ship",
+        "worktree",
+        "orchestrator",
+        "double-verify",
+        "live-integration-testing",
+        "refactor-max",
+        "doctor"
+      ],
+      "notes": "The heaviest phase. Invokes /upm build which triggers /formation deploy. Orchestration layer (O1, O2, O4) handles agent spawning, monitoring, parallel coordination, checkpointing, and retries. Runtime layer (R1, R2) provides hook execution and MCP integration. Compliance layer (C1, C2) enforces governance and security scanning during execution. Evolution layer (E1) captures patterns and metrics. Assurance layer (A1) tracks traceability and change impact. Claude Code skills /formation and /ship handle deployment; /worktree isolates work; /double-verify ensures correctness; /live-integration-testing runs E2E; /doctor diagnoses failures; /refactor-max optimizes code quality."
+    },
+    "status": {
+      "description": "Unified lifecycle view across all phases; reads idea_context.json and displays phase summary, story progress, and risk overview",
+      "catalog_skills": [
+        "O2-002", "O2-010",
+        "E1-006", "E1-009",
+        "I2-006",
+        "A1-001"
+      ],
+      "claude_code_skills": [
+        "apm",
+        "ccem-apm"
+      ],
+      "notes": "Read-only aggregation phase. agent_status_monitor (O2-002) and dashboard_state_renderer (O2-010) provide live agent state. usage_analytics_tracker (E1-006) and performance_metrics_collector (E1-009) supply telemetry. status_report_generator (I2-006) formats output. rtm_matrix_generator (A1-001) shows traceability coverage. Claude Code skills /apm and /ccem-apm provide the dashboard and metrics overlay."
+    }
+  },
+  "coverage_summary": {
+    "total_catalog_skills_mapped": 68,
+    "total_claude_code_skills_mapped": 26,
+    "layers_touched": {
+      "F": ["F4-001", "F4-003", "F4-008"],
+      "O": ["O1-003", "O1-005", "O1-006", "O1-007", "O2-001", "O2-002", "O2-009", "O2-010", "O2-012", "O4-001", "O4-002", "O4-004", "O4-005", "O4-006"],
+      "R": ["R1-005", "R1-006", "R1-013", "R2-001"],
+      "C": ["C1-001", "C1-006", "C1-011", "C2-001", "C2-002", "C2-003"],
+      "E": ["E1-001", "E1-002", "E1-006", "E1-009"],
+      "I": ["I1-001", "I1-002", "I1-003", "I1-005", "I1-006", "I1-007", "I1-008", "I1-009", "I1-010", "I1-011", "I1-012", "I2-001", "I2-002", "I2-003", "I2-004", "I2-006"],
+      "D": ["D1-001", "D1-003", "D1-005", "D1-006", "D1-008", "D1-009", "D2-001"],
+      "G": ["G1-004", "G1-006", "G1-010", "G1-018", "G1-019", "G2-007"],
+      "A": ["A1-001", "A1-002", "A1-004", "A1-005", "A2-001", "A2-002", "A2-003", "A2-008"]
+    }
+  }
+}

@@ -1,0 +1,510 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Linear Agent Management Schema",
+  "description": "FORCE schema for managing Linear AI agents throughout their lifecycle",
+  "type": "object",
+  "properties": {
+    "management_operation": {
+      "type": "string",
+      "enum": ["start", "stop", "restart", "update", "scale", "monitor", "backup", "restore", "delete"],
+      "description": "Management operation to perform"
+    },
+    "agent_selector": {
+      "type": "object",
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "description": "Specific agent ID"
+        },
+        "deployment_id": {
+          "type": "string",
+          "description": "Deployment ID"
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Label selectors"
+        },
+        "environment": {
+          "type": "string",
+          "enum": ["development", "staging", "production"],
+          "description": "Environment filter"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["running", "stopped", "error", "starting", "stopping"],
+          "description": "Status filter"
+        }
+      },
+      "description": "Agent selection criteria"
+    },
+    "operation_config": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "object",
+          "properties": {
+            "timeout": {
+              "type": "integer",
+              "minimum": 10,
+              "default": 300,
+              "description": "Start timeout in seconds"
+            },
+            "wait_for_ready": {
+              "type": "boolean",
+              "default": true,
+              "description": "Wait for agent to be ready"
+            },
+            "health_check": {
+              "type": "boolean",
+              "default": true,
+              "description": "Perform health check after start"
+            }
+          }
+        },
+        "stop": {
+          "type": "object",
+          "properties": {
+            "graceful": {
+              "type": "boolean",
+              "default": true,
+              "description": "Graceful shutdown"
+            },
+            "timeout": {
+              "type": "integer",
+              "minimum": 5,
+              "default": 30,
+              "description": "Stop timeout in seconds"
+            },
+            "force": {
+              "type": "boolean",
+              "default": false,
+              "description": "Force stop if graceful fails"
+            }
+          }
+        },
+        "restart": {
+          "type": "object",
+          "properties": {
+            "strategy": {
+              "type": "string",
+              "enum": ["rolling", "recreate", "blue-green"],
+              "default": "rolling",
+              "description": "Restart strategy"
+            },
+            "delay": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 5,
+              "description": "Delay between stop and start in seconds"
+            }
+          }
+        },
+        "update": {
+          "type": "object",
+          "properties": {
+            "config_updates": {
+              "type": "object",
+              "description": "Configuration updates to apply"
+            },
+            "version": {
+              "type": "string",
+              "description": "Target version for update"
+            },
+            "strategy": {
+              "type": "string",
+              "enum": ["rolling", "recreate", "blue-green"],
+              "default": "rolling"
+            },
+            "rollback_on_failure": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        },
+        "scale": {
+          "type": "object",
+          "properties": {
+            "replicas": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Target number of replicas"
+            },
+            "auto_scale": {
+              "type": "boolean",
+              "description": "Enable/disable auto-scaling"
+            },
+            "scale_policy": {
+              "type": "object",
+              "properties": {
+                "min_replicas": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "max_replicas": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "target_cpu": {
+                  "type": "number",
+                  "minimum": 0.1,
+                  "maximum": 1.0
+                },
+                "target_memory": {
+                  "type": "number",
+                  "minimum": 0.1,
+                  "maximum": 1.0
+                }
+              }
+            }
+          }
+        },
+        "monitor": {
+          "type": "object",
+          "properties": {
+            "duration": {
+              "type": "integer",
+              "minimum": 60,
+              "description": "Monitoring duration in seconds"
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["cpu", "memory", "network", "disk", "linear_api_calls", "response_time", "error_rate"]
+              },
+              "default": ["cpu", "memory", "linear_api_calls", "error_rate"]
+            },
+            "alert_thresholds": {
+              "type": "object",
+              "properties": {
+                "cpu_percent": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "default": 80
+                },
+                "memory_percent": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "default": 80
+                },
+                "error_rate": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1.0,
+                  "default": 0.05
+                },
+                "response_time_ms": {
+                  "type": "integer",
+                  "minimum": 100,
+                  "default": 5000
+                }
+              }
+            }
+          }
+        },
+        "backup": {
+          "type": "object",
+          "properties": {
+            "include_config": {
+              "type": "boolean",
+              "default": true
+            },
+            "include_logs": {
+              "type": "boolean",
+              "default": false
+            },
+            "include_state": {
+              "type": "boolean",
+              "default": true
+            },
+            "storage_location": {
+              "type": "string",
+              "format": "uri",
+              "description": "Backup storage location"
+            },
+            "retention_policy": {
+              "type": "object",
+              "properties": {
+                "keep_daily": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 7
+                },
+                "keep_weekly": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 4
+                },
+                "keep_monthly": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "default": 12
+                }
+              }
+            }
+          }
+        },
+        "restore": {
+          "type": "object",
+          "properties": {
+            "backup_id": {
+              "type": "string",
+              "description": "Backup identifier to restore from"
+            },
+            "backup_location": {
+              "type": "string",
+              "format": "uri",
+              "description": "Backup location"
+            },
+            "restore_config": {
+              "type": "boolean",
+              "default": true
+            },
+            "restore_state": {
+              "type": "boolean",
+              "default": true
+            },
+            "validate_before_start": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        }
+      },
+      "description": "Operation-specific configuration"
+    },
+    "execution_context": {
+      "type": "object",
+      "properties": {
+        "dry_run": {
+          "type": "boolean",
+          "default": false,
+          "description": "Simulate operation without executing"
+        },
+        "force": {
+          "type": "boolean",
+          "default": false,
+          "description": "Force operation even if warnings"
+        },
+        "async": {
+          "type": "boolean",
+          "default": false,
+          "description": "Execute operation asynchronously"
+        },
+        "timeout": {
+          "type": "integer",
+          "minimum": 30,
+          "default": 300,
+          "description": "Overall operation timeout in seconds"
+        },
+        "retry_policy": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": true
+            },
+            "max_attempts": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10,
+              "default": 3
+            },
+            "backoff_factor": {
+              "type": "number",
+              "minimum": 1.0,
+              "default": 2.0
+            },
+            "retry_on": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["timeout", "connection_error", "api_error", "health_check_failure"]
+              },
+              "default": ["timeout", "connection_error"]
+            }
+          }
+        }
+      },
+      "description": "Execution context and behavior"
+    },
+    "notifications": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["email", "slack", "webhook", "linear"]
+              },
+              "config": {
+                "type": "object"
+              },
+              "events": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["success", "failure", "warning", "started", "completed"]
+                }
+              }
+            },
+            "required": ["type", "events"]
+          }
+        },
+        "templates": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "string"
+            },
+            "failure": {
+              "type": "string"
+            },
+            "warning": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": "Notification configuration"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "operation_id": {
+          "type": "string",
+          "description": "Unique operation identifier"
+        },
+        "initiated_by": {
+          "type": "string",
+          "description": "User or system that initiated operation"
+        },
+        "initiated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for the operation"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": ["management_operation", "agent_selector"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "management_operation": "restart",
+      "agent_selector": {
+        "agent_id": "linear-agent-issue-tracker",
+        "environment": "production"
+      },
+      "operation_config": {
+        "restart": {
+          "strategy": "rolling",
+          "delay": 10
+        }
+      },
+      "execution_context": {
+        "dry_run": false,
+        "timeout": 600
+      },
+      "notifications": {
+        "enabled": true,
+        "channels": [
+          {
+            "type": "slack",
+            "events": ["success", "failure"],
+            "config": {
+              "webhook_url": "https://hooks.slack.com/...",
+              "channel": "#ops"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "operation_id": "op-restart-20241008-001",
+        "initiated_by": "idfwu-system",
+        "reason": "Scheduled maintenance restart"
+      }
+    },
+    {
+      "management_operation": "scale",
+      "agent_selector": {
+        "labels": {
+          "environment": "production",
+          "team": "engineering"
+        }
+      },
+      "operation_config": {
+        "scale": {
+          "replicas": 5,
+          "auto_scale": true,
+          "scale_policy": {
+            "min_replicas": 2,
+            "max_replicas": 10,
+            "target_cpu": 0.7
+          }
+        }
+      },
+      "execution_context": {
+        "async": true,
+        "timeout": 300
+      },
+      "metadata": {
+        "operation_id": "op-scale-20241008-002",
+        "initiated_by": "auto-scaler",
+        "reason": "High load detected"
+      }
+    },
+    {
+      "management_operation": "monitor",
+      "agent_selector": {
+        "environment": "production",
+        "status": "running"
+      },
+      "operation_config": {
+        "monitor": {
+          "duration": 3600,
+          "metrics": ["cpu", "memory", "linear_api_calls", "error_rate"],
+          "alert_thresholds": {
+            "cpu_percent": 85,
+            "memory_percent": 90,
+            "error_rate": 0.02
+          }
+        }
+      },
+      "notifications": {
+        "enabled": true,
+        "channels": [
+          {
+            "type": "linear",
+            "events": ["warning", "failure"],
+            "config": {
+              "team_id": "engineering",
+              "create_issues": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

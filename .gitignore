@@ -2,3 +2,18 @@
 idea-framework-updated/.DS_Store
 idea-framework-updated/docs/.DS_Store
 schemas.zip
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Wiki build artifacts
+wiki/_build/
+wiki/deps/
+wiki/priv/static/assets/

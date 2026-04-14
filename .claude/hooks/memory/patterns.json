@@ -1,0 +1,86 @@
+[
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:49:47.980156"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:49:53.976800"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:50:02.673930"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:50:07.826335"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:50:12.909007"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:50:19.779134"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:50:29.149435"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:50:34.653866"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:52:26.813464"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T10:59:32.987519"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T11:01:52.114293"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T11:01:59.946906"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T11:02:16.493047"
+  },
+  {
+    "type": "error",
+    "pattern": "Error extracting patterns: 'PatternExtractor' object has no attribute 'extract_data_patterns'",
+    "confidence": 0.0,
+    "stored_at": "2025-10-08T11:03:04.439788"
+  }
+]

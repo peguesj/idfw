@@ -1,0 +1,21 @@
+# Linear Configuration for IDFWU
+project_id: "4d649a6501f7"
+project_name: "IDFWU - IDEA Framework Unified"
+team: "Pegues Innovations"
+workflow:
+  states:
+    - Todo
+    - In Progress
+    - In Review
+    - Done
+    - Cancelled
+labels:
+  - idfw
+  - dev-sentinel
+  - integration
+  - schema
+  - agent
+  - mcp
+  - cli
+  - testing
+  - documentation

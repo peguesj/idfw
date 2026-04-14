@@ -196,8 +196,7 @@
     },
     "required": ["docId", "title", "template", "sections", "outputFormat"]
 },
-"assets":{
-    {
+"assets": {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.com/asset.schema.json",
   "title": "Asset Object Schema",
@@ -217,7 +216,6 @@
     },
     "metadata": {
       "type": "object",
-,
       "description": "Additional metadata about the asset.",
       "additionalProperties": { "type": "string" }
     },
@@ -225,10 +223,8 @@
     "revision": { "type": "string" }
   },
   "required": ["assetId", "name", "assetType", "location"]
-}
-}
-,
-  "NewObjectType": {
+},
+"NewObjectType": {
     "type": "object",
     "properties": {
       "newField": {
@@ -237,25 +233,8 @@
       }
     },
     "required": ["newField"]
-  }
-},
+  },
 "definitions": {
     "IDDV": { "$ref": "./IDDV.schemas.json" }
 }
-}
-  "NewObjectType": {
-    "type": "object",
-    "properties": {
-      "newField": {
-        "type": "string",
-        "description": "Description of the new field."
-      }
-    },
-    "required": ["newField"]
-  }
-},
-"definitions": {
-    "IDDV": { "$ref": "./IDDV.schemas.json" }
-    // ...other definitions...
-  }
 }

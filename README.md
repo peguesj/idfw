@@ -1,6 +1,6 @@
 # Idea Definition Framework (IDFW) README
 
-## Version: 2.1.1  
+## Version: 4.0.0  
 
 ## Table of Contents
 1. [High-Level Overview](#high-level-overview)
@@ -41,7 +41,7 @@ The **Idea Definition Framework (IDFW)** is a comprehensive specification design
 - **Project Actions**: Iterative processes for creating, updating, or removing artifacts within the project.
 
 ## 3. Schema & Structure
-The IDFW is defined as a JSON object adhering to the [IDFW.schema.json](#file:IDFW.schema.json) specifications. Below are references to key schema objects:
+The IDFW is defined as a JSON object adhering to the [IDFW.schema.json](idea-framework/schemas/IDFW.schema.json) specifications. Below are references to key schema objects:
 
 ### 3.1 Axis Definitions
 ```jsonc

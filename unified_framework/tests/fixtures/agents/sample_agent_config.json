@@ -1,0 +1,16 @@
+{
+  "agent_id": "test-agent-001",
+  "agent_type": "TestAgent",
+  "linear_config": {
+    "api_key": "lin_api_test_key_12345",
+    "api_url": "https://api.linear.app/graphql",
+    "team_id": "team_test_123",
+    "project_id": "4d649a6501f7"
+  },
+  "message_bus_config": {
+    "redis_url": "redis://localhost:6379",
+    "channel_prefix": "idfwu:agent",
+    "enable_persistence": true,
+    "max_retries": 3
+  }
+}

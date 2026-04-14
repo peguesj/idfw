@@ -1,0 +1,6 @@
+{
+  "incomplete": "This schema is intentionally invalid",
+  "missing_required_fields": true,
+  "type": "invalid",
+  "properties": "not_an_object"
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "description": "Implement feature X",
+    "priority": "high",
+    "metadata": {
+      "component": "backend",
+      "estimated_hours": 4
+    },
+    "linear_issue_id": "PEG-123"
+  },
+  {
+    "description": "Fix bug in authentication",
+    "priority": "urgent",
+    "metadata": {
+      "component": "auth",
+      "severity": "critical"
+    },
+    "linear_issue_id": "PEG-124"
+  },
+  {
+    "description": "Refactor database queries",
+    "priority": "normal",
+    "metadata": {
+      "component": "database",
+      "estimated_hours": 2
+    },
+    "linear_issue_id": "PEG-125"
+  },
+  {
+    "description": "Write unit tests",
+    "priority": "low",
+    "metadata": {
+      "component": "testing",
+      "coverage_target": "80%"
+    },
+    "linear_issue_id": null
+  }
+]

@@ -1,4 +1,8 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/iddv.schema.json",
+  "title": "IDDV Variable Schema",
+  "description": "Schema for defining variables used within the Idea Definition Framework.",
   "type": "object",
   "properties": {
     "variableId": {
