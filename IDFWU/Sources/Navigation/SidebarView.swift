@@ -95,7 +95,9 @@ struct SidebarView: View {
             .padding(.vertical, 8)
         }
         .task {
-            await discoveryManager.refresh()
+            // IDFWUApp.task handles the initial refresh and sets scanRootStore.
+            // Here we only start auto-refresh (which waits one interval before
+            // its first cycle, avoiding a duplicate refresh on launch).
             discoveryManager.startAutoRefresh(interval: 30)
         }
     }

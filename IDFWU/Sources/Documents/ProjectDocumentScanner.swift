@@ -7,21 +7,47 @@ actor ProjectDocumentScanner {
         let root = (projectPath as NSString).standardizingPath
         var results: [ProjectDocument] = []
 
+        // IDEA typed documents (*.idfw.json, *.iddv.json, *.idda.json, *.idfpj.json ...)
+        results += collectGlob(
+            root: root,
+            patterns: [
+                "*.idfw.json", "*.iddv.json", "*.iddg.json", "*.iddc.json",
+                "*.idda.json", "*.idfpj.json", "*.idpc.json", "*.idpg.json", "*.ddd.json",
+            ],
+            type: .idea, fm: fm
+        )
+
         // Schema files
         results += collectGlob(root: root, patterns: ["*.schema.json", "*.schemas.json"], type: .schema, fm: fm)
 
-        // FORCE framework
-        let forcePath = (root as NSString).appendingPathComponent(".force")
-        if fm.fileExists(atPath: forcePath) {
-            results += collectRecursive(directory: forcePath, ext: "json", type: .force, fm: fm)
+        // FORCE framework (both project runtime and importable package).
+        for dir in [".force", "force"] {
+            let path = (root as NSString).appendingPathComponent(dir)
+            if fm.fileExists(atPath: path) {
+                results += collectRecursive(directory: path, ext: "json", type: .force, fm: fm)
+                results += collectRecursive(directory: path, ext: "yaml", type: .force, fm: fm)
+            }
         }
-        let forcePackagePath = (root as NSString).appendingPathComponent("force")
-        if fm.fileExists(atPath: forcePackagePath) {
-            results += collectRecursive(directory: forcePackagePath, ext: "json", type: .force, fm: fm)
+
+        // Diagrams — top-level + conventional docs/diagrams/ and diagrams/ dirs.
+        let diagramExts = ["mmd", "mermaid", "puml", "plantuml"]
+        for ext in diagramExts {
+            results += collectGlob(root: root, patterns: ["*.\(ext)"], type: .diagram, fm: fm)
+        }
+        for dir in ["docs/diagrams", "diagrams"] {
+            let path = (root as NSString).appendingPathComponent(dir)
+            if fm.fileExists(atPath: path) {
+                for ext in diagramExts {
+                    results += collectRecursive(directory: path, ext: ext, type: .diagram, fm: fm)
+                }
+            }
         }
 
         // Config files
-        let configNames = ["pyproject.toml", "Package.swift", "mix.exs", "package.json", "Cargo.toml"]
+        let configNames = [
+            "pyproject.toml", "Package.swift", "mix.exs", "package.json", "Cargo.toml",
+            "idfw.config.yaml", "idfw.config.yml", "idfw.config.json", "idfw.yaml",
+        ]
         for name in configNames {
             let fullPath = (root as NSString).appendingPathComponent(name)
             if let doc = documentAt(path: fullPath, type: .config, fm: fm) {
@@ -34,7 +60,7 @@ actor ProjectDocumentScanner {
             results.append(doc)
         }
 
-        // Documentation
+        // Top-level documentation
         let docNames = ["README.md", "CHANGELOG.md", "CLAUDE.md", "LICENSE", "CONTRIBUTING.md"]
         for name in docNames {
             let fullPath = (root as NSString).appendingPathComponent(name)
@@ -43,18 +69,34 @@ actor ProjectDocumentScanner {
             }
         }
 
-        // Also scan for schema files in subdirectories (1 level deep)
+        // Markdown inside docs/ (one level deep — avoids pulling in huge wikis).
+        let docsDir = (root as NSString).appendingPathComponent("docs")
+        if fm.fileExists(atPath: docsDir) {
+            results += collectGlob(root: docsDir, patterns: ["*.md"], type: .doc, fm: fm)
+        }
+
+        // Also scan for IDEA docs + schema files in subdirectories (1 level deep).
         if let topLevel = try? fm.contentsOfDirectory(atPath: root) {
             for dir in topLevel where !dir.hasPrefix(".") {
                 let subdir = (root as NSString).appendingPathComponent(dir)
                 var isDir: ObjCBool = false
                 if fm.fileExists(atPath: subdir, isDirectory: &isDir), isDir.boolValue {
                     results += collectGlob(root: subdir, patterns: ["*.schema.json", "*.schemas.json"], type: .schema, fm: fm)
+                    results += collectGlob(
+                        root: subdir,
+                        patterns: [
+                            "*.idfw.json", "*.iddv.json", "*.iddg.json", "*.iddc.json",
+                            "*.idda.json", "*.idfpj.json", "*.idpc.json", "*.idpg.json",
+                        ],
+                        type: .idea, fm: fm
+                    )
                 }
             }
         }
 
-        return results
+        // Deduplicate by path (diagrams under docs/diagrams and top-level could overlap).
+        var seen = Set<String>()
+        return results.filter { seen.insert($0.path).inserted }
     }
 
     // MARK: - Helpers

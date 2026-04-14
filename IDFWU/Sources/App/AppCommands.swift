@@ -15,9 +15,10 @@ struct AppCommands: Commands {
             PreferencesMenuItem()
         }
 
-        // Inject into the existing File menu (do NOT use CommandMenu("File")
-        // — that creates a duplicate top-level menu).
-        CommandGroup(after: .newItem) {
+        // Replace the default "New Window" item with project-specific actions.
+        // Using `replacing` prevents the system "New Window" from appearing
+        // alongside our custom items (which was causing duplicate menu groups).
+        CommandGroup(replacing: .newItem) {
             Button("Add Project") {
                 NotificationCenter.default.post(name: .addProject, object: nil)
             }

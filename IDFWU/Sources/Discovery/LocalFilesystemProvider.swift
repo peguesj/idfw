@@ -71,16 +71,22 @@ struct LocalFilesystemProvider: ProjectProvider {
             return
         }
 
-        guard let children = try? fm.contentsOfDirectory(
-            at: dir,
-            includingPropertiesForKeys: [.isDirectoryKey],
-            options: [.skipsHiddenFiles]
-        ) else { return }
+        // Use the path-based API which is a thin wrapper around readdir()
+        // — it never pre-fetches properties or follows symlinks, unlike the
+        // URL-based variant which can stat() every entry for .skipsHiddenFiles.
+        guard let names = try? fm.contentsOfDirectory(atPath: dir.path) else { return }
 
-        for child in children {
-            guard isDirectory(child, fm: fm) else { continue }
-            let name = child.lastPathComponent
+        for name in names {
+            // Skip hidden files/dirs (readdir doesn't filter them)
+            if name.hasPrefix(".") { continue }
             if Self.skipNames.contains(name) { continue }
+
+            let child = dir.appendingPathComponent(name)
+
+            // lstat()-based check: only descend into real directories.
+            // Symlinks are skipped entirely — any target could be on an
+            // unresponsive volume, iCloud, or network mount.
+            guard isLocalDirectory(child, fm: fm) else { continue }
 
             if hasMarker(at: child, fm: fm) {
                 let path = child.path
@@ -95,9 +101,20 @@ struct LocalFilesystemProvider: ProjectProvider {
         }
     }
 
+    /// Uses stat() which follows symlinks — safe only for user-configured
+    /// scan roots where following is intentional.
     private func isDirectory(_ url: URL, fm: FileManager) -> Bool {
         var isDir: ObjCBool = false
         return fm.fileExists(atPath: url.path, isDirectory: &isDir) && isDir.boolValue
+    }
+
+    /// Uses lstat() via attributesOfItem — never follows symlinks.
+    /// Returns true only for real (non-symlink) directories. Symlinks are
+    /// skipped entirely during discovery to avoid blocking on unresponsive
+    /// targets (external volumes, iCloud, network mounts).
+    private func isLocalDirectory(_ url: URL, fm: FileManager) -> Bool {
+        guard let attrs = try? fm.attributesOfItem(atPath: url.path) else { return false }
+        return attrs[.type] as? FileAttributeType == .typeDirectory
     }
 
     private func hasMarker(at dir: URL, fm: FileManager) -> Bool {

@@ -1,10 +1,12 @@
 import Foundation
 
 enum ProjectDocumentType: String, CaseIterable, Sendable {
-    case schema = "Schemas"
-    case force = "FORCE"
-    case config = "Config"
-    case doc = "Docs"
+    case schema  = "Schemas"
+    case force   = "FORCE"
+    case config  = "Config"
+    case doc     = "Docs"
+    case diagram = "Diagrams"
+    case idea    = "IDEA"
 }
 
 struct ProjectDocument: Identifiable, Hashable, Sendable {
@@ -14,6 +16,11 @@ struct ProjectDocument: Identifiable, Hashable, Sendable {
     let type: ProjectDocumentType
     let size: Int64
     let modifiedDate: Date
+
+    /// The IDEA phase (I/D/E/A) this artifact belongs to. Derived from the
+    /// filename and type via `IDEAPhaseClassifier` so grouping logic in the UI
+    /// can rely on a single, pre-computed value.
+    var phase: IDEAPhase { IDEAPhaseClassifier.phase(for: self) }
 
     var relativePath: String {
         // Show path relative to project root for display

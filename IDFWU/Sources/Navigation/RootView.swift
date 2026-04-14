@@ -12,16 +12,16 @@ struct RootView: View {
                 .navigationSplitViewColumnWidth(min: 220, ideal: 260)
         } content: {
             DocumentListView(projectID: router.selectedProjectID)
-                .navigationSplitViewColumnWidth(min: 280, ideal: 320)
+                .navigationSplitViewColumnWidth(min: 300, ideal: 360)
         } detail: {
             DetailView(document: router.selectedDocument)
         }
-        .frame(minWidth: 900, minHeight: 600)
+        .frame(minWidth: 960, minHeight: 640)
         .progressToast(notifier: toastNotifier)
     }
 }
 
-// MARK: - Document List
+// MARK: - Document List (IDEA phase-grouped)
 
 struct DocumentListView: View {
     let projectID: String?
@@ -32,6 +32,7 @@ struct DocumentListView: View {
     @State private var isScanning = false
     @State private var isRevEngLoading = false
     @State private var ideaStatus: IDEAFrameworkStatus = .unknown
+    @State private var expandedPhases: Set<IDEAPhase> = Set(IDEAPhase.allCases)
     private let ideaDetector = IDEAFrameworkDetector()
 
     private var selectedProject: DiscoveredProject? {
@@ -39,11 +40,15 @@ struct DocumentListView: View {
         return discoveryManager.projects.first { $0.id == projectID }
     }
 
-    private var groupedDocuments: [(ProjectDocumentType, [ProjectDocument])] {
-        let grouped = Dictionary(grouping: documents, by: \.type)
-        return ProjectDocumentType.allCases.compactMap { type in
-            guard let docs = grouped[type], !docs.isEmpty else { return nil }
-            return (type, docs.sorted { $0.name < $1.name })
+    /// Documents grouped by IDEA phase, preserving phase order (I → D → E → A).
+    private var groupedByPhase: [(IDEAPhase, [ProjectDocument])] {
+        let grouped = Dictionary(grouping: documents, by: \.phase)
+        return IDEAPhase.allCases.map { phase in
+            let docs = (grouped[phase] ?? []).sorted { lhs, rhs in
+                if lhs.type != rhs.type { return lhs.type.rawValue < rhs.type.rawValue }
+                return lhs.name < rhs.name
+            }
+            return (phase, docs)
         }
     }
 
@@ -82,17 +87,12 @@ struct DocumentListView: View {
                             .foregroundStyle(.secondary)
                             .font(.callout)
                     } else {
-                        ForEach(groupedDocuments, id: \.0) { type, docs in
-                            Section(type.rawValue) {
-                                ForEach(docs) { doc in
-                                    DocumentRow(document: doc)
-                                        .tag(doc.id)
-                                }
-                            }
+                        ForEach(groupedByPhase, id: \.0) { phase, docs in
+                            phaseSection(phase: phase, docs: docs)
                         }
                     }
                 }
-                .navigationTitle("Documents")
+                .navigationTitle("IDEA Lifecycle")
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
                         Button {
@@ -126,11 +126,51 @@ struct DocumentListView: View {
                 EmptyStateView(
                     symbol: "doc.on.doc",
                     title: "No Project Selected",
-                    subtitle: "Select a project from the sidebar to view its documents."
+                    subtitle: "Select a project from the sidebar to view its IDEA lifecycle."
                 )
             }
         }
     }
+
+    // MARK: - Phase section builder
+
+    @ViewBuilder
+    private func phaseSection(phase: IDEAPhase, docs: [ProjectDocument]) -> some View {
+        Section {
+            if expandedPhases.contains(phase) {
+                if docs.isEmpty {
+                    Text("No artifacts in this phase yet")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                        .italic()
+                        .listRowBackground(Color.clear)
+                } else {
+                    ForEach(docs) { doc in
+                        DocumentRow(document: doc)
+                            .tag(doc.id)
+                    }
+                }
+            }
+        } header: {
+            PhaseSectionHeader(
+                phase: phase,
+                count: docs.count,
+                isExpanded: expandedPhases.contains(phase)
+            ) {
+                togglePhase(phase)
+            }
+        }
+    }
+
+    private func togglePhase(_ phase: IDEAPhase) {
+        if expandedPhases.contains(phase) {
+            expandedPhases.remove(phase)
+        } else {
+            expandedPhases.insert(phase)
+        }
+    }
+
+    // MARK: - Data loading
 
     private func scanProject(path: String?) async {
         guard let path else {
@@ -162,6 +202,56 @@ struct DocumentListView: View {
         }
         let status = await ideaDetector.detect(projectPath: path)
         await MainActor.run { ideaStatus = status }
+    }
+}
+
+// MARK: - Phase Section Header
+
+private struct PhaseSectionHeader: View {
+    let phase: IDEAPhase
+    let count: Int
+    let isExpanded: Bool
+    let onToggle: () -> Void
+
+    var body: some View {
+        Button(action: onToggle) {
+            HStack(spacing: 8) {
+                // Big letter badge
+                ZStack {
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(phase.accentColor.opacity(0.18))
+                        .frame(width: 24, height: 24)
+                    Text(phase.letter)
+                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                        .foregroundStyle(phase.accentColor)
+                }
+
+                VStack(alignment: .leading, spacing: 1) {
+                    HStack(spacing: 4) {
+                        Text(phase.title)
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.primary)
+                        Text("·")
+                            .foregroundStyle(.tertiary)
+                        Text("\(count)")
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(.secondary)
+                    }
+                    Text(phase.tagline)
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+
+                Spacer(minLength: 0)
+
+                Image(systemName: isExpanded ? "chevron.down" : "chevron.right")
+                    .font(.caption2.weight(.bold))
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.vertical, 4)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 }
 
@@ -260,16 +350,30 @@ private struct DocumentRow: View {
     let document: ProjectDocument
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Label(document.name, systemImage: iconForType(document.type))
-                .lineLimit(1)
-            HStack(spacing: 6) {
-                Text(formattedSize(document.size))
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
-                Text(document.modifiedDate, style: .relative)
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
+        HStack(spacing: 8) {
+            Image(systemName: iconForType(document.type))
+                .font(.caption)
+                .foregroundStyle(document.phase.accentColor)
+                .frame(width: 14)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(document.name)
+                    .font(.callout)
+                    .lineLimit(1)
+                HStack(spacing: 6) {
+                    Text(document.type.rawValue)
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    Text("·")
+                        .foregroundStyle(.tertiary)
+                    Text(formattedSize(document.size))
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                    Text("·")
+                        .foregroundStyle(.tertiary)
+                    Text(document.modifiedDate, style: .relative)
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
             }
         }
         .padding(.vertical, 1)
@@ -277,10 +381,12 @@ private struct DocumentRow: View {
 
     private func iconForType(_ type: ProjectDocumentType) -> String {
         switch type {
-        case .schema: "doc.badge.gearshape"
-        case .force: "shield.lefthalf.filled"
-        case .config: "gearshape"
-        case .doc: "doc.text"
+        case .schema:  "doc.badge.gearshape"
+        case .force:   "shield.lefthalf.filled"
+        case .config:  "gearshape"
+        case .doc:     "doc.text"
+        case .diagram: "chart.bar.doc.horizontal"
+        case .idea:    "sparkles"
         }
     }
 

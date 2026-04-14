@@ -74,6 +74,9 @@ struct IDFWUApp: App {
         }
         .defaultSize(width: 780, height: 540)
         .keyboardShortcut("?", modifiers: [.command])
+        .commands {
+            AppCommands(router: router)
+        }
     }
 
     @MainActor
