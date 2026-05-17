@@ -17,6 +17,11 @@ enum ProviderStreamParser {
             let msg = String(line.dropFirst(ProviderProcess.stderrSentinel.count))
             guard !msg.isEmpty else { return [] }
             let lowered = msg.lowercased()
+            // The spawned CLI is itself a Claude Code / Codex session whose
+            // own SessionStart/SessionEnd lifecycle hooks emit telemetry on
+            // stderr. That is NOT IDFWU build output — drop it so the build
+            // console shows the build, not the nested session's plumbing.
+            if Self.isNestedSessionNoise(lowered) { return [] }
             let isError = lowered.contains("error") || lowered.contains("exit status")
                 || lowered.contains("denied") || lowered.contains("fatal")
             return [ProviderEvent(isError ? .error : .notice, msg)]
@@ -144,5 +149,22 @@ enum ProviderStreamParser {
                let s = String(data: data, encoding: .utf8) { return s }
         }
         return String(describing: value)
+    }
+
+    /// True when a stderr line is the nested CLI session's own Claude Code /
+    /// Codex lifecycle-hook telemetry or Python-resolver chatter — irrelevant
+    /// to the IDFWU build and pure console noise.
+    private static func isNestedSessionNoise(_ lowered: String) -> Bool {
+        let markers = [
+            "sessionend hook", "sessionstart hook", "stop hook",
+            "hook cancelled", "hook failed", "hook canceled",
+            "session_end", "session_report", "session_start",
+            "run_hook.sh", "/.claude/hooks/", "/hooks/codex/",
+            "asdf", "could not find python", "using system python",
+            "explicit python path not found", "falling back to system python",
+            "importing unified framework", "no module named 'gql'",
+            "this may cause issues"
+        ]
+        return markers.contains { lowered.contains($0) }
     }
 }
