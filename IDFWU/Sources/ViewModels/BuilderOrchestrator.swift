@@ -162,8 +162,15 @@ final class BuilderOrchestrator {
     // MARK: - Workspace
 
     private func ensureWorkspace() {
-        try? FileManager.default.createDirectory(
-            at: workspaceURL, withIntermediateDirectories: true)
+        let fm = FileManager.default
+        try? fm.createDirectory(at: workspaceURL, withIntermediateDirectories: true)
+        // Defense-in-depth: provider CLIs are nested Claude Code/Codex sessions
+        // whose SessionEnd hooks may resolve log paths relative to cwd. Pre-
+        // create the dir tree so a cwd-relative hook can't FileNotFoundError
+        // and abort the build (root cause also fixed in ~/.claude/hooks/idfwu).
+        try? fm.createDirectory(
+            at: workspaceURL.appendingPathComponent(".claude/hooks/logs"),
+            withIntermediateDirectories: true)
     }
 
     private static func defaultWorkspace() -> URL {
