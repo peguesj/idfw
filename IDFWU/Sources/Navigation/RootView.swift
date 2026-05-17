@@ -7,14 +7,17 @@ struct RootView: View {
     var body: some View {
         @Bindable var router = router
 
-        NavigationSplitView(columnVisibility: $router.columnVisibility) {
-            SidebarView()
-                .navigationSplitViewColumnWidth(min: 220, ideal: 260)
-        } content: {
-            DocumentListView(projectID: router.selectedProjectID)
-                .navigationSplitViewColumnWidth(min: 300, ideal: 360)
-        } detail: {
-            DetailView(document: router.selectedDocument)
+        VStack(spacing: 0) {
+            NavigationSplitView(columnVisibility: $router.columnVisibility) {
+                SidebarView()
+                    .navigationSplitViewColumnWidth(min: 220, ideal: 260)
+            } content: {
+                DocumentListView(projectID: router.selectedProjectID)
+                    .navigationSplitViewColumnWidth(min: 300, ideal: 360)
+            } detail: {
+                DetailView(document: router.selectedDocument)
+            }
+            DaemonStatusBar()
         }
         .frame(minWidth: 960, minHeight: 640)
         .progressToast(notifier: toastNotifier)
@@ -402,5 +405,6 @@ private struct DocumentRow: View {
         .environment(NavigationRouter())
         .environment(ProjectDiscoveryManager())
         .environment(ToastNotifier())
+        .environment(DaemonController())
         .environment(\.eventStreamState, EventStreamState())
 }

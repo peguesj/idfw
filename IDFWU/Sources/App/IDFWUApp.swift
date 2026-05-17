@@ -12,6 +12,7 @@ struct IDFWUApp: App {
     @State private var recentProjectsStore = RecentProjectsStore.shared
     @State private var providerRegistry = ProviderRegistry()
     @State private var builderOrchestrator = BuilderOrchestrator()
+    @State private var daemonController = DaemonController()
     @AppStorage("lastSplashVersion") private var lastSplashVersion: String = ""
     @State private var showSplash = false
 
@@ -32,9 +33,11 @@ struct IDFWUApp: App {
                     .environment(recentProjectsStore)
                     .environment(providerRegistry)
                     .environment(builderOrchestrator)
+                    .environment(daemonController)
                     .environment(\.eventStreamState, eventStreamState)
                     .task {
                         discoveryManager.scanRootStore = scanRootStore
+                        daemonController.connectOrStart()
                         await discoveryManager.refresh()
                         await connectEventStream()
                     }
@@ -78,6 +81,7 @@ struct IDFWUApp: App {
                 .environment(providerRegistry)
                 .environment(builderOrchestrator)
                 .environment(discoveryManager)
+                .environment(daemonController)
         }
         .defaultSize(width: 1180, height: 760)
         .windowResizability(.contentMinSize)

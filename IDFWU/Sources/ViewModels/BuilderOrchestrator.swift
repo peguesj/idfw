@@ -47,14 +47,17 @@ final class BuilderOrchestrator {
         }
 
         ensureWorkspace()
+        ProviderContext.stageMCP(into: workspaceURL)   // inherit shared MCP servers
         gate = nil
         isRunning = true
-        append(.notice, "── \(phase.letter) · \(phase.title) — \(phase.tagline) ──")
+        let stage = IDEAPathway.stage(for: phase)
+        append(.notice, "── \(stage.command) · \(stage.title) — \(stage.purpose) ──")
 
         let params = ProviderRunParams(
             runId: UUID(),
             cwd: workspaceURL,
-            systemPrompt: systemPrompt(for: phase),
+            systemPrompt: ProviderContext.composeSystemContext(
+                provider: selectedProvider, workspace: workspaceURL, stage: stage),
             userPrompt: idea,
             model: selectedModel
         )
@@ -172,93 +175,20 @@ final class BuilderOrchestrator {
 
     // MARK: - IDFW/FORCE phase framing
 
-    /// Per-phase system prompt. This is where IDFWU asserts "more technicality
-    /// and respect to IDFW and FORCE" — it constrains the provider to the
-    /// phase's purpose, the IDEA schema artifacts it must emit, and FORCE
-    /// governance, instead of letting it free-build.
-    private func systemPrompt(for phase: IDEAPhase) -> String {
-        let common = """
-        You are the build engine inside IDFWU, an IDE that turns ideas into \
-        reality under the IDFW/IDEA framework with FORCE governance. Work ONLY \
-        within the current lifecycle phase. Produce concrete files in the \
-        working directory. Name framework artifacts with IDEA schema infixes \
-        (e.g. `*.idfw.json`, `*.iddv.json`, `*.iddg.json`, `*.iddc.json`, \
-        `*.idda.json`, `*.ddd.md`, `*.idpc.json`, `*.idpg.json`, \
-        `*.idfpj.json`). Respect FORCE: structure work so it could be driven \
-        by YUNG subagents ($CODE/$TEST/$INFRA/$DOC/$VCS). Be technical and \
-        precise. End with a one-line summary of what you produced.
-        """
-        let phaseSpecific: String
-        switch phase {
-        case .ideation:
-            phaseSpecific = """
-            PHASE I — IDEATION. Capture the concept. Produce an `idea.idfw.json` \
-            framework seed: problem statement, target user, value, scope, key \
-            constraints, and success criteria. Do NOT implement yet. This gates \
-            on clarity, scope, and feasibility.
-            """
-        case .definition:
-            phaseSpecific = """
-            PHASE D — DEFINITION. From the approved idea, design the solution. \
-            Emit IDEA definition artifacts: variables (`*.iddv.json`), diagrams \
-            (`*.iddg` mermaid), contracts (`*.iddc.json`), actions \
-            (`*.idda.json`), and a `domain.ddd.md`. Scaffold the project \
-            structure. This gates on architectural soundness and contract \
-            completeness.
-            """
-        case .evaluation:
-            phaseSpecific = """
-            PHASE E — EVALUATION. Validate the definition. Produce constraint \
-            and governance artifacts (`*.idpc.json`, `*.idpg.json`), write \
-            tests, and run a self-review for security, performance, and \
-            compliance. Report risks. This gates on quality and risk \
-            mitigation.
-            """
-        case .application:
-            phaseSpecific = """
-            PHASE A — APPLICATION. Carry the definition into a working build. \
-            Implement the core, wire deployment/runtime config, produce an \
-            `*.idfpj.json` project journey. Make it runnable. This gates on \
-            deployment readiness.
-            """
-        }
-        return common + "\n\n" + phaseSpecific
-    }
-
     enum GateDecision { case approve, requestChanges, reject, waive }
 
-    /// Canonical gate for each phase boundary (criteria from the IDFW
-    /// methodology).
+    /// Gate for a phase boundary, derived from the canonical `/idea`
+    /// pathway (`IDEAPathway`) so the guided flow matches the real
+    /// determined sequence and its pass criteria.
     static func gate(for phase: IDEAPhase) -> DecisionGate {
-        switch phase {
-        case .ideation:
-            return DecisionGate(
-                id: "gate-ideation", title: "Ideation Gate",
-                criteria: "Problem is clear, scope is bounded, and the concept is feasible.",
-                status: .pending,
-                options: ["Approve", "Request Changes", "Reject", "Waive"],
-                description: "Advance to Definition once the idea is well-formed.")
-        case .definition:
-            return DecisionGate(
-                id: "gate-definition", title: "Definition Gate",
-                criteria: "Architecture is sound, contracts complete, dependencies resolved.",
-                status: .pending,
-                options: ["Approve", "Request Changes", "Reject", "Waive"],
-                description: "Advance to Evaluation once the design holds together.")
-        case .evaluation:
-            return DecisionGate(
-                id: "gate-evaluation", title: "Evaluation Gate",
-                criteria: "Security, performance, and compliance risks are mitigated.",
-                status: .pending,
-                options: ["Approve", "Request Changes", "Reject", "Waive"],
-                description: "Advance to Application once the design is validated.")
-        case .application:
-            return DecisionGate(
-                id: "gate-application", title: "Deployment Readiness Gate",
-                criteria: "Build runs, runtime/deploy config present, journey documented.",
-                status: .pending,
-                options: ["Approve", "Request Changes", "Reject", "Waive"],
-                description: "Approve to mark the idea realized.")
-        }
+        let stage = IDEAPathway.stage(for: phase)
+        let nextTitle = IDEAPathway.next(after: phase)?.title ?? "completion"
+        return DecisionGate(
+            id: "gate-\(stage.id)",
+            title: stage.gateTitle,
+            criteria: stage.gateCriteria,
+            status: .pending,
+            options: ["Approve", "Request Changes", "Reject", "Waive"],
+            description: "Approve to advance \(stage.command) → \(nextTitle).")
     }
 }
