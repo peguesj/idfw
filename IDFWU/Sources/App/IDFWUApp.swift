@@ -10,6 +10,8 @@ struct IDFWUApp: App {
     @State private var eventStreamVM = EventStreamViewModel()
     @State private var toastNotifier = ToastNotifier()
     @State private var recentProjectsStore = RecentProjectsStore.shared
+    @State private var providerRegistry = ProviderRegistry()
+    @State private var builderOrchestrator = BuilderOrchestrator()
     @AppStorage("lastSplashVersion") private var lastSplashVersion: String = ""
     @State private var showSplash = false
 
@@ -28,6 +30,8 @@ struct IDFWUApp: App {
                     .environment(discoveryManager)
                     .environment(toastNotifier)
                     .environment(recentProjectsStore)
+                    .environment(providerRegistry)
+                    .environment(builderOrchestrator)
                     .environment(\.eventStreamState, eventStreamState)
                     .task {
                         discoveryManager.scanRootStore = scanRootStore
@@ -68,6 +72,15 @@ struct IDFWUApp: App {
                 .environment(scanRootStore)
         }
         .menuBarExtraStyle(.window)
+
+        Window("IDFWU Builder", id: "builder") {
+            BuilderView()
+                .environment(providerRegistry)
+                .environment(builderOrchestrator)
+                .environment(discoveryManager)
+        }
+        .defaultSize(width: 1180, height: 760)
+        .windowResizability(.contentMinSize)
 
         Window("IDFWU Help", id: "help") {
             HelpWindowView()
