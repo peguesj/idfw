@@ -8,7 +8,7 @@ import SwiftUI
 /// markdown, diagrams, FORCE configs, schemas — is classified into exactly one
 /// phase so the UI can group content by the stage of the product lifecycle it
 /// belongs to, rather than by file extension.
-enum IDEAPhase: String, CaseIterable, Sendable, Hashable {
+enum IDEAPhase: String, CaseIterable, Sendable, Hashable, Codable {
     /// **I** — Idea / inception. Project seeds, journey definitions, kickoff
     /// material, the raw concept capture that precedes formal definition.
     case ideation
