@@ -23,9 +23,10 @@ struct IDFWUApp: App {
     }
 
     var body: some Scene {
+        // Primary window — opens on launch
         WindowGroup(id: "main") {
             ZStack {
-                RootView()
+                BuilderView()
                     .environment(router)
                     .environment(scanRootStore)
                     .environment(discoveryManager)
@@ -55,12 +56,29 @@ struct IDFWUApp: App {
             }
         }
         .modelContainer(for: [])
-        .defaultSize(width: 1100, height: 720)
+        .defaultSize(width: 1180, height: 760)
         .windowResizability(.contentMinSize)
         .handlesExternalEvents(matching: Set(["main"]))
         .commands {
             AppCommands(router: router)
         }
+
+        // Secondary window — IDEA document browser (Window menu or Cmd+Shift+B)
+        Window("IDFWU Browser", id: "browser") {
+            RootView()
+                .environment(router)
+                .environment(scanRootStore)
+                .environment(discoveryManager)
+                .environment(toastNotifier)
+                .environment(recentProjectsStore)
+                .environment(providerRegistry)
+                .environment(builderOrchestrator)
+                .environment(daemonController)
+                .environment(\.eventStreamState, eventStreamState)
+        }
+        .defaultSize(width: 1100, height: 720)
+        .windowResizability(.contentMinSize)
+        .keyboardShortcut("b", modifiers: [.command, .shift])
 
         Settings {
             SettingsView()
@@ -75,16 +93,6 @@ struct IDFWUApp: App {
                 .environment(scanRootStore)
         }
         .menuBarExtraStyle(.window)
-
-        Window("IDFWU Builder", id: "builder") {
-            BuilderView()
-                .environment(providerRegistry)
-                .environment(builderOrchestrator)
-                .environment(discoveryManager)
-                .environment(daemonController)
-        }
-        .defaultSize(width: 1180, height: 760)
-        .windowResizability(.contentMinSize)
 
         Window("IDFWU Help", id: "help") {
             HelpWindowView()
