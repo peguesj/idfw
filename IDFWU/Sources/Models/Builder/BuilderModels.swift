@@ -190,24 +190,106 @@ struct BuilderEvent: Identifiable {
 // MARK: - Workspace tab
 
 enum WorkspaceTab: String, CaseIterable, Identifiable {
-    case artifact = "Artifact"
-    case files    = "Files"
-    case diagram  = "Diagram"
-    case plan     = "Plan"
-    case hyperplot = "HyperPlot"
-    case telemetry = "Telemetry"
+    case artifact    = "Artifact"
+    case files       = "Files"
+    case diagram     = "Diagram"
+    case plan        = "Plan"
+    case constraints = "Constraints"
+    case actions     = "Actions"
+    case hyperplot   = "HyperPlot"
+    case telemetry   = "Telemetry"
 
     var id: String { rawValue }
 
     var symbol: String {
         switch self {
-        case .artifact:  return "doc.text"
-        case .files:     return "folder"
-        case .diagram:   return "chart.bar.doc.horizontal"
-        case .plan:      return "checklist"
-        case .hyperplot: return "chart.xyaxis.line"
-        case .telemetry: return "waveform"
+        case .artifact:    return "doc.text"
+        case .files:       return "folder"
+        case .diagram:     return "chart.bar.doc.horizontal"
+        case .plan:        return "checklist"
+        case .constraints: return "shield.checkerboard"
+        case .actions:     return "arrow.triangle.branch"
+        case .hyperplot:   return "chart.xyaxis.line"
+        case .telemetry:   return "waveform"
         }
+    }
+}
+
+// MARK: - IDPC Constraint
+
+struct ConstraintItem: Identifiable {
+    let id: String
+    var title: String
+    var severity: ConstraintSeverity
+    var status: ConstraintStatus
+    var source: String
+    var evidence: String
+    var axisDelta: [String: Double]   // axis id → delta (+/-)
+
+    enum ConstraintSeverity: String {
+        case blocking, advisory
+        var label: String { rawValue.capitalized }
+        var color: Color {
+            switch self {
+            case .blocking: return DesignTokens.Gate.failed
+            case .advisory: return DesignTokens.Gate.pending
+            }
+        }
+    }
+
+    enum ConstraintStatus: String {
+        case passing, violated, pending, waived
+        var label: String { rawValue.capitalized }
+        var symbol: String {
+            switch self {
+            case .passing:  return "checkmark.circle.fill"
+            case .violated: return "xmark.circle.fill"
+            case .pending:  return "exclamationmark.circle.fill"
+            case .waived:   return "minus.circle.fill"
+            }
+        }
+        var color: Color {
+            switch self {
+            case .passing:  return DesignTokens.Gate.passed
+            case .violated: return DesignTokens.Gate.failed
+            case .pending:  return DesignTokens.Gate.pending
+            case .waived:   return DesignTokens.Gate.waived
+            }
+        }
+    }
+}
+
+// MARK: - IDDA Action
+
+struct ActionItem: Identifiable {
+    let id: String
+    var phase: IDEAPhase
+    var actionType: ActionType
+    var artifactId: String
+    var inputRefs: [String]
+    var status: ActionStatus
+    var duration: Double?   // seconds
+
+    enum ActionType: String {
+        case generate, update, remove
+        var symbol: String {
+            switch self {
+            case .generate: return "plus.circle"
+            case .update:   return "pencil.circle"
+            case .remove:   return "trash.circle"
+            }
+        }
+        var color: Color {
+            switch self {
+            case .generate: return DesignTokens.Phase.application
+            case .update:   return DesignTokens.Phase.evaluation
+            case .remove:   return DesignTokens.Gate.failed
+            }
+        }
+    }
+
+    enum ActionStatus: String {
+        case queued, running, done, failed
     }
 }
 

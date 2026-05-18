@@ -270,6 +270,133 @@ enum SampleData {
         RiskItem(id: UUID(), label: "Battery drain from continuous GPS", likelihood: 2, impact: 2, phase: .application),
     ]
 
+    // MARK: - IDPC Constraints
+
+    static let constraints: [ConstraintItem] = [
+        ConstraintItem(
+            id: "IDPC-001",
+            title: "No PII stored in plain text",
+            severity: .blocking,
+            status: .violated,
+            source: ".force/governance.json",
+            evidence: "UserSession.swift line 47 writes email to UserDefaults without encryption. OWASP M2 violation.",
+            axisDelta: ["security": -2.5, "compliance": -3.0]
+        ),
+        ConstraintItem(
+            id: "IDPC-002",
+            title: "All API endpoints require authentication",
+            severity: .blocking,
+            status: .passing,
+            source: ".force/governance.json",
+            evidence: "Verified: all 12 REST routes have @AuthMiddleware applied. Checked 2026-05-18.",
+            axisDelta: ["security": +1.5]
+        ),
+        ConstraintItem(
+            id: "IDPC-003",
+            title: "LLM cost budget \u{2264} $0.04 per request",
+            severity: .advisory,
+            status: .pending,
+            source: "schemas/constraints.idpc.json",
+            evidence: "Token profiling incomplete. Current estimate is $0.031 but no p99 measurement exists.",
+            axisDelta: ["performance": -1.0, "ttm": -0.5]
+        ),
+        ConstraintItem(
+            id: "IDPC-004",
+            title: "WCAG 2.1 AA color contrast",
+            severity: .advisory,
+            status: .passing,
+            source: "schemas/constraints.idpc.json",
+            evidence: "Axe-core audit passed: 0 violations across all screens. Last run: 2026-05-17.",
+            axisDelta: ["ux": +1.0]
+        ),
+        ConstraintItem(
+            id: "IDPC-005",
+            title: "No third-party analytics without explicit consent",
+            severity: .blocking,
+            status: .waived,
+            source: ".force/governance.json",
+            evidence: "Waived for internal beta (≤50 users). Must re-evaluate before public launch.",
+            axisDelta: ["compliance": -0.5]
+        ),
+        ConstraintItem(
+            id: "IDPC-006",
+            title: "Core route generation completes in < 2s p95",
+            severity: .advisory,
+            status: .pending,
+            source: "schemas/constraints.idpc.json",
+            evidence: "Load tests pending. Single-user response averages 1.4s; no concurrent load data yet.",
+            axisDelta: ["performance": -2.0, "ux": -1.0]
+        ),
+    ]
+
+    // MARK: - IDDA Actions
+
+    static let actions: [ActionItem] = [
+        ActionItem(
+            id: "IDDA-001",
+            phase: .ideation,
+            actionType: .generate,
+            artifactId: "docs/prd/wayfinder-prd-v1.2.md",
+            inputRefs: [],
+            status: .done,
+            duration: 4.2
+        ),
+        ActionItem(
+            id: "IDDA-002",
+            phase: .definition,
+            actionType: .generate,
+            artifactId: "docs/architecture/system-design.mmd",
+            inputRefs: ["docs/prd/wayfinder-prd-v1.2.md"],
+            status: .done,
+            duration: 2.8
+        ),
+        ActionItem(
+            id: "IDDA-003",
+            phase: .definition,
+            actionType: .generate,
+            artifactId: "docs/domain/ubiquitous-language.md",
+            inputRefs: ["docs/prd/wayfinder-prd-v1.2.md"],
+            status: .done,
+            duration: 1.9
+        ),
+        ActionItem(
+            id: "IDDA-004",
+            phase: .definition,
+            actionType: .generate,
+            artifactId: "schemas/wayfinder.idfw.json",
+            inputRefs: ["docs/domain/ubiquitous-language.md"],
+            status: .running,
+            duration: nil
+        ),
+        ActionItem(
+            id: "IDDA-005",
+            phase: .evaluation,
+            actionType: .generate,
+            artifactId: "schemas/constraints.idpc.json",
+            inputRefs: ["schemas/wayfinder.idfw.json"],
+            status: .queued,
+            duration: nil
+        ),
+        ActionItem(
+            id: "IDDA-006",
+            phase: .evaluation,
+            actionType: .generate,
+            artifactId: "docs/risk/risk-register.md",
+            inputRefs: ["schemas/constraints.idpc.json", "docs/prd/wayfinder-prd-v1.2.md"],
+            status: .queued,
+            duration: nil
+        ),
+        ActionItem(
+            id: "IDDA-007",
+            phase: .application,
+            actionType: .generate,
+            artifactId: ".force/governance.json",
+            inputRefs: ["schemas/constraints.idpc.json"],
+            status: .queued,
+            duration: nil
+        ),
+    ]
+
     // MARK: - PRD markdown
 
     static let activePRD = """

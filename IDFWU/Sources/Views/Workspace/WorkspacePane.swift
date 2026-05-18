@@ -106,6 +106,10 @@ struct WorkspacePane: View {
             )
         case .plan:
             PlanTabView(milestones: SampleData.milestones, risks: SampleData.risks)
+        case .constraints:
+            ConstraintsTabView(constraints: SampleData.constraints)
+        case .actions:
+            ActionsTabView(actions: SampleData.actions)
         case .hyperplot:
             HyperPlotTabView(axes: SampleData.hyperPlotAxes)
         case .telemetry:
@@ -432,6 +436,447 @@ private struct RiskRow: View {
         .background(
             RoundedRectangle(cornerRadius: 5)
                 .fill(scoreColor.opacity(0.06))
+        )
+    }
+}
+
+// MARK: - Constraints tab (IDPC)
+
+struct ConstraintsTabView: View {
+    let constraints: [ConstraintItem]
+    @State private var filter: FilterKind = .all
+
+    enum FilterKind: String, CaseIterable { case all = "All", passing = "Passing", attention = "Attention", waived = "Waived" }
+
+    private var filtered: [ConstraintItem] {
+        switch filter {
+        case .all:       return constraints
+        case .passing:   return constraints.filter { $0.status == .passing }
+        case .attention: return constraints.filter { $0.status == .violated || $0.status == .pending }
+        case .waived:    return constraints.filter { $0.status == .waived }
+        }
+    }
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // Header
+            VStack(alignment: .leading, spacing: 6) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("IDPC · Project Constraints")
+                            .font(.system(size: 13, weight: .semibold))
+                            .foregroundStyle(DesignTokens.Foreground.primary)
+                        Text("Rules that govern what the agent can ship.")
+                            .font(.system(size: 11))
+                            .foregroundStyle(DesignTokens.Foreground.tertiary)
+                    }
+                    Spacer(minLength: 8)
+                    SquareIconButton(symbol: "plus", action: {})
+                }
+
+                // Filter pills
+                HStack(spacing: 6) {
+                    ForEach(FilterKind.allCases, id: \.self) { kind in
+                        filterPill(kind)
+                    }
+                }
+            }
+            .padding(14)
+            .background(DesignTokens.Background.base)
+            .overlay(alignment: .bottom) {
+                Rectangle().fill(DesignTokens.Hairline.soft).frame(height: 0.5)
+            }
+
+            // List
+            ScrollView {
+                LazyVStack(spacing: 6) {
+                    ForEach(filtered) { c in
+                        ConstraintRow(item: c)
+                    }
+                    if filtered.isEmpty {
+                        Text("Nothing here. Try a different filter.")
+                            .font(.system(size: 12))
+                            .foregroundStyle(DesignTokens.Foreground.tertiary)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(.top, 40)
+                    }
+                }
+                .padding(12)
+            }
+        }
+    }
+
+    private func filterPill(_ kind: FilterKind) -> some View {
+        let active = filter == kind
+        let count: Int = {
+            switch kind {
+            case .all:       return constraints.count
+            case .passing:   return constraints.filter { $0.status == .passing }.count
+            case .attention: return constraints.filter { $0.status == .violated || $0.status == .pending }.count
+            case .waived:    return constraints.filter { $0.status == .waived }.count
+            }
+        }()
+        return Button(action: { filter = kind }) {
+            HStack(spacing: 5) {
+                if kind == .attention {
+                    Circle().fill(DesignTokens.Gate.failed).frame(width: 5, height: 5)
+                } else if kind == .passing {
+                    Circle().fill(DesignTokens.Gate.passed).frame(width: 5, height: 5)
+                } else if kind == .waived {
+                    Circle().fill(DesignTokens.Gate.waived).frame(width: 5, height: 5)
+                }
+                Text(kind.rawValue)
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundStyle(active ? DesignTokens.Foreground.primary : DesignTokens.Foreground.secondary)
+                Text("\(count)")
+                    .font(.system(size: 10, design: .monospaced))
+                    .foregroundStyle(DesignTokens.Foreground.quaternary)
+                    .padding(.horizontal, 5)
+                    .background(Capsule().fill(DesignTokens.Glass.thin))
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 4)
+            .background(
+                Capsule()
+                    .fill(active ? DesignTokens.Glass.thick : Color.clear)
+                    .overlay(Capsule().strokeBorder(
+                        active ? DesignTokens.Hairline.bold : Color.clear, lineWidth: 0.5))
+            )
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+private struct ConstraintRow: View {
+    let item: ConstraintItem
+    @State private var expanded = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Button(action: { withAnimation(.spring(response: 0.28, dampingFraction: 0.88)) { expanded.toggle() } }) {
+                HStack(spacing: 10) {
+                    // Status icon
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 7)
+                            .fill(item.status.color.opacity(0.16))
+                        Image(systemName: item.status.symbol)
+                            .font(.system(size: 11))
+                            .foregroundStyle(item.status.color)
+                    }
+                    .frame(width: 26, height: 26)
+
+                    VStack(alignment: .leading, spacing: 3) {
+                        HStack(spacing: 6) {
+                            Text(item.id)
+                                .font(.system(size: 10, weight: .semibold, design: .monospaced))
+                                .foregroundStyle(DesignTokens.Foreground.tertiary)
+                            Text(item.title)
+                                .font(.system(size: 12, weight: .medium))
+                                .foregroundStyle(DesignTokens.Foreground.primary)
+                                .lineLimit(1)
+                        }
+                        HStack(spacing: 5) {
+                            StatusPill(label: item.status.label, color: item.status.pillColor)
+                            Text(item.severity.label)
+                                .font(.system(size: 9, weight: .semibold))
+                                .foregroundStyle(item.severity.color)
+                                .padding(.horizontal, 5)
+                                .padding(.vertical, 2)
+                                .background(RoundedRectangle(cornerRadius: 4).fill(item.severity.color.opacity(0.12)))
+                            Text(item.source)
+                                .font(.system(size: 9, design: .monospaced))
+                                .foregroundStyle(DesignTokens.Foreground.quaternary)
+                                .lineLimit(1)
+                            Spacer(minLength: 0)
+                            ForEach(item.axisDelta.sorted { $0.key < $1.key }, id: \.key) { axis, delta in
+                                AxisDeltaChip(axis: axis, delta: delta)
+                            }
+                        }
+                    }
+
+                    Image(systemName: expanded ? "chevron.up" : "chevron.down")
+                        .font(.system(size: 10))
+                        .foregroundStyle(DesignTokens.Foreground.tertiary)
+                }
+                .padding(10)
+            }
+            .buttonStyle(.plain)
+
+            if expanded {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(item.evidence)
+                        .font(.system(size: 11))
+                        .foregroundStyle(DesignTokens.Foreground.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    HStack(spacing: 6) {
+                        if item.status == .violated {
+                            PhaseButton(label: "Auto-fix", symbol: "wrench", phase: .definition, action: {})
+                        }
+                        if item.status == .pending {
+                            PhaseButton(label: "Mark resolved", symbol: "checkmark", phase: .application, action: {})
+                        }
+                        Button("Waive") {}
+                            .font(.system(size: 11))
+                            .foregroundStyle(DesignTokens.Foreground.tertiary)
+                        Spacer(minLength: 0)
+                        Button("Source ↗") {}
+                            .font(.system(size: 11))
+                            .foregroundStyle(DesignTokens.Phase.definition)
+                    }
+                }
+                .padding(.horizontal, 12)
+                .padding(.bottom, 10)
+                .background(DesignTokens.Background.base)
+            }
+        }
+        .background(
+            RoundedRectangle(cornerRadius: 9)
+                .fill(DesignTokens.Background.raised)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 9)
+                        .strokeBorder(
+                            item.status == .violated
+                                ? DesignTokens.Gate.failed.opacity(0.28)
+                                : DesignTokens.Hairline.soft,
+                            lineWidth: 0.5)
+                )
+        )
+    }
+}
+
+// MARK: - Axis delta chip
+
+private struct AxisDeltaChip: View {
+    let axis: String
+    let delta: Double
+
+    private var isPositive: Bool { delta > 0 }
+    private var color: Color { isPositive ? DesignTokens.Phase.application : DesignTokens.Gate.failed }
+    private var abbreviation: String { String(axis.prefix(4)) }
+
+    var body: some View {
+        HStack(spacing: 2) {
+            Text(abbreviation)
+            Text(isPositive ? "↑" : "↓")
+            Text(String(format: "%.1f", abs(delta)))
+        }
+        .font(.system(size: 9, weight: .semibold, design: .monospaced))
+        .foregroundStyle(color)
+        .padding(.horizontal, 5)
+        .padding(.vertical, 2)
+        .background(RoundedRectangle(cornerRadius: 4).fill(color.opacity(0.12)))
+    }
+}
+
+extension ConstraintItem.ConstraintStatus {
+    var pillColor: StatusPill.PillColor {
+        switch self {
+        case .passing:  return .passed
+        case .violated: return .failed
+        case .pending:  return .pending
+        case .waived:   return .waived
+        }
+    }
+}
+
+// MARK: - Actions tab (IDDA)
+
+struct ActionsTabView: View {
+    let actions: [ActionItem]
+
+    var body: some View {
+        VStack(spacing: 0) {
+            // Header
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("IDDA · Project Actions")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(DesignTokens.Foreground.primary)
+                    Text("The pipeline. Each row is a generate / update / remove action.")
+                        .font(.system(size: 11))
+                        .foregroundStyle(DesignTokens.Foreground.tertiary)
+                }
+                Spacer(minLength: 8)
+                HStack(spacing: 6) {
+                    StatusPill(label: "\(actions.filter { $0.status == .running }.count) running", color: .live)
+                    StatusPill(label: "\(actions.filter { $0.status == .done }.count) done", color: .passed)
+                    StatusPill(label: "\(actions.filter { $0.status == .queued }.count) queued")
+                }
+            }
+            .padding(14)
+            .background(DesignTokens.Background.base)
+            .overlay(alignment: .bottom) {
+                Rectangle().fill(DesignTokens.Hairline.soft).frame(height: 0.5)
+            }
+
+            // Pipeline list
+            ScrollView {
+                LazyVStack(spacing: 4) {
+                    ForEach(Array(actions.enumerated()), id: \.element.id) { index, action in
+                        ActionRow(action: action, stepNumber: index + 1)
+                    }
+                }
+                .padding(10)
+            }
+        }
+    }
+}
+
+private struct ActionRow: View {
+    let action: ActionItem
+    let stepNumber: Int
+
+    @State private var showDetails = false
+
+    private var statusColor: Color {
+        switch action.status {
+        case .done:    return DesignTokens.Gate.passed
+        case .running: return DesignTokens.Gate.pending
+        case .failed:  return DesignTokens.Gate.failed
+        case .queued:  return DesignTokens.Foreground.tertiary
+        }
+    }
+
+    private var statusSymbol: String {
+        switch action.status {
+        case .done:    return "checkmark.circle.fill"
+        case .running: return "circle.fill"
+        case .failed:  return "xmark.circle.fill"
+        case .queued:  return "clock"
+        }
+    }
+
+    private var isRunning: Bool { action.status == .running }
+
+    var body: some View {
+        HStack(spacing: 8) {
+            // Step number
+            Text("\(stepNumber)")
+                .font(.system(size: 9, weight: .bold, design: .monospaced))
+                .foregroundStyle(action.phase.color)
+                .frame(width: 20, height: 20)
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(action.phase.color.opacity(0.14))
+                )
+
+            // Kind chip
+            HStack(spacing: 4) {
+                Image(systemName: action.actionType.symbol)
+                    .font(.system(size: 9))
+                Text(action.actionType.rawValue)
+                    .font(.system(size: 10, weight: .semibold))
+            }
+            .foregroundStyle(action.actionType.color)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 3)
+            .background(
+                Capsule().fill(action.actionType.color.opacity(0.12))
+            )
+            .fixedSize()
+
+            // Status icon
+            ZStack {
+                RoundedRectangle(cornerRadius: 5)
+                    .fill(statusColor.opacity(0.16))
+                Image(systemName: statusSymbol)
+                    .font(.system(size: 9))
+                    .foregroundStyle(statusColor)
+            }
+            .frame(width: 20, height: 20)
+            .overlay {
+                if isRunning {
+                    StatusDot(color: statusColor, live: true, size: 5)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                        .offset(x: 3, y: -3)
+                }
+            }
+
+            // Artifact + inputs
+            VStack(alignment: .leading, spacing: 2) {
+                Text(action.artifactId)
+                    .font(.system(size: 11, weight: .medium, design: .monospaced))
+                    .foregroundStyle(DesignTokens.Foreground.primary)
+                    .lineLimit(1)
+                if !action.inputRefs.isEmpty {
+                    HStack(spacing: 3) {
+                        Image(systemName: "arrow.right")
+                            .font(.system(size: 8))
+                            .foregroundStyle(DesignTokens.Foreground.quaternary)
+                        Text(action.inputRefs.map { URL(fileURLWithPath: $0).lastPathComponent }.joined(separator: ", "))
+                            .font(.system(size: 10))
+                            .foregroundStyle(DesignTokens.Foreground.tertiary)
+                            .lineLimit(1)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
+
+            // Duration
+            if let dur = action.duration {
+                Text(String(format: "%.1fs", dur))
+                    .font(.system(size: 9, design: .monospaced))
+                    .foregroundStyle(DesignTokens.Foreground.tertiary)
+            } else if action.status == .queued {
+                Text("—")
+                    .font(.system(size: 9, design: .monospaced))
+                    .foregroundStyle(DesignTokens.Foreground.quaternary)
+            }
+
+            // Action button
+            Group {
+                switch action.status {
+                case .queued:
+                    Button("Run") {}
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundStyle(DesignTokens.Foreground.secondary)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(DesignTokens.Glass.thin)
+                                .overlay(RoundedRectangle(cornerRadius: 5).strokeBorder(DesignTokens.Hairline.soft, lineWidth: 0.5))
+                        )
+                case .running:
+                    HStack(spacing: 3) {
+                        ForEach(0..<3, id: \.self) { _ in
+                            Circle().fill(statusColor).frame(width: 3, height: 3)
+                        }
+                    }
+                case .done:
+                    SquareIconButton(symbol: "arrow.up.right.square", size: 22, action: {})
+                case .failed:
+                    Button("Retry") {}
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundStyle(DesignTokens.Gate.failed)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(DesignTokens.Gate.failed.opacity(0.10))
+                                .overlay(RoundedRectangle(cornerRadius: 5).strokeBorder(DesignTokens.Gate.failed.opacity(0.3), lineWidth: 0.5))
+                        )
+                }
+            }
+            .fixedSize()
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 7)
+        .background(
+            RoundedRectangle(cornerRadius: 8)
+                .fill(isRunning
+                      ? DesignTokens.Gate.pending.opacity(0.08)
+                      : DesignTokens.Background.raised)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .strokeBorder(
+                            isRunning
+                                ? DesignTokens.Gate.pending.opacity(0.25)
+                                : DesignTokens.Hairline.soft,
+                            lineWidth: 0.5)
+                )
         )
     }
 }
