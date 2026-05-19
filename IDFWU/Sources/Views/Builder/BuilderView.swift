@@ -9,15 +9,10 @@ struct BuilderView: View {
 
     // Navigation & scene state
     @State private var activeView: BuilderTopView = .builder
-    @State private var inHero: Bool = true
-    @State private var activeProject: BuilderProject? = nil
-
-    // Chat state
-    @State private var messages: [TranscriptMessage] = []
-    @State private var inputText: String = ""
-
-    // Gate state
     @State private var activeGate: DecisionGate.Full? = nil
+
+    // Input
+    @State private var inputText: String = ""
 
     // Overlay state
     @State private var showCommandK = false
@@ -25,6 +20,8 @@ struct BuilderView: View {
     @State private var showGateModal = false
 
     @State private var didAttach = false
+
+    private var messages: [TranscriptMessage] { orchestrator.chatMessages }
 
     var body: some View {
         ZStack {
@@ -34,15 +31,12 @@ struct BuilderView: View {
             if showCommandK {
                 CommandKPalette(
                     isPresented: $showCommandK,
-                    projects: SampleData.projects,
-                    onSelectProject: { project in
-                        activeProject = project
-                        messages = SampleData.transcript
-                        activeGate = SampleData.activeGate
-                        inHero = false
+                    projects: orchestrator.activeProject.map { [$0] } ?? [],
+                    onSelectProject: { _ in
                         activeView = .builder
+                        showCommandK = false
                     },
-                    onSelectSkill: { _ in }
+                    onSelectSkill: { _ in showCommandK = false }
                 )
                 .zIndex(100)
                 .transition(.opacity.combined(with: .scale(scale: 0.97, anchor: .top)))
@@ -78,34 +72,20 @@ struct BuilderView: View {
         }
     }
 
-    // MARK: - Scene routing
+    // MARK: - Scene routing — LeftNavigation always visible (title + settings always accessible)
 
     @ViewBuilder
     private var mainContent: some View {
-        if inHero {
-            HeroPromptView(
-                inputText: $inputText,
-                onSubmit: { idea in
-                    messages = SampleData.transcript
-                    activeProject = SampleData.activeProject
-                    activeGate = SampleData.activeGate
-                    inHero = false
-                    activeView = .builder
-                },
-                onSkillTap: { _ in }
+        HStack(spacing: 0) {
+            LeftNavigation(
+                activeView: $activeView,
+                activeProject: orchestrator.activeProject,
+                projects: orchestrator.activeProject.map { [$0] } ?? [],
+                onOpenSettings: { showSettings = true },
+                onOpenCommandK: { showCommandK = true }
             )
-        } else {
-            HStack(spacing: 0) {
-                LeftNavigation(
-                    activeView: $activeView,
-                    activeProject: activeProject,
-                    projects: SampleData.projects,
-                    onOpenSettings: { showSettings = true },
-                    onOpenCommandK: { showCommandK = true }
-                )
 
-                centerContent
-            }
+            centerContent
         }
     }
 
@@ -113,40 +93,33 @@ struct BuilderView: View {
 
     @ViewBuilder
     private var centerContent: some View {
-        switch activeView {
-        case .builder:
-            if let project = activeProject {
+        if let project = orchestrator.activeProject {
+            switch activeView {
+            case .builder, .inspector:
                 builderPane(project: project)
-            } else {
-                emptyBuilderPlaceholder
-            }
 
-        case .browser:
-            ProjectBrowserView(projects: SampleData.projects) { project in
-                activeProject = project
-                messages = SampleData.transcript
-                activeGate = SampleData.activeGate
-                activeView = .builder
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            case .browser:
+                ProjectBrowserView(projects: [project]) { _ in activeView = .builder }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-        case .inspector:
-            if let project = activeProject {
-                builderPane(project: project)
-            } else {
-                emptyBuilderPlaceholder
-            }
+            case .graph:
+                AgentGraphView(nodes: orchestrator.graphNodes, edges: orchestrator.graphEdges)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-        case .graph:
-            AgentGraphView(
-                nodes: SampleData.graphNodes,
-                edges: SampleData.graphEdges
+            case .hyperplot:
+                HyperPlotTabView(axes: orchestrator.hyperPlotAxes)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        } else {
+            HeroPromptView(
+                inputText: $inputText,
+                onSubmit: { idea in
+                    orchestrator.processIdea(idea)
+                    inputText = ""
+                    activeView = .builder
+                },
+                onSkillTap: { _ in }
             )
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-        case .hyperplot:
-            HyperPlotTabView(axes: SampleData.hyperPlotAxes)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 
@@ -159,12 +132,7 @@ struct BuilderView: View {
             messages: messages,
             inputText: $inputText,
             onSend: { text in
-                let msg = TranscriptMessage(
-                    id: UUID(),
-                    kind: .user(UserMessage(text: text)),
-                    timestamp: Date()
-                )
-                messages.append(msg)
+                orchestrator.processIdea(text)
                 inputText = ""
             },
             onGateExpand: { gate in
@@ -183,27 +151,6 @@ struct BuilderView: View {
         )
     }
 
-    private var emptyBuilderPlaceholder: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "sparkles")
-                .font(.system(size: 36))
-                .foregroundStyle(DesignTokens.Foreground.tertiary)
-            Text("No active project")
-                .font(.system(size: 14, weight: .medium))
-                .foregroundStyle(DesignTokens.Foreground.tertiary)
-            Button(action: { inHero = true }) {
-                Text("Start a new idea")
-                    .font(.system(size: 12, weight: .medium))
-                    .foregroundStyle(DesignTokens.Foreground.primary)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 7)
-                    .background(Capsule().fill(DesignTokens.Phase.definition))
-            }
-            .buttonStyle(.plain)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(DesignTokens.Background.base)
-    }
 }
 
 // MARK: - Settings sheet

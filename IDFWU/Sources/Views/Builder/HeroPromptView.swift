@@ -29,17 +29,16 @@ struct HeroPromptView: View {
             VStack(spacing: 0) {
                 Spacer()
 
-                VStack(spacing: 28) {
+                VStack(spacing: 24) {
                     headingSection
                     composerSection
                     exampleChips
                 }
 
                 Spacer()
-                Spacer()
             }
-            .padding(.horizontal, 48)
-            .frame(maxWidth: 680)
+            .padding(.horizontal, 40)
+            .frame(maxWidth: 660)
             .frame(maxWidth: .infinity)
         }
         .onAppear { startOrbAnimation() }

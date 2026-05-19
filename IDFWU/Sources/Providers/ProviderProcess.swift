@@ -31,7 +31,10 @@ final class ProviderProcess: @unchecked Sendable {
             proc.arguments = arguments
 
             var env = ProcessInfo.processInfo.environment
-            for (key, value) in extraEnvironment { env[key] = value }
+            for (key, value) in extraEnvironment {
+                if value.isEmpty { env.removeValue(forKey: key) }  // empty string = remove key
+                else { env[key] = value }
+            }
             proc.environment = env
             proc.currentDirectoryURL = currentDirectory
 

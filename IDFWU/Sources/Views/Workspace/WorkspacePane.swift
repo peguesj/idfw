@@ -5,6 +5,7 @@ import SwiftUI
 struct WorkspacePane: View {
     let project: BuilderProject
     var activeGate: DecisionGate.Full?
+    @Environment(BuilderOrchestrator.self) private var orchestrator
     @State private var selectedTab: WorkspaceTab = .artifact
     @State private var showGateModal = false
 
@@ -96,29 +97,46 @@ struct WorkspacePane: View {
     private var tabContent: some View {
         switch selectedTab {
         case .artifact:
-            ArtifactTabView(markdownContent: SampleData.activePRD)
+            ArtifactTabView(markdownContent: orchestrator.artifactMarkdown.isEmpty
+                ? "Submit an idea above to generate the discovery artifact."
+                : orchestrator.artifactMarkdown)
         case .files:
-            FilesTabView(tree: SampleData.fileTree)
+            FilesTabView(tree: orchestrator.files)
         case .diagram:
             DiagramTabView(
-                source: "graph LR\n    A[Explorer] --> B{Wayfinder AI}\n    B --> C[Route Engine]\n    B --> D[Context Memory]\n    C --> E[Map Data]\n    D --> F[User Prefs]",
+                source: buildDiagramSource(),
                 kind: .mermaid
             )
         case .plan:
-            PlanTabView(milestones: SampleData.milestones, risks: SampleData.risks)
+            PlanTabView(milestones: orchestrator.milestones, risks: orchestrator.risks)
         case .constraints:
-            ConstraintsTabView(constraints: SampleData.constraints)
+            ConstraintsTabView(constraints: orchestrator.constraints)
         case .actions:
-            ActionsTabView(actions: SampleData.actions)
+            ActionsTabView(actions: orchestrator.actions)
         case .hyperplot:
-            HyperPlotTabView(axes: SampleData.hyperPlotAxes)
+            HyperPlotTabView(axes: orchestrator.hyperPlotAxes)
         case .telemetry:
             TelemetryTabView(
-                nodes: SampleData.graphNodes,
-                edges: SampleData.graphEdges,
-                events: SampleData.events
+                nodes: orchestrator.graphNodes,
+                edges: orchestrator.graphEdges,
+                events: orchestrator.events
             )
         }
+    }
+
+    private func buildDiagramSource() -> String {
+        guard !orchestrator.actions.isEmpty else {
+            return "graph LR\n    A[Submit an idea to generate the action graph]"
+        }
+        var lines = ["graph LR"]
+        for action in orchestrator.actions.prefix(12) {
+            let safeId = action.artifactId.replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: ".", with: "_")
+            for ref in action.inputRefs.prefix(3) {
+                let safeRef = ref.replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: ".", with: "_")
+                lines.append("    \(safeRef) --> \(safeId)")
+            }
+        }
+        return lines.joined(separator: "\n")
     }
 }
 

@@ -65,7 +65,8 @@ enum ProviderStreamParser {
         }
         if type == "result" {
             let summary = (obj["result"] as? String) ?? "run complete"
-            return [ProviderEvent(.done, summary)]
+            let isError = (obj["is_error"] as? Bool) == true
+            return [ProviderEvent(isError ? .error : .done, summary)]
         }
         if type == "error" || obj["error"] != nil {
             return [ProviderEvent(.error, describe(obj["error"]) ?? "claude error")]
