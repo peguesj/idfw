@@ -342,7 +342,7 @@ final class BuilderOrchestrator {
             GraphNode(
                 id: a.id,
                 label: a.artifactId,
-                kind: .artifact,
+                kind: .skill,
                 phase: a.phase,
                 status: a.status == .done ? .done : a.status == .running ? .running : .pending,
                 x: Double.random(in: 100...800),

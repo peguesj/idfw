@@ -21,7 +21,7 @@ struct DiagramTabView: View {
     let source: String
     let kind: Kind
 
-    @State private var tab: Tab = .preview
+    @State private var tab: Tab = .code
     @State private var svg: String?
     @State private var renderError: String?
     @State private var isRendering = false
@@ -45,26 +45,28 @@ struct DiagramTabView: View {
 
             Divider()
 
-            Group {
-                switch tab {
-                case .code:    codePane
-                case .preview: previewPane
-                case .split:   HSplitView { codePane; previewPane }
-                }
+            switch tab {
+            case .code:
+                codePane
+            case .preview:
+                previewPane
+            case .split:
+                HSplitView { codePane; previewPane }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .task(id: source) { await renderIfNeeded() }
     }
 
     private var codePane: some View {
-        ScrollView([.vertical, .horizontal]) {
+        ScrollView(.vertical) {
             Text(source)
-                .font(.system(.body, design: .monospaced))
-                .textSelection(.enabled)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.system(size: 12, design: .monospaced))
+                .foregroundStyle(DesignTokens.Foreground.primary)
                 .padding(16)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .background(DesignTokens.Background.base)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     @ViewBuilder

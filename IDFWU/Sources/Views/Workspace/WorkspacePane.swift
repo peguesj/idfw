@@ -9,6 +9,9 @@ struct WorkspacePane: View {
     @State private var selectedTab: WorkspaceTab = .artifact
     @State private var showGateModal = false
 
+    private let tabSwitchURL = URL.homeDirectory
+        .appendingPathComponent(".idfwu/switch_tab.txt")
+
     var body: some View {
         VStack(spacing: 0) {
             // Compact stepper at top
@@ -40,6 +43,17 @@ struct WorkspacePane: View {
         .overlay(alignment: .leading) {
             Rectangle().fill(DesignTokens.Hairline.soft).frame(width: 0.5)
         }
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 300_000_000)
+                if let raw = try? String(contentsOf: tabSwitchURL, encoding: .utf8)
+                    .trimmingCharacters(in: .whitespacesAndNewlines),
+                   let tab = WorkspaceTab(rawValue: raw) {
+                    try? FileManager.default.removeItem(at: tabSwitchURL)
+                    selectedTab = tab
+                }
+            }
+        }
         .sheet(isPresented: $showGateModal) {
             if let gate = activeGate {
                 GateModal(gate: gate) { showGateModal = false }
@@ -67,6 +81,7 @@ struct WorkspacePane: View {
 
     private func tabButton(_ tab: WorkspaceTab) -> some View {
         let active = selectedTab == tab
+        let idx = WorkspaceTab.allCases.firstIndex(of: tab) ?? 0
         return Button(action: { selectedTab = tab }) {
             HStack(spacing: 5) {
                 Image(systemName: tab.symbol)
@@ -87,6 +102,7 @@ struct WorkspacePane: View {
             }
         }
         .buttonStyle(.plain)
+        .keyboardShortcut(KeyEquivalent(Character(String(idx + 1))), modifiers: .command)
     }
 
     @Namespace private var tabNamespace

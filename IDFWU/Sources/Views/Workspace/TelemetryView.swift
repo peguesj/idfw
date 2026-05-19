@@ -153,7 +153,7 @@ struct TelemetryTabView: View {
     let events: [BuilderEvent]
 
     enum SubTab: String, CaseIterable { case graph = "Graph", timeline = "Timeline", live = "Live" }
-    @State private var subTab: SubTab = .graph
+    @State private var subTab: SubTab = .timeline
 
     var body: some View {
         VStack(spacing: 0) {
@@ -182,6 +182,7 @@ struct TelemetryTabView: View {
             switch subTab {
             case .graph:
                 AgentGraphView(nodes: nodes, edges: edges)
+                    .frame(maxHeight: 520)
             case .timeline:
                 EventTimelineView(events: events)
             case .live:
@@ -268,13 +269,13 @@ struct AgentGraphView: View {
                         .padding(12)
                 }
             }
-            .onAppear {
-                canvasSize = geo.size
-                initializePositions(in: geo.size)
-                startSimulation()
-            }
-            .onChange(of: geo.size) { _, newSize in
+            .onChange(of: geo.size, initial: true) { _, newSize in
+                guard newSize != .zero else { return }
                 canvasSize = newSize
+                if positions.isEmpty {
+                    initializePositions(in: newSize)
+                    startSimulation()
+                }
             }
         }
     }

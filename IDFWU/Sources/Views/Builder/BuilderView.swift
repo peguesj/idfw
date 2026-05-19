@@ -62,6 +62,14 @@ struct BuilderView: View {
                     orchestrator.selectedProvider = preferred
                 }
                 didAttach = true
+
+                let triggerURL = URL.homeDirectory.appendingPathComponent(".idfwu/auto_idea.txt")
+                if let idea = try? String(contentsOf: triggerURL, encoding: .utf8)
+                    .trimmingCharacters(in: .whitespacesAndNewlines), !idea.isEmpty {
+                    try? FileManager.default.removeItem(at: triggerURL)
+                    orchestrator.processIdea(idea)
+                    activeView = .builder
+                }
             }
         }
         .background {
@@ -160,19 +168,21 @@ struct SettingsSheetView: View {
     @State private var selectedTab: SettingsTab = .providers
 
     enum SettingsTab: String, CaseIterable, Identifiable {
-        case providers  = "Providers"
-        case gates      = "Gates"
-        case skills     = "Skills"
-        case artifacts  = "Artifacts"
-        case telemetry  = "Telemetry"
-        case daemon     = "Daemon"
-        case appearance = "Appearance"
+        case providers   = "Providers"
+        case connectors  = "Connectors"
+        case gates       = "Gates"
+        case skills      = "Skills"
+        case artifacts   = "Artifacts"
+        case telemetry   = "Telemetry"
+        case daemon      = "Daemon"
+        case appearance  = "Appearance"
 
         var id: String { rawValue }
 
         var symbol: String {
             switch self {
             case .providers:  return "cpu"
+            case .connectors: return "link"
             case .gates:      return "diamond"
             case .skills:     return "bolt"
             case .artifacts:  return "doc.on.doc"
@@ -263,6 +273,7 @@ struct SettingsSheetView: View {
     private var tabContent: some View {
         switch selectedTab {
         case .providers:  ProvidersSettings()
+        case .connectors: ConnectorsSettingsView()
         case .gates:      GatesSettings()
         case .skills:     SkillsSettings()
         case .artifacts:  ArtifactsSettings()
