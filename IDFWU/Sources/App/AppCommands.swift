@@ -33,6 +33,10 @@ struct AppCommands: Commands {
                 NotificationCenter.default.post(name: .syncAll, object: nil)
             }
             .keyboardShortcut("r", modifiers: [.shift, .command])
+
+            Divider()
+
+            BuilderMenuContent()
         }
 
         // Inject into the existing View menu. `CommandMenu("View")` would
@@ -80,6 +84,18 @@ struct AppCommands: Commands {
         for url in panel.urls {
             store.addRoot(url: url)
         }
+    }
+}
+
+/// Opens the IDFWU Builder window (idea → IDFW/FORCE-governed build).
+private struct BuilderMenuContent: View {
+    @Environment(\.openWindow) private var openWindow
+
+    var body: some View {
+        Button("New Build…") {
+            openWindow(id: "builder")
+        }
+        .keyboardShortcut("b", modifiers: .command)
     }
 }
 

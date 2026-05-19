@@ -117,30 +117,12 @@ private struct DocumentContentView: View {
             }
 
         case .mermaid(let source):
-            MermaidWebView(source: source, theme: .default_)
+            DiagramTabView(source: source, kind: .mermaid)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
         case .plantUML(let source):
-            // No PlantUML renderer bundled yet — fall back to monospace source
-            // with a small hint so users know why it isn't rendered.
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 6) {
-                    Image(systemName: "info.circle")
-                    Text("PlantUML source (visual rendering not bundled)")
-                }
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 6)
-                Divider()
-                ScrollView(.vertical) {
-                    Text(source)
-                        .font(.system(.body, design: .monospaced))
-                        .textSelection(.enabled)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(16)
-                }
-            }
+            DiagramTabView(source: source, kind: .plantUML)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
         case .json(let pretty):
             ScrollView([.vertical, .horizontal]) {
@@ -210,7 +192,7 @@ private struct DocumentContentView: View {
             return
         }
 
-        if name.hasSuffix(".puml") || name.hasSuffix(".plantuml") {
+        if name.hasSuffix(".puml") || name.hasSuffix(".plantuml") || name.hasSuffix(".wsd") {
             mode = .plantUML(text)
             return
         }
